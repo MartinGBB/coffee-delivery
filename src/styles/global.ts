@@ -1,6 +1,6 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from 'styled-components'
 
- export const GlobalStyle = createGlobalStyle`
+export const GlobalStyle = createGlobalStyle`
   * {
     margin: 0;
     padding: 0;
@@ -8,8 +8,8 @@ import { createGlobalStyle } from 'styled-components';
   }
 
   body {
-    background: ${(props) => props.theme.background};
-    color: ${({theme}) => theme['base-text']};
+    background: ${({ theme }) => theme.background};
+    color: ${({ theme }) => theme['base-text']};
   }
   
   :focus {
@@ -18,17 +18,17 @@ import { createGlobalStyle } from 'styled-components';
   }
  
   h1 {
-    color: ${({theme}) => theme['base-title']};
+    color: ${({ theme }) => theme['base-title']};
     line-height: 130%;
     font-family: 'Baloo 2', cursive;
   }
 
   p {
-    color: ${({theme}) => theme['base-subtitle']};
+    color: ${({ theme }) => theme['base-subtitle']};
   }
 
   button {
-    color: ${({theme}) => theme['base-button']};
+    color: ${({ theme }) => theme['base-button']};
   }
 
   body, input, textarea, button {
