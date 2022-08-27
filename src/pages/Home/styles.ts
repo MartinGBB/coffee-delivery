@@ -3,6 +3,10 @@ import styled from 'styled-components'
 export const BannerImg = styled.img`
   width: 100vw;
   margin: auto -10rem;
+
+  @media (max-width: 1024px) {
+    margin: auto -2rem;
+  }
 `
 export const HomeContainer = styled.div`
   h1 {
