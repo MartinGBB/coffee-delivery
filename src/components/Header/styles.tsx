@@ -32,4 +32,8 @@ export const AddressContainer = styled.span`
   padding: 0.5rem;
   border-radius: 6px;
   gap: 0.25rem;
+
+  svg {
+    color: ${({ theme }) => theme.purple};
+  }
 `
