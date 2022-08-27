@@ -8,7 +8,7 @@ export const HeaderContainer = styled.div`
 `
 export const NavInfo = styled.div`
   display: flex;
-  gap: 0.71rem;
+  gap: 0.75rem;
 
   div {
     display: flex;
@@ -16,6 +16,10 @@ export const NavInfo = styled.div`
     padding: 0.5rem;
     border-radius: 6px;
     background: ${({ theme }) => theme['yellow-light']};
+
+    & svg {
+      color: ${({ theme }) => theme['yellow-dark']};
+    }
   }
 `
 
