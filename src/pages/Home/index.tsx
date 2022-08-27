@@ -1,7 +1,10 @@
+import banner from '../../assets/banner.svg'
+import { BannerImg } from './styles'
+
 export function Home() {
   return (
     <div>
-      <h1>Home</h1>
+      <BannerImg src={banner} alt="" />
     </div>
   )
 }
