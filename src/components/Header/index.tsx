@@ -1,7 +1,15 @@
+import { AddressContainer, HeaderContainer, NavInfo } from './styles'
+
 export function Header() {
   return (
-    <div>
+    <HeaderContainer>
       <h1>Header</h1>
-    </div>
+      <NavInfo>
+        <AddressContainer>
+          <span>Porto Alegre, RS</span>
+        </AddressContainer>
+        <div>Cart</div>
+      </NavInfo>
+    </HeaderContainer>
   )
 }
