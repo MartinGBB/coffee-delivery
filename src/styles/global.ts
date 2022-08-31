@@ -33,10 +33,6 @@ export const GlobalStyle = createGlobalStyle`
     color: ${({ theme }) => theme['base-subtitle']};
   }
 
-  button {
-    color: ${({ theme }) => theme['base-button']};
-  }
-
   body, input, textarea, button {
     font-family: 'Roboto', sans-serif;
     font-size: 1rem;
