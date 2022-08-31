@@ -7,9 +7,16 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: 0;
   }
 
+  html {
+    @media (max-width: 1024px) {
+        font-size: 87.5%;
+    }
+  }
+
   body {
     background: ${({ theme }) => theme.background};
     color: ${({ theme }) => theme['base-text']};
+    overflow-x: hidden;
   }
   
   :focus {
@@ -25,10 +32,6 @@ export const GlobalStyle = createGlobalStyle`
 
   p {
     color: ${({ theme }) => theme['base-subtitle']};
-  }
-
-  button {
-    color: ${({ theme }) => theme['base-button']};
   }
 
   body, input, textarea, button {

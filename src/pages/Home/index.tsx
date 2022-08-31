@@ -1,10 +1,13 @@
 import banner from '../../assets/banner.svg'
-import { BannerImg } from './styles'
+import { Products } from './components/Products'
+import { BannerImg, HomeContainer } from './styles'
 
 export function Home() {
   return (
-    <div>
+    <HomeContainer>
       <BannerImg src={banner} alt="" />
-    </div>
+      <h1>Nossos cafés</h1>
+      <Products />
+    </HomeContainer>
   )
 }
