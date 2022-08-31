@@ -1,32 +1,39 @@
 import coffee from '../../../../assets/coffesImages/Coffee-13.svg'
-import { CardContainer } from './styles'
+import {
+  ButtonsAddToCart,
+  BuyContainer,
+  CardContainer,
+  DetailsCoffee,
+  PriceContainer,
+  TypeCoffee,
+} from './styles'
 
 export function Products() {
   return (
     <CardContainer>
       <img src={coffee} alt="" />
-      <div>
+      <TypeCoffee>
         <span>Tradicional</span>
         <span>com leite</span>
-      </div>
-      <div>
+      </TypeCoffee>
+      <DetailsCoffee>
         <h1>Mocaccino</h1>
         <p>Café expresso com calda de chocolate, pouco leite e espuma</p>
-      </div>
-      <div>
-        <div>
+      </DetailsCoffee>
+      <BuyContainer>
+        <PriceContainer>
           <span>R$</span>
           <h1>9,90</h1>
-        </div>
+        </PriceContainer>
         <div>
-          <div>
+          <ButtonsAddToCart>
             <button>-</button>
-            <input type="number" />
+            <span>1</span>
             <button>+</button>
-          </div>
+          </ButtonsAddToCart>
           <button>Cart</button>
         </div>
-      </div>
+      </BuyContainer>
     </CardContainer>
   )
 }
