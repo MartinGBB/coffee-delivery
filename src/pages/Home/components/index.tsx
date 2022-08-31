@@ -1,7 +1,9 @@
+import coffee from '../../../assets/coffesImages/Coffee-13.svg'
+
 export function Products() {
   return (
     <div>
-      <img src="../../../assets/coffesImages/Coffee.svg" alt="" />
+      <img src={coffee} alt="" />
       <div>
         <span>Tradicional</span>
         <span>com leite</span>
