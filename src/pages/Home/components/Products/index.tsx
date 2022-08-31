@@ -1,8 +1,9 @@
-import coffee from '../../../assets/coffesImages/Coffee-13.svg'
+import coffee from '../../../../assets/coffesImages/Coffee-13.svg'
+import { CardContainer } from './styles'
 
 export function Products() {
   return (
-    <div>
+    <CardContainer>
       <img src={coffee} alt="" />
       <div>
         <span>Tradicional</span>
@@ -26,6 +27,6 @@ export function Products() {
           <button>Cart</button>
         </div>
       </div>
-    </div>
+    </CardContainer>
   )
 }
