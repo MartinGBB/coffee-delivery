@@ -96,4 +96,9 @@ export const ButtonsAddToCart = styled.div`
 
 export const CartButton = styled.button`
   border: none;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  border-radius: 6px;
+  background: ${({ theme }) => theme['purple-dark']};
 `
