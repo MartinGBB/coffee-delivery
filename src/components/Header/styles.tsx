@@ -4,7 +4,11 @@ export const HeaderContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 2rem 0;
+  margin: 2rem 10rem;
+
+  @media (max-width: 1024px) {
+    margin: auto 2rem;
+  }
 `
 export const NavInfo = styled.div`
   display: flex;
