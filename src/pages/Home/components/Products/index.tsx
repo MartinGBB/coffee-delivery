@@ -3,6 +3,7 @@ import {
   ButtonsAddToCart,
   BuyContainer,
   CardContainer,
+  CartButton,
   DetailsCoffee,
   PriceContainer,
   TypeCoffee,
@@ -31,7 +32,7 @@ export function Products() {
             <span>1</span>
             <button>+</button>
           </ButtonsAddToCart>
-          <button>Cart</button>
+          <CartButton>Cart</CartButton>
         </div>
       </BuyContainer>
     </CardContainer>

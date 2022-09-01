@@ -48,10 +48,17 @@ export const BuyContainer = styled.div`
   display: flex;
   margin: 0 1.25rem 0 1.25rem;
   justify-content: space-between;
+
+  div {
+    display: flex;
+    gap: 0.5rem;
+    flex-direction: row;
+  }
 `
 export const PriceContainer = styled.div`
   display: flex;
   gap: 0.2rem;
+
   h1 {
     margin: 0;
     display: flex;
@@ -70,15 +77,22 @@ export const ButtonsAddToCart = styled.div`
   background: ${({ theme }) => theme['base-button']};
   padding: 0.5rem;
   justify-content: center;
+  border-radius: 6px;
 
   span {
     width: 1.25rem;
     height: 1.32rem;
+    color: ${({ theme }) => theme['base-title']};
   }
 
   button {
     border: none;
     color: ${({ theme }) => theme.purple};
     background: transparent;
+    font-size: 1.1rem;
   }
+`
+
+export const CartButton = styled.button`
+  border: none;
 `
