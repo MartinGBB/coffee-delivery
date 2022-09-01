@@ -1,4 +1,4 @@
-import { ShoppingCart } from 'phosphor-react'
+import { Coffee, Package, ShoppingCart, Timer } from 'phosphor-react'
 import { Products } from './components/Products'
 import {
   BannerContainer,
@@ -29,16 +29,23 @@ export function Home() {
             </p>
 
             <p>
-              <span></span>
+              <span>
+                <Timer size={22} weight="fill" />
+              </span>
               Entrega rápida e rastreada
             </p>
 
             <p>
-              <span></span>
+              <span>
+                <Package size={22} weight="fill" />
+              </span>
               Embalagem mantém o café intacto
             </p>
             <p>
-              <span></span>O café chega fresquinho até você
+              <span>
+                <Coffee size={22} weight="fill" />
+              </span>
+              O café chega fresquinho até você
             </p>
           </DescriptionBanner>
         </ContentBanner>
