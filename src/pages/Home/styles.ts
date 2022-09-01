@@ -17,7 +17,7 @@ export const HomeContainer = styled.div`
 `
 export const BannerContainer = styled.div`
   background: url(${banner}) no-repeat center;
-  height: 34rem;
+  height: auto;
   width: 100%;
   background-size: cover;
 `
@@ -29,5 +29,25 @@ export const ContentBanner = styled.div`
 
   @media (max-width: 1024px) {
     margin: auto 2rem;
+  }
+`
+
+export const TitleBanner = styled.div`
+  background-color: red;
+
+  h1 {
+    margin-bottom: 1rem;
+  }
+`
+
+export const DescriptionBanner = styled.div`
+  margin-top: 4.25rem;
+  display: flex;
+  justify-content: space-between;
+
+  div {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
   }
 `

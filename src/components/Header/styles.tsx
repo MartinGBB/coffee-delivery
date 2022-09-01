@@ -4,7 +4,8 @@ export const HeaderContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 2rem 10rem;
+  padding: 2rem 0;
+  margin: 0 10rem;
 
   @media (max-width: 1024px) {
     margin: auto 2rem;
