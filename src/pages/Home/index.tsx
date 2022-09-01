@@ -1,3 +1,4 @@
+import { ShoppingCart } from 'phosphor-react'
 import { Products } from './components/Products'
 import {
   BannerContainer,
@@ -20,14 +21,25 @@ export function Home() {
             </p>
           </TitleBanner>
           <DescriptionBanner>
-            <div>
-              <span>Compra simples e segura</span>
-              <span>Entrega rápida e rastreada</span>
-            </div>
-            <div>
-              <span>Embalagem mantém o café intacto</span>
-              <span>O café chega fresquinho até você</span>
-            </div>
+            <p>
+              <span>
+                <ShoppingCart size={22} weight="fill" />
+              </span>
+              Compra simples e segura
+            </p>
+
+            <p>
+              <span></span>
+              Entrega rápida e rastreada
+            </p>
+
+            <p>
+              <span></span>
+              Embalagem mantém o café intacto
+            </p>
+            <p>
+              <span></span>O café chega fresquinho até você
+            </p>
           </DescriptionBanner>
         </ContentBanner>
       </BannerContainer>

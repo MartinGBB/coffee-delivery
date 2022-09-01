@@ -33,8 +33,6 @@ export const ContentBanner = styled.div`
 `
 
 export const TitleBanner = styled.div`
-  background-color: red;
-
   h1 {
     margin-bottom: 1rem;
   }
@@ -42,12 +40,25 @@ export const TitleBanner = styled.div`
 
 export const DescriptionBanner = styled.div`
   margin-top: 4.25rem;
-  display: flex;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: repeat(2, 1fr);
+  row-gap: 1.25rem;
   justify-content: space-between;
 
-  div {
+  & p {
     display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  p:nth-child(2n) {
+  }
+
+  & span {
+    display: flex;
+    padding: 0.5rem;
+    background: ${({ theme }) => theme['yellow-dark']};
+    border-radius: 1000px;
   }
 `
