@@ -100,5 +100,6 @@ export const CartButton = styled.button`
   align-items: center;
   padding: 0.5rem;
   border-radius: 6px;
+  color: ${({ theme }) => theme.background};
   background: ${({ theme }) => theme['purple-dark']};
 `

@@ -27,6 +27,10 @@ export const ContentBanner = styled.div`
   padding-bottom: 7.75rem;
   margin: auto 10rem;
 
+  & svg {
+    color: ${({ theme }) => theme.background};
+  }
+
   @media (max-width: 1024px) {
     margin: auto 2rem;
   }
@@ -44,15 +48,13 @@ export const DescriptionBanner = styled.div`
   grid-template-columns: auto auto;
   grid-template-rows: repeat(2, 1fr);
   row-gap: 1.25rem;
+  column-gap: 0.3rem;
   justify-content: space-between;
 
   & p {
     display: flex;
     align-items: center;
     gap: 0.75rem;
-  }
-
-  p:nth-child(2n) {
   }
 
   & span {
