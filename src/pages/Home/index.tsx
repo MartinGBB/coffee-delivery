@@ -1,4 +1,6 @@
 import { Coffee, Package, ShoppingCart, Timer } from 'phosphor-react'
+import coffeBanner from '../../assets/coffeBanner.svg'
+import { productsData } from '../../utils/productsData'
 import { Products } from './components/Products'
 import {
   BannerContainer,
@@ -6,54 +8,59 @@ import {
   ContentBanner,
   HomeContainer,
   DescriptionBanner,
+  ProductContainer,
+  IconContainer,
 } from './styles'
 
 export function Home() {
   return (
-    <div>
+    <HomeContainer>
       <BannerContainer>
         <ContentBanner>
-          <TitleBanner>
-            <h1>Encontre o café perfeito para qualquer hora do dia</h1>
-            <p>
-              Com o Coffee Delivery você recebe seu café onde estiver, a
-              qualquer hora
-            </p>
-          </TitleBanner>
-          <DescriptionBanner>
-            <p>
-              <span>
-                <ShoppingCart size={22} weight="fill" />
-              </span>
-              Compra simples e segura
-            </p>
-
-            <p>
-              <span>
-                <Timer size={22} weight="fill" />
-              </span>
-              Entrega rápida e rastreada
-            </p>
-
-            <p>
-              <span>
-                <Package size={22} weight="fill" />
-              </span>
-              Embalagem mantém o café intacto
-            </p>
-            <p>
-              <span>
-                <Coffee size={22} weight="fill" />
-              </span>
-              O café chega fresquinho até você
-            </p>
-          </DescriptionBanner>
+          <div>
+            <TitleBanner>
+              <h1>Encontre o café perfeito para qualquer hora do dia</h1>
+              <p>
+                Com o Coffee Delivery você recebe seu café onde estiver, a
+                qualquer hora
+              </p>
+            </TitleBanner>
+            <DescriptionBanner>
+              <p>
+                <IconContainer iconsColors="yellowDark">
+                  <ShoppingCart size={22} weight="fill" />
+                </IconContainer>
+                Compra simples e segura
+              </p>
+              <p>
+                <IconContainer iconsColors="black">
+                  <Package size={22} weight="fill" />
+                </IconContainer>
+                Embalagem mantém o café intacto
+              </p>
+              <p>
+                <IconContainer iconsColors="yellowLight">
+                  <Timer size={22} weight="fill" />
+                </IconContainer>
+                Entrega rápida e rastreada
+              </p>
+              <p>
+                <IconContainer iconsColors="purple">
+                  <Coffee size={22} weight="fill" />
+                </IconContainer>
+                O café chega fresquinho até você
+              </p>
+            </DescriptionBanner>
+          </div>
+          <img src={coffeBanner} alt="" />
         </ContentBanner>
       </BannerContainer>
-      <HomeContainer>
+      <ProductContainer>
         <h1>Nossos cafés</h1>
-        <Products />
-      </HomeContainer>
-    </div>
+        <div>
+          <Products products={productsData} />
+        </div>
+      </ProductContainer>
+    </HomeContainer>
   )
 }

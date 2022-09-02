@@ -12,18 +12,19 @@ import cubano from '../assets/coffesImages/Coffee-10.svg'
 import havaiano from '../assets/coffesImages/Coffee-11.svg'
 import arabe from '../assets/coffesImages/Coffee-12.svg'
 import irlandês from '../assets/coffesImages/Coffee-13.svg'
+import uuid from 'react-uuid'
 
 export const productsData = [
   {
-    id: new Date(),
+    id: uuid(),
     type: ['TRADICIONAL'],
-    name: 'expresso Tradicional',
+    name: 'Expresso Tradicional',
     price: '9,90',
     description: 'O tradicional café feito com água quente e grãos moídos',
     image: expressoTradicional,
   },
   {
-    id: new Date(),
+    id: uuid(),
     type: ['TRADICIONAL'],
     name: 'Expresso Americano',
     price: '9,90',
@@ -31,7 +32,7 @@ export const productsData = [
     image: expressoAmericano,
   },
   {
-    id: new Date(),
+    id: uuid(),
     type: ['TRADICIONAL'],
     name: 'Expresso Cremoso',
     price: '9,90',
@@ -39,7 +40,7 @@ export const productsData = [
     image: expressoCremoso,
   },
   {
-    id: new Date(),
+    id: uuid(),
     type: ['TRADICIONAL', 'GELADO'],
     name: 'Expresso Gelado',
     price: '9,90',
@@ -47,7 +48,7 @@ export const productsData = [
     image: expressoGelado,
   },
   {
-    id: new Date(),
+    id: uuid(),
     type: ['TRADICIONAL', 'COM LEITE'],
     name: 'Café com Leite',
     price: '9,90',
@@ -55,7 +56,7 @@ export const productsData = [
     image: cafeLeite,
   },
   {
-    id: new Date(),
+    id: uuid(),
     type: ['TRADICIONAL', 'COM LEITE'],
     name: 'Latte',
     price: '9,90',
@@ -64,7 +65,7 @@ export const productsData = [
     image: latte,
   },
   {
-    id: new Date(),
+    id: uuid(),
     type: ['TRADICIONAL', 'COM LEITE'],
     name: 'Capuccino',
     price: '9,90',
@@ -73,7 +74,7 @@ export const productsData = [
     image: capuccino,
   },
   {
-    id: new Date(),
+    id: uuid(),
     type: ['TRADICIONAL', 'COM LEITE'],
     name: 'Macchiato',
     price: '9,90',
@@ -82,7 +83,7 @@ export const productsData = [
     image: macchiato,
   },
   {
-    id: new Date(),
+    id: uuid(),
     type: ['TRADICIONAL', 'COM LEITE'],
     name: 'Mocaccino',
     price: '9,90',
@@ -90,7 +91,7 @@ export const productsData = [
     image: mocaccino,
   },
   {
-    id: new Date(),
+    id: uuid(),
     type: ['TRADICIONAL', 'COM LEITE'],
     name: 'Chocolate Quente',
     price: '9,90',
@@ -98,8 +99,8 @@ export const productsData = [
     image: chocolateQuente,
   },
   {
-    id: new Date(),
-    type: ['TRADICIONAL', 'ALCOÓLICO', 'GELADO'],
+    id: uuid(),
+    type: ['ESPECIAL', 'ALCOÓLICO', 'GELADO'],
     name: 'Cubano',
     price: '9,90',
     description:
@@ -107,7 +108,7 @@ export const productsData = [
     image: cubano,
   },
   {
-    id: new Date(),
+    id: uuid(),
     type: ['TRADICIONAL', 'ESPECIAL'],
     name: 'Havaiano',
     price: '9,90',
@@ -115,7 +116,7 @@ export const productsData = [
     image: havaiano,
   },
   {
-    id: new Date(),
+    id: uuid(),
     type: ['ESPECIAL'],
     name: 'Árabe',
     price: '9,90',
@@ -123,7 +124,7 @@ export const productsData = [
     image: arabe,
   },
   {
-    id: new Date(),
+    id: uuid(),
     type: ['ESPECIAL', 'ALCOÓLICO'],
     name: 'Irlandês',
     price: '9,90',
