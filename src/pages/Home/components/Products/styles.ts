@@ -61,6 +61,8 @@ export const PriceContainer = styled.div`
   gap: 0.2rem;
 
   h1 {
+    color: ${({ theme }) => theme['base-text']};
+    font-weight: 800;
     margin: 0;
     display: flex;
     align-items: center;
