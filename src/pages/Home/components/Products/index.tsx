@@ -1,4 +1,4 @@
-import { ShoppingCartSimple } from 'phosphor-react'
+import { Minus, Plus, ShoppingCartSimple } from 'phosphor-react'
 import coffee from '../../../../assets/coffesImages/Coffee-13.svg'
 import {
   ButtonsAddToCart,
@@ -29,9 +29,13 @@ export function Products() {
         </PriceContainer>
         <div>
           <ButtonsAddToCart>
-            <button>-</button>
+            <button>
+              <Minus size={14} weight="bold" />
+            </button>
             <span>1</span>
-            <button>+</button>
+            <button>
+              <Plus size={14} weight="bold" />
+            </button>
           </ButtonsAddToCart>
           <CartButton>
             <ShoppingCartSimple size={22} weight="fill" />

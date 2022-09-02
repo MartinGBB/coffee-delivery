@@ -76,7 +76,7 @@ export const PriceContainer = styled.div`
 export const ButtonsAddToCart = styled.div`
   display: flex;
   align-items: center;
-  gap: 0.25rem;
+  gap: 0.25rem !important;
   background: ${({ theme }) => theme['base-button']};
   padding: 0.5rem;
   justify-content: center;
@@ -92,7 +92,6 @@ export const ButtonsAddToCart = styled.div`
     border: none;
     color: ${({ theme }) => theme.purple};
     background: transparent;
-    font-size: 16px;
   }
 `
 
