@@ -100,7 +100,7 @@ export const productsData = [
   },
   {
     id: uuid(),
-    type: ['TRADICIONAL', 'ALCOÓLICO', 'GELADO'],
+    type: ['ESPECIAL', 'ALCOÓLICO', 'GELADO'],
     name: 'Cubano',
     price: '9,90',
     description:

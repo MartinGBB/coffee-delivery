@@ -29,9 +29,10 @@ export const CardContainer = styled.div`
 `
 export const TypeCoffee = styled.div`
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   margin-top: -20px;
-  gap: 4px;
+  gap: 0.25rem;
   color: ${({ theme }) => theme['yellow-dark']};
 
   span {
