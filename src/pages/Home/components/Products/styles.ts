@@ -15,7 +15,6 @@ export const CardContainer = styled.div`
     background: ${({ theme }) => theme['base-card']};
     max-width: 16rem;
     height: auto;
-    /* position: absolute; */
     border-radius: 6px 36px;
     text-align: center;
 
@@ -107,6 +106,11 @@ export const ButtonsAddToCart = styled.div`
     border: none;
     color: ${({ theme }) => theme.purple};
     background: transparent;
+    cursor: pointer;
+
+    :hover {
+      color: ${({ theme }) => theme['purple-dark']};
+    }
   }
 `
 
@@ -118,4 +122,9 @@ export const CartButton = styled.button`
   border-radius: 6px;
   color: ${({ theme }) => theme.background};
   background: ${({ theme }) => theme['purple-dark']};
+  cursor: pointer;
+
+  :hover {
+    background: ${({ theme }) => theme.purple};
+  }
 `
