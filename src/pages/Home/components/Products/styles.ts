@@ -4,7 +4,7 @@ export const CardContainer = styled.div`
   background: ${({ theme }) => theme['base-card']};
   max-width: 16rem;
   height: auto;
-  position: absolute;
+  /* position: absolute; */
   border-radius: 6px 36px;
   text-align: center;
 

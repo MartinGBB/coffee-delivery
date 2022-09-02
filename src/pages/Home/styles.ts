@@ -2,6 +2,18 @@ import styled from 'styled-components'
 import banner from '../../assets/bannerBackground.svg'
 
 export const HomeContainer = styled.div`
+  > div {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    column-gap: 2rem;
+    row-gap: 2.5rem;
+
+    @media (max-width: 532px) {
+      justify-content: center;
+    }
+  }
+
   > h1 {
     margin-top: 2rem;
     margin-bottom: 3.375rem;
@@ -30,10 +42,10 @@ export const ContentBanner = styled.div`
   margin: auto 10rem;
 
   img {
-    max-width: 29.75rem;
+    max-width: 24rem;
 
     @media (max-width: 1200px) {
-      min-width: calc(29.75rem - 10%);
+      min-width: calc(24rem - 10%);
     }
     @media (max-width: 800px) {
       display: none;

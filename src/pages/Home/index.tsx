@@ -56,7 +56,23 @@ export function Home() {
       </BannerContainer>
       <HomeContainer>
         <h1>Nossos cafés</h1>
-        <Products />
+        <div>
+          <Products />
+          <Products />
+          <Products />
+          <Products />
+          <Products />
+          <Products />
+          <Products />
+          <Products />
+          <Products />
+          <Products />
+          <Products />
+          <Products />
+          <Products />
+          <Products />
+          <Products />
+        </div>
       </HomeContainer>
     </div>
   )
