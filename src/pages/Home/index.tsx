@@ -8,6 +8,7 @@ import {
   HomeContainer,
   DescriptionBanner,
   ProductContainer,
+  IconContainer,
 } from './styles'
 
 export function Home() {
@@ -25,27 +26,27 @@ export function Home() {
             </TitleBanner>
             <DescriptionBanner>
               <p>
-                <span>
+                <IconContainer iconsColors="yellowDark">
                   <ShoppingCart size={22} weight="fill" />
-                </span>
+                </IconContainer>
                 Compra simples e segura
               </p>
               <p>
-                <span>
+                <IconContainer iconsColors="black">
                   <Package size={22} weight="fill" />
-                </span>
+                </IconContainer>
                 Embalagem mantém o café intacto
               </p>
               <p>
-                <span>
+                <IconContainer iconsColors="yellowLight">
                   <Timer size={22} weight="fill" />
-                </span>
+                </IconContainer>
                 Entrega rápida e rastreada
               </p>
               <p>
-                <span>
+                <IconContainer iconsColors="purple">
                   <Coffee size={22} weight="fill" />
-                </span>
+                </IconContainer>
                 O café chega fresquinho até você
               </p>
             </DescriptionBanner>

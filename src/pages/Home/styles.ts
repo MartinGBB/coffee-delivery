@@ -71,7 +71,6 @@ export const TitleBanner = styled.div`
     margin-bottom: 1rem;
   }
 `
-
 export const DescriptionBanner = styled.div`
   margin-top: 4.25rem;
   display: grid;
@@ -86,11 +85,23 @@ export const DescriptionBanner = styled.div`
     align-items: center;
     gap: 0.75rem;
   }
+`
 
-  & span {
-    display: flex;
-    padding: 0.5rem;
-    background: ${({ theme }) => theme['yellow-dark']};
-    border-radius: 1000px;
-  }
+const ICONS_COLORS = {
+  yellowDark: 'yellow-dark',
+  yellowLight: 'yellow',
+  black: 'base-text',
+  purple: 'purple',
+} as const
+
+interface IconsColors {
+  iconsColors: keyof typeof ICONS_COLORS
+}
+
+export const IconContainer = styled.span<IconsColors>`
+  display: flex;
+  padding: 0.5rem;
+  color: ${({ theme }) => theme.background};
+  background: ${(props) => props.theme[ICONS_COLORS[props.iconsColors]]};
+  border-radius: 1000px;
 `
