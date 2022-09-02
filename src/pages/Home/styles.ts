@@ -23,11 +23,24 @@ export const BannerContainer = styled.div`
 `
 
 export const ContentBanner = styled.div`
+  display: flex;
+  justify-content: space-between;
   padding-top: 5.875rem;
   padding-bottom: 7.75rem;
   margin: auto 10rem;
 
-  & svg {
+  img {
+    max-width: 29.75rem;
+
+    @media (max-width: 1200px) {
+      min-width: calc(29.75rem - 10%);
+    }
+    @media (max-width: 800px) {
+      display: none;
+    }
+  }
+
+  svg {
     color: ${({ theme }) => theme.background};
   }
 
