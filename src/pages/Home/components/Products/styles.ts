@@ -10,7 +10,7 @@ export const CardContainer = styled.div`
 
   img {
     position: relative;
-    left: calc(50% - 15rem / 2);
+    left: calc(50% - 16rem / 2);
     top: -20px;
     bottom: 0;
   }
