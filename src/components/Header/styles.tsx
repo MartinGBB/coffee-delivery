@@ -19,7 +19,7 @@ export const NavInfo = styled.div`
   display: flex;
   gap: 0.75rem;
 
-  button {
+  a {
     display: flex;
     align-items: center;
     padding: 0.5rem;
