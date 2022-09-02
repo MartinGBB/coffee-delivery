@@ -30,19 +30,17 @@ export function Home() {
                 </span>
                 Compra simples e segura
               </p>
-
-              <p>
-                <span>
-                  <Timer size={22} weight="fill" />
-                </span>
-                Entrega rápida e rastreada
-              </p>
-
               <p>
                 <span>
                   <Package size={22} weight="fill" />
                 </span>
                 Embalagem mantém o café intacto
+              </p>
+              <p>
+                <span>
+                  <Timer size={22} weight="fill" />
+                </span>
+                Entrega rápida e rastreada
               </p>
               <p>
                 <span>
