@@ -70,9 +70,8 @@ export const ItemCart = styled.span<HaveItem>`
   position: absolute;
   top: 25px;
   right: 150px;
-  /* top: -8px;
-  right: 19px; */
-  display: ${({ haveItem }) => haveItem && 'none'};
+
+  display: ${({ haveItem }) => !haveItem && 'none'};
 
   @media (max-width: 1024px) {
     top: 25px;

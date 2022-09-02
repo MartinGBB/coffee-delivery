@@ -4,7 +4,8 @@ import { MapPin, ShoppingCartSimple } from 'phosphor-react'
 
 export function Header() {
   const count = 2
-  const haveItem = !count
+  const haveItem = !!count
+
   return (
     <HeaderContainer>
       <img src={logo} alt="" />
@@ -16,7 +17,7 @@ export function Header() {
         <div>
           <ShoppingCartSimple size={22} weight="fill" />
         </div>
-        <ItemCart haveItem={!!haveItem}>{count}</ItemCart>
+        <ItemCart haveItem={haveItem}>{count}</ItemCart>
       </NavInfo>
     </HeaderContainer>
   )
