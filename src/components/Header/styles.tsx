@@ -1,14 +1,19 @@
 import styled from 'styled-components'
 
 export const HeaderContainer = styled.div`
+  position: fixed;
+  left: 0;
+  right: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2rem 0;
-  margin: 0 10rem;
+  padding: 2rem 10rem;
+  background: ${({ theme }) => theme.background};
+  z-index: 9;
+  /* margin: 0 10rem; */
 
   @media (max-width: 1024px) {
-    margin: auto 2rem;
+    padding: 2rem;
   }
 `
 export const NavInfo = styled.div`

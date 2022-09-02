@@ -7,11 +7,12 @@ import {
   ContentBanner,
   HomeContainer,
   DescriptionBanner,
+  ProductContainer,
 } from './styles'
 
 export function Home() {
   return (
-    <div>
+    <HomeContainer>
       <BannerContainer>
         <ContentBanner>
           <div>
@@ -54,7 +55,7 @@ export function Home() {
           <img src={coffeBanner} alt="" />
         </ContentBanner>
       </BannerContainer>
-      <HomeContainer>
+      <ProductContainer>
         <h1>Nossos cafés</h1>
         <div>
           <Products />
@@ -73,7 +74,7 @@ export function Home() {
           <Products />
           <Products />
         </div>
-      </HomeContainer>
-    </div>
+      </ProductContainer>
+    </HomeContainer>
   )
 }

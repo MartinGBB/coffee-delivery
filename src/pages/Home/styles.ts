@@ -2,6 +2,10 @@ import styled from 'styled-components'
 import banner from '../../assets/bannerBackground.svg'
 
 export const HomeContainer = styled.div`
+  margin-top: 6.5rem;
+`
+
+export const ProductContainer = styled.div`
   > div {
     display: flex;
     justify-content: space-between;
