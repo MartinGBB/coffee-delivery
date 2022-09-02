@@ -8,15 +8,6 @@ export const HomeContainer = styled.div`
 export const ProductContainer = styled.div`
   > div {
     margin-bottom: 9.81rem;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    column-gap: 2rem;
-    row-gap: 2.5rem;
-
-    @media (max-width: 532px) {
-      justify-content: center;
-    }
   }
 
   > h1 {

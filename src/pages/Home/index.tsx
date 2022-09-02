@@ -1,5 +1,6 @@
 import { Coffee, Package, ShoppingCart, Timer } from 'phosphor-react'
 import coffeBanner from '../../assets/coffeBanner.svg'
+import { productsData } from '../../utils/productsData'
 import { Products } from './components/Products'
 import {
   BannerContainer,
@@ -57,21 +58,7 @@ export function Home() {
       <ProductContainer>
         <h1>Nossos cafés</h1>
         <div>
-          <Products />
-          <Products />
-          <Products />
-          <Products />
-          <Products />
-          <Products />
-          <Products />
-          <Products />
-          <Products />
-          <Products />
-          <Products />
-          <Products />
-          <Products />
-          <Products />
-          <Products />
+          <Products products={productsData} />
         </div>
       </ProductContainer>
     </HomeContainer>
