@@ -36,6 +36,8 @@ export const TypeCoffee = styled.div`
   color: ${({ theme }) => theme['yellow-dark']};
 
   span {
+    font-size: 0.625rem;
+    font-weight: 700;
     border-radius: 100px;
     padding: 4px 8px;
     background: ${({ theme }) => theme['yellow-light']};

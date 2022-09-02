@@ -18,7 +18,7 @@ export const productsData = [
   {
     id: uuid(),
     type: ['TRADICIONAL'],
-    name: 'expresso Tradicional',
+    name: 'Expresso Tradicional',
     price: '9,90',
     description: 'O tradicional café feito com água quente e grãos moídos',
     image: expressoTradicional,
