@@ -1,6 +1,6 @@
 import { AddressContainer, HeaderContainer, NavInfo } from './styles'
 import logo from '../../assets/logo.svg'
-import { MapPin, ShoppingCart } from 'phosphor-react'
+import { MapPin, ShoppingCartSimple } from 'phosphor-react'
 
 export function Header() {
   return (
@@ -12,7 +12,7 @@ export function Header() {
           <span>Porto Alegre, RS</span>
         </AddressContainer>
         <div>
-          <ShoppingCart size={22} weight="fill" />
+          <ShoppingCartSimple size={22} weight="fill" />
         </div>
       </NavInfo>
     </HeaderContainer>

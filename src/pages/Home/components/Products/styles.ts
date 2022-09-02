@@ -2,15 +2,15 @@ import styled from 'styled-components'
 
 export const CardContainer = styled.div`
   background: ${({ theme }) => theme['base-card']};
-  width: 16rem;
-  height: 19.375rem;
+  max-width: 16rem;
+  height: auto;
   position: absolute;
   border-radius: 6px 36px;
   text-align: center;
 
   img {
     position: relative;
-    left: calc(50% - 240px / 2);
+    left: calc(50% - 15rem / 2);
     top: -20px;
     bottom: 0;
   }
@@ -46,12 +46,20 @@ export const DetailsCoffee = styled.div`
 
 export const BuyContainer = styled.div`
   display: flex;
-  margin: 0 1.25rem 0 1.25rem;
+  max-height: 2.375rem;
+  margin: 0 1.25rem 1.25rem 1.25rem;
   justify-content: space-between;
+
+  div {
+    display: flex;
+    gap: 0.5rem;
+    flex-direction: row;
+  }
 `
 export const PriceContainer = styled.div`
   display: flex;
   gap: 0.2rem;
+
   h1 {
     margin: 0;
     display: flex;
@@ -70,15 +78,28 @@ export const ButtonsAddToCart = styled.div`
   background: ${({ theme }) => theme['base-button']};
   padding: 0.5rem;
   justify-content: center;
+  border-radius: 6px;
 
   span {
     width: 1.25rem;
     height: 1.32rem;
+    color: ${({ theme }) => theme['base-title']};
   }
 
   button {
     border: none;
     color: ${({ theme }) => theme.purple};
     background: transparent;
+    font-size: 16px;
   }
+`
+
+export const CartButton = styled.button`
+  border: none;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  border-radius: 6px;
+  color: ${({ theme }) => theme.background};
+  background: ${({ theme }) => theme['purple-dark']};
 `
