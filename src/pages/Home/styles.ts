@@ -7,6 +7,7 @@ export const HomeContainer = styled.div`
 
 export const ProductContainer = styled.div`
   > div {
+    margin-bottom: 9.81rem;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
