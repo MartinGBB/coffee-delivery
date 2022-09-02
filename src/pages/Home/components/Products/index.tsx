@@ -10,7 +10,7 @@ import {
 } from './styles'
 
 interface ProductsData {
-  id: Date
+  id: string
   type: string[]
   name: string
   price: string
@@ -27,7 +27,7 @@ export function Products({ products }: ProductsProps) {
     <CardContainer>
       {products.map((product: ProductsData) => {
         return (
-          <div key={product.id.toString()}>
+          <div key={product.id}>
             <img src={product.image} alt={product.name} />
             <TypeCoffee>
               <span>Tradicional</span>
