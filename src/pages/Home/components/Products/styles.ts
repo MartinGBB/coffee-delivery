@@ -3,8 +3,6 @@ import styled from 'styled-components'
 export const CardContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(16rem, 16rem));
-  justify-content: space-between;
-  flex-wrap: wrap;
   column-gap: 2rem;
   row-gap: 2.5rem;
 
