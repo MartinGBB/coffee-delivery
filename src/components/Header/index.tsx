@@ -1,8 +1,10 @@
-import { AddressContainer, HeaderContainer, NavInfo } from './styles'
+import { AddressContainer, HeaderContainer, ItemCart, NavInfo } from './styles'
 import logo from '../../assets/logo.svg'
 import { MapPin, ShoppingCartSimple } from 'phosphor-react'
 
 export function Header() {
+  const count = 2
+  const haveItem = !count
   return (
     <HeaderContainer>
       <img src={logo} alt="" />
@@ -14,6 +16,7 @@ export function Header() {
         <div>
           <ShoppingCartSimple size={22} weight="fill" />
         </div>
+        <ItemCart haveItem={!!haveItem}>{count}</ItemCart>
       </NavInfo>
     </HeaderContainer>
   )

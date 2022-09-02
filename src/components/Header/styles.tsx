@@ -47,3 +47,35 @@ export const AddressContainer = styled.span`
     color: ${({ theme }) => theme.purple};
   }
 `
+
+interface HaveItem {
+  haveItem: boolean
+}
+
+export const ItemCart = styled.span<HaveItem>`
+  width: 1.125rem;
+  height: 1.125rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: 700;
+  font-size: 0.75rem;
+  color: ${({ theme }) => theme.white};
+
+  background: ${({ theme }) => theme['yellow-dark']};
+  border-radius: 1000px;
+
+  position: absolute;
+  top: 25px;
+  right: 150px;
+  /* top: -8px;
+  right: 19px; */
+  display: ${({ haveItem }) => haveItem && 'none'};
+
+  @media (max-width: 1024px) {
+    top: 25px;
+    right: calc(150px - 9.3rem);
+  }
+`
