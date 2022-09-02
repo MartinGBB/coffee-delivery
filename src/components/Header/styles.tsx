@@ -9,8 +9,7 @@ export const HeaderContainer = styled.div`
   align-items: center;
   padding: 2rem 10rem;
   background: ${({ theme }) => theme.background};
-  z-index: 9;
-  /* margin: 0 10rem; */
+  z-index: 2;
 
   @media (max-width: 1024px) {
     padding: 2rem;
@@ -20,12 +19,15 @@ export const NavInfo = styled.div`
   display: flex;
   gap: 0.75rem;
 
-  div {
+  button {
     display: flex;
     align-items: center;
     padding: 0.5rem;
     border-radius: 6px;
     background: ${({ theme }) => theme['yellow-light']};
+    border: none;
+    cursor: pointer;
+    box-shadow: none;
 
     & svg {
       color: ${({ theme }) => theme['yellow-dark']};

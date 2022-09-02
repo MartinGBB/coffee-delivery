@@ -14,9 +14,9 @@ export function Header() {
           <MapPin size={22} weight="fill" />
           <span>Porto Alegre, RS</span>
         </AddressContainer>
-        <div>
+        <button>
           <ShoppingCartSimple size={22} weight="fill" />
-        </div>
+        </button>
         <ItemCart haveItem={haveItem}>{count}</ItemCart>
       </NavInfo>
     </HeaderContainer>
