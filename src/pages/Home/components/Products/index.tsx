@@ -30,8 +30,8 @@ export function Products({ products }: ProductsProps) {
           <div key={product.id}>
             <img src={product.image} alt={product.name} />
             <TypeCoffee>
-              {product.type.map((coffeType) => {
-                return <span key={product.id}>{coffeType}</span>
+              {product.type.map((coffeType, i) => {
+                return <span key={i}>{coffeType}</span>
               })}
             </TypeCoffee>
             <DetailsCoffee>
@@ -63,70 +63,5 @@ export function Products({ products }: ProductsProps) {
         )
       })}
     </CardContainer>
-
-    // <CardContainer>
-    //   <div>
-    //     <img src={coffee} alt="" />
-    //     <TypeCoffee>
-    //       <span>Tradicional</span>
-    //       <span>com leite</span>
-    //     </TypeCoffee>
-    //     <DetailsCoffee>
-    //       <h1>Mocaccino</h1>
-    //       <p>Café expresso com calda de chocolate, pouco leite e espuma</p>
-    //     </DetailsCoffee>
-    //     <BuyContainer>
-    //       <PriceContainer>
-    //         <span>R$</span>
-    //         <h1>9,90</h1>
-    //       </PriceContainer>
-    //       <div>
-    //         <ButtonsAddToCart>
-    //           <button>
-    //             <Minus size={14} weight="bold" />
-    //           </button>
-    //           <span>1</span>
-    //           <button>
-    //             <Plus size={14} weight="bold" />
-    //           </button>
-    //         </ButtonsAddToCart>
-    //         <CartButton>
-    //           <ShoppingCartSimple size={22} weight="fill" />
-    //         </CartButton>
-    //       </div>
-    //     </BuyContainer>
-    //   </div>
-    //   <div>
-    //     <img src={coffee} alt="" />
-    //     <TypeCoffee>
-    //       <span>Tradicional</span>
-    //       <span>com leite</span>
-    //     </TypeCoffee>
-    //     <DetailsCoffee>
-    //       <h1>Mocaccino</h1>
-    //       <p>Café expresso com calda de chocolate, pouco leite e espuma</p>
-    //     </DetailsCoffee>
-    //     <BuyContainer>
-    //       <PriceContainer>
-    //         <span>R$</span>
-    //         <h1>9,90</h1>
-    //       </PriceContainer>
-    //       <div>
-    //         <ButtonsAddToCart>
-    //           <button>
-    //             <Minus size={14} weight="bold" />
-    //           </button>
-    //           <span>1</span>
-    //           <button>
-    //             <Plus size={14} weight="bold" />
-    //           </button>
-    //         </ButtonsAddToCart>
-    //         <CartButton>
-    //           <ShoppingCartSimple size={22} weight="fill" />
-    //         </CartButton>
-    //       </div>
-    //     </BuyContainer>
-    //   </div>
-    // </CardContainer>
   )
 }
