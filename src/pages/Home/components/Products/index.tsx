@@ -30,8 +30,8 @@ export function Products({ products }: ProductsProps) {
           <div key={product.id}>
             <img src={product.image} alt={product.name} />
             <TypeCoffee>
-              {product.type.map((coffeType) => {
-                return <span key={product.id}>{coffeType}</span>
+              {product.type.map((coffeType, i) => {
+                return <span key={i}>{coffeType}</span>
               })}
             </TypeCoffee>
             <DetailsCoffee>
