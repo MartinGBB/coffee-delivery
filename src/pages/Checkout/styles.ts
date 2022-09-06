@@ -5,4 +5,12 @@ export const CheckoutContainer = styled.div`
 `
 export const FormContainer = styled.div``
 
-export const SelectCoffee = styled.div``
+export const ContainerPagament = styled.div``
+
+export const SelectPagament = styled.div``
+
+export const ConfirmOrden = styled.div``
+
+export const OrdemContainer = styled.div``
+
+export const AddressContainer = styled.div``
