@@ -53,6 +53,9 @@ export const FormContainer = styled.div`
 
     input {
       padding: 0.75rem;
+      border: 1px solid ${({ theme }) => theme['base-button']};
+      border-radius: 4px;
+      color: ${({ theme }) => theme['base-text']};
     }
 
     > div:first-child {
