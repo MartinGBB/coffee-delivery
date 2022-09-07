@@ -11,8 +11,9 @@ import {
 export function Checkout() {
   return (
     <CheckoutContainer>
-      <FormContainer>
-        <AddressContainer>
+      <AddressContainer>
+        <h1>Complete seu pedido</h1>
+        <FormContainer>
           <div>
             <h1>Endereço de Entrega</h1>
             <p>Informe o endereço onde deseja receber seu pedido</p>
@@ -27,8 +28,8 @@ export function Checkout() {
             <input type="text" />
             <input type="text" />
           </form>
-        </AddressContainer>
-      </FormContainer>
+        </FormContainer>
+      </AddressContainer>
 
       <ContainerPagament>
         <div>
