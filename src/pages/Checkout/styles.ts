@@ -24,16 +24,25 @@ export const FormContainer = styled.div`
   padding: 2.5rem;
 
   div {
+    display: grid;
+    grid-template-columns: 22px 1fr;
+    column-gap: 0.5rem;
     margin-bottom: 2rem;
 
     & h1 {
+      grid-column: 2;
       color: ${({ theme }) => theme['base-subtitle']};
-      font-weight: 400;
       font-size: 1rem;
     }
+
     & p {
+      grid-column: 2;
       color: ${({ theme }) => theme['base-text']};
       font-size: 0.875rem;
+    }
+
+    & svg {
+      color: ${({ theme }) => theme['yellow-dark']};
     }
   }
 `

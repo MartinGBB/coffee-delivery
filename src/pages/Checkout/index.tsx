@@ -1,3 +1,4 @@
+import { MapPinLine } from 'phosphor-react'
 import {
   AddressContainer,
   CheckoutContainer,
@@ -15,6 +16,7 @@ export function Checkout() {
         <h1>Complete seu pedido</h1>
         <FormContainer>
           <div>
+            <MapPinLine size={22} />
             <h1>Endereço de Entrega</h1>
             <p>Informe o endereço onde deseja receber seu pedido</p>
           </div>
