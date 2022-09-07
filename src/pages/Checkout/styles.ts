@@ -23,7 +23,7 @@ export const FormContainer = styled.div`
   flex-direction: column;
   padding: 2.5rem;
 
-  div {
+  > div {
     display: grid;
     grid-template-columns: 22px 1fr;
     column-gap: 0.5rem;
@@ -43,6 +43,63 @@ export const FormContainer = styled.div`
 
     & svg {
       color: ${({ theme }) => theme['yellow-dark']};
+    }
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    input {
+      padding: 0.75rem;
+    }
+
+    > div:first-child {
+      display: flex;
+      gap: 1rem;
+      flex-direction: column;
+
+      & input:first-child {
+        width: 12.5rem;
+      }
+    }
+
+    & div:nth-child(2) {
+      padding: 1.82rem 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+
+      & input {
+        height: fit-content;
+      }
+
+      & div {
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    > div:nth-child(3) {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.75rem;
+
+      & input:nth-child(2) {
+        width: 100%;
+      }
+
+      & input:nth-child(3) {
+        width: 3rem;
+      }
+    }
+
+    @media (max-width: 610px) {
+      div {
+        flex-wrap: wrap;
+      }
     }
   }
 `
