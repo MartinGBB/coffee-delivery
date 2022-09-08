@@ -138,7 +138,7 @@ export const ContainerPagament = styled.div`
     }
 
     & svg {
-      color: ${({ theme }) => theme['yellow-dark']};
+      color: ${({ theme }) => theme['purple-dark']};
     }
   }
 `
