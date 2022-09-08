@@ -6,7 +6,7 @@ export const CheckoutContainer = styled.div`
   gap: 0.75rem;
 
   @media (max-width: 1024px) {
-    margin: 6.5rem 2rem 0 2rem;
+    margin: 9rem 2rem 0 2rem;
   }
 `
 export const AddressContainer = styled.div`
@@ -76,6 +76,7 @@ export const FormContainer = styled.div`
       flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
+      gap: 1rem;
 
       & input {
         height: fit-content;
@@ -119,7 +120,7 @@ export const ContainerPagament = styled.div`
   flex-direction: column;
   padding: 2.5rem;
 
-  > div {
+  > div:first-child {
     display: grid;
     grid-template-columns: 22px 1fr;
     column-gap: 0.5rem;
@@ -143,8 +144,20 @@ export const ContainerPagament = styled.div`
   }
 `
 
-export const SelectPagament = styled.div``
+export const SelectPagament = styled.div`
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
 
+  > button {
+    padding: 1rem;
+    width: 100%;
+  }
+
+  @media (max-width: 610px) {
+    flex-wrap: wrap;
+  }
+`
 export const ConfirmOrden = styled.div``
 
 export const OrdemContainer = styled.div``
