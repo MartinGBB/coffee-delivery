@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const CheckoutContainer = styled.div`
-  margin: 6.5rem 10rem 0 10rem;
+  margin: 9rem 10rem 0 10rem;
   display: grid;
 
   @media (max-width: 1024px) {
@@ -56,6 +56,7 @@ export const FormContainer = styled.div`
       border: 1px solid ${({ theme }) => theme['base-button']};
       border-radius: 4px;
       color: ${({ theme }) => theme['base-text']};
+      background: ${({ theme }) => theme['base-button']};
     }
 
     > div:first-child {
@@ -79,9 +80,13 @@ export const FormContainer = styled.div`
         height: fit-content;
       }
 
-      & div {
+      & label {
         display: flex;
         align-items: center;
+        background: ${({ theme }) => theme['base-button']};
+        padding-right: 0.75rem;
+        border-radius: 4px;
+        color: ${({ theme }) => theme['base-label']};
       }
     }
 

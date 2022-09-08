@@ -27,10 +27,10 @@ export function Checkout() {
             </div>
             <div>
               <input type="text" placeholder="Número" />
-              <div>
+              <label>
                 <input type="text" placeholder="Complemento" />
-                <p>Opcional</p>
-              </div>
+                Opcional
+              </label>
             </div>
             <div>
               <input type="text" placeholder="Bairro" />
