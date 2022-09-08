@@ -1,4 +1,10 @@
-import { CurrencyDollar, MapPinLine } from 'phosphor-react'
+import {
+  Bank,
+  CreditCard,
+  CurrencyDollar,
+  MapPinLine,
+  Money,
+} from 'phosphor-react'
 import {
   AddressContainer,
   CheckoutContainer,
@@ -50,9 +56,18 @@ export function Checkout() {
           </p>
         </div>
         <SelectPagament>
-          <button>Cartão de crédito</button>
-          <button>Cartão de débito</button>
-          <button>dinheiro</button>
+          <button>
+            <CreditCard size={16} />
+            Cartão de crédito
+          </button>
+          <button>
+            <Bank size={16} />
+            Cartão de débito
+          </button>
+          <button>
+            <Money size={16} />
+            Dinheiro
+          </button>
         </SelectPagament>
       </ContainerPagament>
 
