@@ -3,6 +3,7 @@ import styled from 'styled-components'
 export const CheckoutContainer = styled.div`
   margin: 9rem 10rem 0 10rem;
   display: grid;
+  gap: 0.75rem;
 
   @media (max-width: 1024px) {
     margin: 6.5rem 2rem 0 2rem;
@@ -112,7 +113,35 @@ export const FormContainer = styled.div`
   }
 `
 
-export const ContainerPagament = styled.div``
+export const ContainerPagament = styled.div`
+  background: ${({ theme }) => theme['base-card']};
+  display: flex;
+  flex-direction: column;
+  padding: 2.5rem;
+
+  > div {
+    display: grid;
+    grid-template-columns: 22px 1fr;
+    column-gap: 0.5rem;
+    margin-bottom: 2rem;
+
+    & h1 {
+      grid-column: 2;
+      color: ${({ theme }) => theme['base-subtitle']};
+      font-size: 1rem;
+    }
+
+    & p {
+      grid-column: 2;
+      color: ${({ theme }) => theme['base-text']};
+      font-size: 0.875rem;
+    }
+
+    & svg {
+      color: ${({ theme }) => theme['yellow-dark']};
+    }
+  }
+`
 
 export const SelectPagament = styled.div``
 

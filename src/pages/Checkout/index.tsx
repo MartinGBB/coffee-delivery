@@ -22,20 +22,20 @@ export function Checkout() {
           </div>
           <form action="">
             <div>
-              <input type="text" placeholder="CEP" />
-              <input type="text" placeholder="Rua" />
+              <input required type="text" placeholder="CEP" />
+              <input required type="text" placeholder="Rua" />
             </div>
             <div>
-              <input type="text" placeholder="Número" />
+              <input required type="text" placeholder="Número" />
               <label>
                 <input type="text" placeholder="Complemento" />
                 Opcional
               </label>
             </div>
             <div>
-              <input type="text" placeholder="Bairro" />
-              <input type="text" placeholder="Cidade" />
-              <input type="text" placeholder="UF" />
+              <input required type="text" placeholder="Bairro" />
+              <input required type="text" placeholder="Cidade" />
+              <input required type="text" placeholder="UF" />
             </div>
           </form>
         </FormContainer>
