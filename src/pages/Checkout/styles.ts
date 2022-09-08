@@ -10,6 +10,8 @@ export const CheckoutContainer = styled.div`
   }
 `
 export const AddressContainer = styled.div`
+  grid-column: 1;
+
   > h1 {
     font-weight: 700;
     font-size: 1.125rem;
@@ -58,7 +60,7 @@ export const FormContainer = styled.div`
       border: 1px solid ${({ theme }) => theme['base-button']};
       border-radius: 4px;
       color: ${({ theme }) => theme['base-text']};
-      background: ${({ theme }) => theme['base-button']};
+      background: ${({ theme }) => theme['base-input']};
     }
 
     > div:first-child {
@@ -86,7 +88,8 @@ export const FormContainer = styled.div`
       & label {
         display: flex;
         align-items: center;
-        background: ${({ theme }) => theme['base-button']};
+        background: ${({ theme }) => theme['base-input']};
+        border: 1px solid ${({ theme }) => theme['base-button']};
         padding-right: 0.75rem;
         border-radius: 4px;
         color: ${({ theme }) => theme['base-label']};
@@ -116,6 +119,7 @@ export const FormContainer = styled.div`
 `
 
 export const ContainerPagament = styled.div`
+  grid-column: 1;
   background: ${({ theme }) => theme['base-card']};
   display: flex;
   flex-direction: column;
@@ -173,6 +177,32 @@ export const SelectPagament = styled.div`
     flex-wrap: wrap;
   }
 `
-export const ConfirmOrden = styled.div``
+export const ConfirmOrden = styled.div`
+  grid-column: 2;
+  grid-row: 1/3;
 
-export const OrdemContainer = styled.div``
+  @media (max-width: 1024px) {
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+  > h1 {
+    font-weight: 700;
+    font-size: 1.125rem;
+    margin-bottom: 0.9375rem;
+    color: ${({ theme }) => theme['base-subtitle']};
+  }
+`
+
+export const OrdemContainer = styled.div`
+  background: ${({ theme }) => theme['base-card']};
+  display: flex;
+  flex-direction: column;
+  padding: 2.5rem;
+  border-radius: 6px;
+  height: 100vh;
+
+  > h1 {
+    width: 368px;
+  }
+`
