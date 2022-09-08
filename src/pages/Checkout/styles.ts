@@ -23,6 +23,7 @@ export const FormContainer = styled.div`
   display: flex;
   flex-direction: column;
   padding: 2.5rem;
+  border-radius: 6px;
 
   > div {
     display: grid;
@@ -119,6 +120,7 @@ export const ContainerPagament = styled.div`
   display: flex;
   flex-direction: column;
   padding: 2.5rem;
+  border-radius: 6px;
 
   > div:first-child {
     display: grid;
