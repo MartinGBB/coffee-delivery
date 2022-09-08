@@ -21,7 +21,7 @@ export const GlobalStyle = createGlobalStyle`
   
   :focus {
     outline: 0;
-    box-shadow: 0 0 0 2px;
+    box-shadow: 0 0 0 1px ${({ theme }) => theme['yellow-dark']};
   }
  
   h1 {
