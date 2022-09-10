@@ -100,6 +100,7 @@ export const ButtonsAddToCart = styled.div`
     width: 1.25rem;
     height: 1.32rem;
     color: ${({ theme }) => theme['base-title']};
+    text-align: center;
   }
 
   button {
