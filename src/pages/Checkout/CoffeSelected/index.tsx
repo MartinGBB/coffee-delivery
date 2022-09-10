@@ -52,10 +52,10 @@ export function CoffeeSelected() {
         <span>
           R$ <span>3,50</span>
         </span>
-        <span>Total</span>
-        <span>
-          R$ <span>33,20</span>
-        </span>
+        <h1>Total</h1>
+        <h1>
+          R$ <h1>33,20</h1>
+        </h1>
       </TotalContainer>
 
       <button>CONFIRMAR PEDIDO</button>
