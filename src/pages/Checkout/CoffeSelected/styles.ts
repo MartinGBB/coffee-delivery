@@ -6,28 +6,33 @@ export const SelectedContainer = styled.div`
   flex-direction: column;
   padding: 2.5rem;
   border-radius: 6px 44px;
+
+  > div {
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid ${({ theme }) => theme['base-button']};
+  }
 `
 
 export const ProductsContainer = styled.div`
   display: flex;
   height: 5rem;
   margin-bottom: 1.5rem;
-  padding: 0.5px 0.25px;
   justify-content: space-between;
-  /* outline: 1px solid black; */
+  padding: 0.5rem 0.25rem;
+  margin-bottom: 1.5rem;
 `
 
 export const Product = styled.div`
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 5rem 2fr;
   grid-template-rows: repeat(2, 1fr);
+  column-gap: 1.25rem;
 
   img {
     grid-column: 1;
     grid-row: 1/3;
     /* width: 4rem; */
-    /* object-fit: contain; */
-    width: 100%;
+    /* width: 100%; */
     height: 100%;
   }
 `
