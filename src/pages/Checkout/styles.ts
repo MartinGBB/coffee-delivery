@@ -124,6 +124,7 @@ export const ContainerPagament = styled.div`
   flex-direction: column;
   padding: 2.5rem;
   border-radius: 6px;
+  max-height: 300px;
 
   > div:first-child {
     display: grid;
