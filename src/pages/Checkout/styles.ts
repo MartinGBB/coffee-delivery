@@ -3,6 +3,8 @@ import styled from 'styled-components'
 export const CheckoutContainer = styled.div`
   margin: 11.375rem 10rem 11.375rem 10rem;
   display: grid;
+  grid-template-columns: 2fr auto;
+  grid-template-rows: auto auto;
   gap: 0.75rem;
 
   @media (max-width: 1024px) {
@@ -11,6 +13,7 @@ export const CheckoutContainer = styled.div`
 `
 export const AddressContainer = styled.div`
   grid-column: 1;
+  grid-row: 1;
 
   > h1 {
     font-weight: 700;
@@ -115,6 +118,7 @@ export const FormContainer = styled.div`
 
 export const ContainerPagament = styled.div`
   grid-column: 1;
+  grid-row: 2;
   background: ${({ theme }) => theme['base-card']};
   display: flex;
   flex-direction: column;
