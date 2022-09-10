@@ -40,6 +40,7 @@ export const Product = styled.div`
   grid-template-columns: 5rem 2fr;
   grid-template-rows: repeat(2, 1fr);
   column-gap: 1.25rem;
+  width: 80%;
 
   > p {
     color: ${({ theme }) => theme['base-title']};
@@ -64,7 +65,6 @@ export const ButtonsContainer = styled.div`
     border: 6px;
     color: ${({ theme }) => theme['base-text']};
     font-size: 0.75rem;
-
     display: flex;
     align-items: center;
     gap: 0.25rem;
