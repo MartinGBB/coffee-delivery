@@ -100,19 +100,14 @@ export const FormContainer = styled.div`
       display: flex;
       justify-content: space-between;
       gap: 0.75rem;
+      flex-wrap: wrap;
 
       & input:nth-child(2) {
-        width: 100%;
+        width: 50%;
       }
 
       & input:nth-child(3) {
-        width: 3rem;
-      }
-    }
-
-    @media (min-width: 1024px) and (max-width: 1200px) {
-      div {
-        flex-wrap: wrap;
+        width: 10%;
       }
     }
   }
@@ -176,6 +171,10 @@ export const SelectPagament = styled.div`
   @media (min-width: 1024px) and (max-width: 1200px) {
     flex-wrap: wrap;
   }
+
+  @media (max-width: 440px) {
+    flex-wrap: wrap;
+  }
 `
 export const ConfirmOrden = styled.div`
   grid-column: 2;
@@ -200,9 +199,9 @@ export const OrdemContainer = styled.div`
   flex-direction: column;
   padding: 2.5rem;
   border-radius: 6px;
-  height: 100vh;
+  /* height: 100vh; */
 
   > h1 {
-    width: 23rem;
+    //width: 23rem;
   }
 `
