@@ -9,7 +9,9 @@ export function Header() {
 
   return (
     <HeaderContainer>
-      <img src={logo} alt="" />
+      <NavLink to="/">
+        <img src={logo} alt="" />
+      </NavLink>
       <NavInfo>
         <AddressContainer>
           <MapPin size={22} weight="fill" />

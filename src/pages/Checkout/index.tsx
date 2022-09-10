@@ -5,13 +5,13 @@ import {
   MapPinLine,
   Money,
 } from 'phosphor-react'
+import { CoffeeSelected } from './CoffeSelected'
 import {
   AddressContainer,
   CheckoutContainer,
   ConfirmOrden,
   ContainerPagament,
   FormContainer,
-  OrdemContainer,
   SelectPagament,
 } from './styles'
 
@@ -73,9 +73,7 @@ export function Checkout() {
 
       <ConfirmOrden>
         <h1>Cafés selecionados</h1>
-        <OrdemContainer>
-          <h1>Cart</h1>
-        </OrdemContainer>
+        <CoffeeSelected />
       </ConfirmOrden>
     </CheckoutContainer>
   )
