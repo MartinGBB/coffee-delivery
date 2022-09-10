@@ -6,10 +6,12 @@ export const CheckoutContainer = styled.div`
   gap: 0.75rem;
 
   @media (max-width: 1024px) {
-    margin: 6.5rem 2rem 0 2rem;
+    margin: 9rem 2rem 0 2rem;
   }
 `
 export const AddressContainer = styled.div`
+  grid-column: 1;
+
   > h1 {
     font-weight: 700;
     font-size: 1.125rem;
@@ -23,6 +25,7 @@ export const FormContainer = styled.div`
   display: flex;
   flex-direction: column;
   padding: 2.5rem;
+  border-radius: 6px;
 
   > div {
     display: grid;
@@ -57,7 +60,7 @@ export const FormContainer = styled.div`
       border: 1px solid ${({ theme }) => theme['base-button']};
       border-radius: 4px;
       color: ${({ theme }) => theme['base-text']};
-      background: ${({ theme }) => theme['base-button']};
+      background: ${({ theme }) => theme['base-input']};
     }
 
     > div:first-child {
@@ -76,6 +79,7 @@ export const FormContainer = styled.div`
       flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
+      gap: 1rem;
 
       & input {
         height: fit-content;
@@ -84,7 +88,8 @@ export const FormContainer = styled.div`
       & label {
         display: flex;
         align-items: center;
-        background: ${({ theme }) => theme['base-button']};
+        background: ${({ theme }) => theme['base-input']};
+        border: 1px solid ${({ theme }) => theme['base-button']};
         padding-right: 0.75rem;
         border-radius: 4px;
         color: ${({ theme }) => theme['base-label']};
@@ -105,7 +110,7 @@ export const FormContainer = styled.div`
       }
     }
 
-    @media (max-width: 610px) {
+    @media (min-width: 1024px) and (max-width: 1200px) {
       div {
         flex-wrap: wrap;
       }
@@ -114,12 +119,14 @@ export const FormContainer = styled.div`
 `
 
 export const ContainerPagament = styled.div`
+  grid-column: 1;
   background: ${({ theme }) => theme['base-card']};
   display: flex;
   flex-direction: column;
   padding: 2.5rem;
+  border-radius: 6px;
 
-  > div {
+  > div:first-child {
     display: grid;
     grid-template-columns: 22px 1fr;
     column-gap: 0.5rem;
@@ -143,8 +150,59 @@ export const ContainerPagament = styled.div`
   }
 `
 
-export const SelectPagament = styled.div``
+export const SelectPagament = styled.div`
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
 
-export const ConfirmOrden = styled.div``
+  > button {
+    padding: 1rem;
+    width: 100%;
+    border: none;
+    background: ${({ theme }) => theme['base-button']};
+    font-weight: 400;
+    font-size: 0.75rem;
+    color: ${({ theme }) => theme['base-text']};
+    display: flex;
+    align-items: center;
+    border-radius: 6px;
 
-export const OrdemContainer = styled.div``
+    & svg {
+      margin-right: 0.75rem;
+      color: ${({ theme }) => theme.purple};
+    }
+  }
+
+  @media (min-width: 1024px) and (max-width: 1200px) {
+    flex-wrap: wrap;
+  }
+`
+export const ConfirmOrden = styled.div`
+  grid-column: 2;
+  grid-row: 1/3;
+
+  @media (max-width: 1024px) {
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+  > h1 {
+    font-weight: 700;
+    font-size: 1.125rem;
+    margin-bottom: 0.9375rem;
+    color: ${({ theme }) => theme['base-subtitle']};
+  }
+`
+
+export const OrdemContainer = styled.div`
+  background: ${({ theme }) => theme['base-card']};
+  display: flex;
+  flex-direction: column;
+  padding: 2.5rem;
+  border-radius: 6px;
+  height: 100vh;
+
+  > h1 {
+    width: 23rem;
+  }
+`
