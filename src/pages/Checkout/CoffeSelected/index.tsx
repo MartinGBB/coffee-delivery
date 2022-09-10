@@ -17,7 +17,7 @@ export function CoffeeSelected() {
             <ProductsContainer>
               <Product>
                 <img src={productCart.image} alt={productCart.name} />
-                <h1>{productCart.name}</h1>
+                <p>{productCart.name}</p>
                 <ButtonsContainer>
                   <ButtonsAddToCart>
                     <button>

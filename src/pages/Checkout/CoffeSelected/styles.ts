@@ -28,6 +28,10 @@ export const Product = styled.div`
   grid-template-rows: repeat(2, 1fr);
   column-gap: 1.25rem;
 
+  > p {
+    color: ${({ theme }) => theme['base-title']};
+  }
+
   img {
     grid-column: 1;
     grid-row: 1/3;
