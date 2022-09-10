@@ -4,7 +4,7 @@ import { ButtonsAddToCart } from '../../Home/components/Products/styles'
 import {
   ButtonsContainer,
   Product,
-  ProductsContainer,
+  ProductContainer,
   SelectedContainer,
 } from './styles'
 
@@ -14,7 +14,7 @@ export function CoffeeSelected() {
       {productsData.map((productCart) => {
         return (
           <div key={productCart.id}>
-            <ProductsContainer>
+            <ProductContainer>
               <Product>
                 <img src={productCart.image} alt={productCart.name} />
                 <p>{productCart.name}</p>
@@ -38,7 +38,7 @@ export function CoffeeSelected() {
               <span>
                 R$ <span>{productCart.price}</span>
               </span>
-            </ProductsContainer>
+            </ProductContainer>
           </div>
         )
       })}

@@ -13,13 +13,18 @@ export const SelectedContainer = styled.div`
   }
 `
 
-export const ProductsContainer = styled.div`
+export const ProductContainer = styled.div`
   display: flex;
   height: 5rem;
   margin-bottom: 1.5rem;
   justify-content: space-between;
   padding: 0.5rem 0.25rem;
   margin-bottom: 1.5rem;
+
+  > span {
+    font-weight: 700;
+    color: ${({ theme }) => theme['base-text']};
+  }
 `
 
 export const Product = styled.div`
