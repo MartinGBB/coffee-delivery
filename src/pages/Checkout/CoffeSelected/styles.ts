@@ -7,9 +7,14 @@ export const SelectedContainer = styled.div`
   padding: 2.5rem;
   border-radius: 6px 44px;
 
-  > div:not(:last-child) {
+  > div {
     margin-bottom: 1.5rem;
     border-bottom: 1px solid ${({ theme }) => theme['base-button']};
+  }
+
+  > button {
+    margin-top: 0.75rem;
+    padding: 0.75rem;
   }
 `
 
@@ -68,14 +73,13 @@ export const ButtonsContainer = styled.div`
 `
 export const TotalContainer = styled.div`
   display: grid;
+  justify-content: space-between;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(4, 1fr);
-  gap: 12px;
+  grid-template-rows: repeat(3, 1fr);
+  gap: 0.75rem;
 
-  button {
-    grid-column: 1/3;
-
-    margin-top: 12px;
-    padding: 0.75rem;
+  span:nth-child(2n) {
+    display: flex;
+    justify-content: end;
   }
 `
