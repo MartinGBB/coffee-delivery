@@ -31,8 +31,6 @@ export const Product = styled.div`
   img {
     grid-column: 1;
     grid-row: 1/3;
-    /* width: 4rem; */
-    /* width: 100%; */
     height: 100%;
   }
 `
@@ -40,6 +38,22 @@ export const ButtonsContainer = styled.div`
   display: flex;
   gap: 0.5rem;
   grid-row: 2;
-
   grid-column: 2;
+
+  > button {
+    border: none;
+    padding: 0.5rem;
+    background: ${({ theme }) => theme['base-button']};
+    border: 6px;
+    color: ${({ theme }) => theme['base-text']};
+    font-size: 0.75rem;
+
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+
+    & svg {
+      color: ${({ theme }) => theme.purple};
+    }
+  }
 `
