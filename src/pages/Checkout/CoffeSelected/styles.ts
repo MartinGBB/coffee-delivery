@@ -19,6 +19,7 @@ export const SelectedContainer = styled.div`
     color: ${({ theme }) => theme.white};
     line-height: 1.4rem;
     border-radius: 6px;
+    cursor: pointer;
   }
 `
 
