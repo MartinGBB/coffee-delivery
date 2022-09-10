@@ -7,7 +7,7 @@ export const SelectedContainer = styled.div`
   padding: 2.5rem;
   border-radius: 6px 44px;
 
-  > div {
+  > div:not(:last-child) {
     margin-bottom: 1.5rem;
     border-bottom: 1px solid ${({ theme }) => theme['base-button']};
   }
@@ -65,4 +65,7 @@ export const ButtonsContainer = styled.div`
       color: ${({ theme }) => theme.purple};
     }
   }
+`
+export const TotalContainer = styled.div`
+  
 `

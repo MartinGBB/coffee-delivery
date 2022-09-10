@@ -6,6 +6,7 @@ import {
   Product,
   ProductContainer,
   SelectedContainer,
+  TotalContainer,
 } from './styles'
 
 export function CoffeeSelected() {
@@ -42,6 +43,9 @@ export function CoffeeSelected() {
           </div>
         )
       })}
+      <TotalContainer>
+        <h1>Hello</h1>
+      </TotalContainer>
     </SelectedContainer>
   )
 }
