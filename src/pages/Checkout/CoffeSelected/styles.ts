@@ -67,5 +67,15 @@ export const ButtonsContainer = styled.div`
   }
 `
 export const TotalContainer = styled.div`
-  
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 12px;
+
+  button {
+    grid-column: 1/3;
+
+    margin-top: 12px;
+    padding: 0.75rem;
+  }
 `

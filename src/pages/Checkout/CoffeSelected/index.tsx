@@ -44,7 +44,19 @@ export function CoffeeSelected() {
         )
       })}
       <TotalContainer>
-        <h1>Hello</h1>
+        <span>Total de itens</span>
+        <span>
+          R$ <span>29,70</span>
+        </span>
+        <span>Entrega</span>
+        <span>
+          R$ <span>3,50</span>
+        </span>
+        <span>Total</span>
+        <span>
+          R$ <span>33,20</span>
+        </span>
+        <button>CONFIRMAR PEDIDO</button>
       </TotalContainer>
     </SelectedContainer>
   )
