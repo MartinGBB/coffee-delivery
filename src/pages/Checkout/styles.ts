@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 
 export const CheckoutContainer = styled.div`
-  margin: 9rem 10rem 0 10rem;
+  /* margin: 9rem 10rem 0 10rem; */
+  margin: 11.375rem 10rem 11.375rem 10rem;
   display: grid;
   gap: 0.75rem;
 
@@ -199,7 +200,6 @@ export const OrdemContainer = styled.div`
   flex-direction: column;
   padding: 2.5rem;
   border-radius: 6px;
-  /* height: 100vh; */
 
   > h1 {
     //width: 23rem;
