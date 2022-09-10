@@ -110,7 +110,7 @@ export const FormContainer = styled.div`
       }
     }
 
-    @media (max-width: 610px) {
+    @media (min-width: 1024px) and (max-width: 1200px) {
       div {
         flex-wrap: wrap;
       }
@@ -173,7 +173,7 @@ export const SelectPagament = styled.div`
     }
   }
 
-  @media (max-width: 610px) {
+  @media (min-width: 1024px) and (max-width: 1200px) {
     flex-wrap: wrap;
   }
 `
@@ -203,6 +203,6 @@ export const OrdemContainer = styled.div`
   height: 100vh;
 
   > h1 {
-    width: 368px;
+    width: 23rem;
   }
 `
