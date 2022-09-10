@@ -11,6 +11,10 @@ export const HeaderContainer = styled.div`
   background: ${({ theme }) => theme.background};
   z-index: 2;
 
+  > a:focus {
+    box-shadow: none;
+  }
+
   @media (max-width: 1024px) {
     padding: 2rem;
   }
