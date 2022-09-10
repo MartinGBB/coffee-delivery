@@ -12,7 +12,6 @@ import {
   ConfirmOrden,
   ContainerPagament,
   FormContainer,
-  OrdemContainer,
   SelectPagament,
 } from './styles'
 
@@ -74,9 +73,7 @@ export function Checkout() {
 
       <ConfirmOrden>
         <h1>Cafés selecionados</h1>
-        <OrdemContainer>
-          <CoffeeSelected />
-        </OrdemContainer>
+        <CoffeeSelected />
       </ConfirmOrden>
     </CheckoutContainer>
   )

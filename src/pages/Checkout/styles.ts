@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 export const CheckoutContainer = styled.div`
-  /* margin: 9rem 10rem 0 10rem; */
   margin: 11.375rem 10rem 11.375rem 10rem;
   display: grid;
   gap: 0.75rem;
@@ -191,17 +190,5 @@ export const ConfirmOrden = styled.div`
     font-size: 1.125rem;
     margin-bottom: 0.9375rem;
     color: ${({ theme }) => theme['base-subtitle']};
-  }
-`
-
-export const OrdemContainer = styled.div`
-  background: ${({ theme }) => theme['base-card']};
-  display: flex;
-  flex-direction: column;
-  padding: 2.5rem;
-  border-radius: 6px;
-
-  > h1 {
-    //width: 23rem;
   }
 `
