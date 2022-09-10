@@ -1,4 +1,4 @@
-import { Minus, Plus } from 'phosphor-react'
+import { Minus, Plus, Trash } from 'phosphor-react'
 import { productsData } from '../../../utils/productsData'
 import { ButtonsAddToCart } from '../../Home/components/Products/styles'
 import {
@@ -28,7 +28,10 @@ export function CoffeeSelected() {
                       <Plus size={14} weight="bold" />
                     </button>
                   </ButtonsAddToCart>
-                  <button>REMOVER</button>
+                  <button>
+                    <Trash size={16} />
+                    REMOVER
+                  </button>
                 </ButtonsContainer>
               </Product>
 
