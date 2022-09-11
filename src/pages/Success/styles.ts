@@ -47,6 +47,10 @@ export const InfoContainer = styled.div`
       margin-right: 0.2rem;
     }
 
+    > span {
+      font-weight: 400;
+    }
+
     > span:nth-child(2) {
       font-weight: 700;
     }
@@ -121,5 +125,9 @@ export const DeliberyForecast = styled.div`
     background: ${({ theme }) => theme.purple};
     border-radius: 50%;
     padding: 0.5rem;
+  }
+
+  span:nth-child(3) {
+    font-weight: 700;
   }
 `
