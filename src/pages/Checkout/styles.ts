@@ -150,6 +150,18 @@ export const ContainerPagament = styled.div`
       color: ${({ theme }) => theme['purple-dark']};
     }
   }
+
+  label {
+    user-select: none;
+  }
+
+  label:has(input:checked) {
+    color: red;
+  }
+
+  input[type='checkbox'] {
+    visibility: hidden;
+  }
 `
 
 export const SelectPagament = styled.div`

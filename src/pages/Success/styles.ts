@@ -54,6 +54,7 @@ export const InfoContainer = styled.div`
   border-image: linear-gradient(to left, #8047f8, #dbac2c);
   border-image-slice: 1;
   border-radius: 6px 36px;
+  height: fit-content;
 
   > div:nth-child(1) {
     & span:nth-child(2)::before {
