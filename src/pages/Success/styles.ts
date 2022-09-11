@@ -19,6 +19,7 @@ export const SuccessContainer = styled.div`
 
   img {
     grid-row: 2;
+    margin-left: auto;
     max-width: 100%;
 
     @media (max-width: 730px) {
