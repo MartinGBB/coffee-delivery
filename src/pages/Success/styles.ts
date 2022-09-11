@@ -1,12 +1,13 @@
 import styled from 'styled-components'
 
 export const SuccessContainer = styled.div`
-  margin: 11.375rem 10rem 11.375rem 10rem;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 1fr 2fr;
   row-gap: 2.25rem;
   column-gap: 2rem;
+
+  margin: 11.375rem 10rem 11.375rem 10rem;
 
   @media (max-width: 1024px) {
     margin: 9rem 2rem 0 2rem;
@@ -39,6 +40,26 @@ export const InfoContainer = styled.div`
   border-image-slice: 1;
   border-radius: 6px 36px;
 
+  > div:nth-child(1) {
+    & span:nth-child(2)::before {
+      content: 'Entrega em';
+      font-weight: 400;
+      margin-right: 0.2rem;
+    }
+
+    > span:nth-child(2) {
+      font-weight: 700;
+    }
+  }
+
+  & div {
+    margin-bottom: 2rem;
+  }
+
+  & div:last-child {
+    margin-bottom: 0;
+  }
+
   /* background: linear-gradient(to left, transparent, transparent),
     linear-gradient(to left, transparent, transparent); */
 
@@ -47,11 +68,50 @@ export const InfoContainer = styled.div`
   grid-template-rows: repeat(2, 1fr); */
 `
 
-export const AddressOrder = styled.div`
+// export const AddressOrder = styled.div`
+//   display: grid;
+//   grid-template-columns: 2rem 1fr;
+//   grid-template-rows: repeat(2, 1fr);
+//   column-gap: 0.75rem;
+
+//   svg {
+//     grid-row: 1/3;
+//     grid-column: 1;
+
+//     color: ${({ theme }) => theme.white};
+//     background: ${({ theme }) => theme.purple};
+//     border-radius: 50%;
+//     padding: 0.5rem;
+//   }
+
+//   div {
+//     grid-column: 2;
+//     grid-row: 1;
+//     display: flex;
+
+//     span::before {
+//       content: 'Entrega em';
+//       font-weight: 400;
+//       margin-right: 0.2rem;
+//     }
+
+//     & span {
+//       font-weight: 700;
+//     }
+//   }
+//   span {
+//     grid-row: 2;
+//     grid-column: 2;
+//   }
+// `
+
+export const DeliberyForecast = styled.div`
   display: grid;
   grid-template-columns: 2rem 1fr;
   grid-template-rows: repeat(2, 1fr);
   column-gap: 0.75rem;
+  align-items: center;
+  line-height: 1;
 
   svg {
     grid-row: 1/3;
@@ -61,25 +121,5 @@ export const AddressOrder = styled.div`
     background: ${({ theme }) => theme.purple};
     border-radius: 50%;
     padding: 0.5rem;
-  }
-
-  div {
-    grid-column: 2;
-    grid-row: 1;
-    display: flex;
-
-    span::before {
-      content: 'Entrega em';
-      font-weight: 400;
-      margin-right: 0.2rem;
-    }
-
-    & span {
-      font-weight: 700;
-    }
-  }
-  span {
-    grid-row: 2;
-    grid-column: 2;
   }
 `
