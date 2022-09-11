@@ -63,51 +63,7 @@ export const InfoContainer = styled.div`
   & div:last-child {
     margin-bottom: 0;
   }
-
-  /* background: linear-gradient(to left, transparent, transparent),
-    linear-gradient(to left, transparent, transparent); */
-
-  /* display: grid;
-  grid-template-columns: 2rem 1fr;
-  grid-template-rows: repeat(2, 1fr); */
 `
-
-// export const AddressOrder = styled.div`
-//   display: grid;
-//   grid-template-columns: 2rem 1fr;
-//   grid-template-rows: repeat(2, 1fr);
-//   column-gap: 0.75rem;
-
-//   svg {
-//     grid-row: 1/3;
-//     grid-column: 1;
-
-//     color: ${({ theme }) => theme.white};
-//     background: ${({ theme }) => theme.purple};
-//     border-radius: 50%;
-//     padding: 0.5rem;
-//   }
-
-//   div {
-//     grid-column: 2;
-//     grid-row: 1;
-//     display: flex;
-
-//     span::before {
-//       content: 'Entrega em';
-//       font-weight: 400;
-//       margin-right: 0.2rem;
-//     }
-
-//     & span {
-//       font-weight: 700;
-//     }
-//   }
-//   span {
-//     grid-row: 2;
-//     grid-column: 2;
-//   }
-// `
 
 export const DeliberyForecast = styled.div`
   display: grid;
