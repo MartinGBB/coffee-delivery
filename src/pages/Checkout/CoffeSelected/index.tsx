@@ -1,4 +1,5 @@
 import { Minus, Plus, Trash } from 'phosphor-react'
+import { useNavigate } from 'react-router-dom'
 import { productsData } from '../../../utils/productsData'
 import { ButtonsAddToCart } from '../../Home/components/Products/styles'
 import {
@@ -10,6 +11,12 @@ import {
 } from './styles'
 
 export function CoffeeSelected() {
+  const navigate = useNavigate()
+
+  function confirmOrder() {
+    navigate('/success')
+  }
+
   return (
     <SelectedContainer>
       {productsData.map((productCart) => {
@@ -57,8 +64,7 @@ export function CoffeeSelected() {
           R$ <h1>33,20</h1>
         </h1>
       </TotalContainer>
-
-      <button>CONFIRMAR PEDIDO</button>
+      <button onClick={confirmOrder}>CONFIRMAR PEDIDO</button>
     </SelectedContainer>
   )
 }
