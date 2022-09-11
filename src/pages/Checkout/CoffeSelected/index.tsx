@@ -1,9 +1,11 @@
 import { Minus, Plus, Trash } from 'phosphor-react'
 import { useNavigate } from 'react-router-dom'
 import { productsData } from '../../../utils/productsData'
+import { ProductsData } from '../../Home/components/Products'
 import { ButtonsAddToCart } from '../../Home/components/Products/styles'
 import {
   ButtonsContainer,
+  CartEmpty,
   Product,
   ProductContainer,
   SelectedContainer,
@@ -19,37 +21,43 @@ export function CoffeeSelected() {
 
   return (
     <SelectedContainer>
-      {productsData.map((productCart) => {
-        return (
-          <div key={productCart.id}>
-            <ProductContainer>
-              <Product>
-                <img src={productCart.image} alt={productCart.name} />
-                <p>{productCart.name}</p>
-                <ButtonsContainer>
-                  <ButtonsAddToCart>
+      {!productsData.length ? (
+        <CartEmpty>
+          <h1>Não tem produtos no carrinho</h1>
+        </CartEmpty>
+      ) : (
+        productsData.map((productCart: ProductsData) => {
+          return (
+            <div key={productCart.id}>
+              <ProductContainer>
+                <Product>
+                  <img src={productCart.image} alt={productCart.name} />
+                  <p>{productCart.name}</p>
+                  <ButtonsContainer>
+                    <ButtonsAddToCart>
+                      <button>
+                        <Minus size={14} weight="bold" />
+                      </button>
+                      <span>1</span>
+                      <button>
+                        <Plus size={14} weight="bold" />
+                      </button>
+                    </ButtonsAddToCart>
                     <button>
-                      <Minus size={14} weight="bold" />
+                      <Trash size={16} />
+                      REMOVER
                     </button>
-                    <span>1</span>
-                    <button>
-                      <Plus size={14} weight="bold" />
-                    </button>
-                  </ButtonsAddToCart>
-                  <button>
-                    <Trash size={16} />
-                    REMOVER
-                  </button>
-                </ButtonsContainer>
-              </Product>
+                  </ButtonsContainer>
+                </Product>
 
-              <span>
-                R$ <span>{productCart.price}</span>
-              </span>
-            </ProductContainer>
-          </div>
-        )
-      })}
+                <span>
+                  R$ <span>{productCart.price}</span>
+                </span>
+              </ProductContainer>
+            </div>
+          )
+        })
+      )}
       <TotalContainer>
         <span>Total de itens</span>
         <span>

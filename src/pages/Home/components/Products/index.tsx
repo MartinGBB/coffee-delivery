@@ -9,13 +9,13 @@ import {
   TypeCoffee,
 } from './styles'
 
-interface ProductsData {
-  id: string
+export interface ProductsData {
+  id: string | undefined
   type: string[]
-  name: string
-  price: string
-  description: string
-  image: string
+  name: string | undefined
+  price: string | undefined
+  description: string | undefined
+  image: string | undefined
 }
 
 interface ProductsProps {
