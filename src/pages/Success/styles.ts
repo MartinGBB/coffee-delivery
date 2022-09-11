@@ -40,12 +40,38 @@ export const InfoContainer = styled.div`
 `
 
 export const AddressOrder = styled.div`
-  div {
-    display: flex;
-    gap: 0.2rem;
+  display: grid;
+  grid-template-columns: 2rem 1fr;
+  grid-template-rows: repeat(2, 1fr);
+  column-gap: 0.75rem;
 
-    & span:nth-child(2) {
+  svg {
+    grid-row: 1/3;
+    grid-column: 1;
+
+    color: ${({ theme }) => theme.white};
+    background: ${({ theme }) => theme.purple};
+    border-radius: 50%;
+    padding: 0.5rem;
+  }
+
+  div {
+    grid-column: 2;
+    grid-row: 1;
+    display: flex;
+
+    span::before {
+      content: 'Entrega em';
+      font-weight: 400;
+      margin-right: 0.2rem;
+    }
+
+    & span {
       font-weight: 700;
     }
+  }
+  span {
+    grid-row: 2;
+    grid-column: 2;
   }
 `

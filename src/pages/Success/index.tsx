@@ -1,3 +1,4 @@
+import { MapPin } from 'phosphor-react'
 import { AddressOrder, InfoContainer, SuccessContainer } from './styles'
 
 export function Success() {
@@ -10,8 +11,8 @@ export function Success() {
 
       <InfoContainer>
         <AddressOrder>
+          <MapPin size={16} weight="fill" />
           <div>
-            <span>Entrega em</span>
             <span>Rua João Daniel Martinelli, 102</span>
           </div>
           <span>Farrapos - Porto Alegre, RS</span>
