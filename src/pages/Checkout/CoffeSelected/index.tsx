@@ -68,9 +68,9 @@ export function CoffeeSelected() {
           R$ <span>3,50</span>
         </span>
         <h1>Total</h1>
-        <div>
-          R$ <h1>33,20</h1>
-        </div>
+        <h1>
+          R$ <span>33,20</span>
+        </h1>
       </TotalContainer>
       <button onClick={confirmOrder}>CONFIRMAR PEDIDO</button>
     </SelectedContainer>
