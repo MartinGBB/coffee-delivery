@@ -11,6 +11,7 @@ export const CheckoutContainer = styled.div`
   @media (max-width: 1024px) {
     margin: 9rem 2rem 0 2rem;
     gap: 0;
+    row-gap: 0.75rem;
   }
 `
 export const AddressContainer = styled.div`

@@ -1,6 +1,6 @@
 import { Minus, Plus, Trash } from 'phosphor-react'
 import { useNavigate } from 'react-router-dom'
-import { productsData } from '../../../utils/productsData'
+import { productsOrder } from '../../../utils/productsData'
 import { ProductsData } from '../../Home/components/Products'
 import { ButtonsAddToCart } from '../../Home/components/Products/styles'
 import {
@@ -21,12 +21,12 @@ export function CoffeeSelected() {
 
   return (
     <SelectedContainer>
-      {!productsData.length ? (
+      {!productsOrder.length ? (
         <CartEmpty>
           <h1>Não tem produtos no carrinho</h1>
         </CartEmpty>
       ) : (
-        productsData.map((productCart: ProductsData) => {
+        productsOrder.map((productCart: ProductsData) => {
           return (
             <div key={productCart.id}>
               <ProductContainer>
