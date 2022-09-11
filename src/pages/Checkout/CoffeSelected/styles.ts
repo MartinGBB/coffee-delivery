@@ -6,6 +6,7 @@ export const SelectedContainer = styled.div`
   flex-direction: column;
   padding: 2.5rem;
   border-radius: 6px 44px;
+  margin-bottom: 11.375rem;
 
   > div:not(:nth-last-child(2)) {
     margin-bottom: 1.5rem;
