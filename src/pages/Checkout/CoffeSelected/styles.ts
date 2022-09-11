@@ -6,6 +6,7 @@ export const SelectedContainer = styled.div`
   flex-direction: column;
   padding: 2.5rem;
   border-radius: 6px 44px;
+  margin-bottom: 11.375rem;
 
   > div:not(:nth-last-child(2)) {
     margin-bottom: 1.5rem;
@@ -19,6 +20,17 @@ export const SelectedContainer = styled.div`
     color: ${({ theme }) => theme.white};
     line-height: 1.4rem;
     border-radius: 6px;
+    cursor: pointer;
+  }
+`
+
+export const CartEmpty = styled.div`
+  margin: 1rem;
+
+  h1 {
+    color: ${({ theme }) => theme['base-subtitle']};
+    font-size: 1.25rem;
+    padding: 1rem;
   }
 `
 

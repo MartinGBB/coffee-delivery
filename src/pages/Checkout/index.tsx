@@ -69,6 +69,21 @@ export function Checkout() {
             Dinheiro
           </button>
         </SelectPagament>
+
+        <label htmlFor="debitCard">
+          <input id="debitCard" type="checkbox" />
+          Cartão de crédito
+        </label>
+
+        <label htmlFor="creditCard">
+          <input id="creditCard" type="checkbox" />
+          Cartão de débito
+        </label>
+
+        <label htmlFor="cash">
+          <input id="cash" type="checkbox" />
+          Dinheiro
+        </label>
       </ContainerPagament>
 
       <ConfirmOrden>

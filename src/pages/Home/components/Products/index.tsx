@@ -1,4 +1,5 @@
 import { Minus, Plus, ShoppingCartSimple } from 'phosphor-react'
+import uuid from 'react-uuid'
 import {
   ButtonsAddToCart,
   BuyContainer,
@@ -9,13 +10,13 @@ import {
   TypeCoffee,
 } from './styles'
 
-interface ProductsData {
-  id: string
+export interface ProductsData {
+  id: string | undefined
   type: string[]
-  name: string
-  price: string
-  description: string
-  image: string
+  name: string | undefined
+  price: string | undefined
+  description: string | undefined
+  image: string | undefined
 }
 
 interface ProductsProps {
@@ -30,9 +31,9 @@ export function Products({ products }: ProductsProps) {
           <div key={product.id}>
             <img src={product.image} alt={product.name} />
             <TypeCoffee>
-              {product.type.map((coffeType, i) => {
-                return <span key={i}>{coffeType}</span>
-              })}
+              {product.type.map((coffeType) => (
+                <span key={uuid()}>{coffeType}</span>
+              ))}
             </TypeCoffee>
             <DetailsCoffee>
               <h1>{product.name}</h1>

@@ -5,10 +5,12 @@ export const CheckoutContainer = styled.div`
   display: grid;
   grid-template-columns: 2fr auto;
   grid-template-rows: auto auto;
-  gap: 0.75rem;
+  row-gap: 0.75rem;
+  column-gap: 2rem;
 
   @media (max-width: 1024px) {
     margin: 9rem 2rem 0 2rem;
+    gap: 0;
   }
 `
 export const AddressContainer = styled.div`
@@ -147,6 +149,18 @@ export const ContainerPagament = styled.div`
     & svg {
       color: ${({ theme }) => theme['purple-dark']};
     }
+  }
+
+  label {
+    user-select: none;
+  }
+
+  label:has(input:checked) {
+    color: red;
+  }
+
+  input[type='checkbox'] {
+    visibility: hidden;
   }
 `
 
