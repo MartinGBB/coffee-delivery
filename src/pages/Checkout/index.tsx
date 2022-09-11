@@ -59,19 +59,19 @@ export function Checkout() {
           <label htmlFor="debitCard">
             <input id="debitCard" name="pagament" type="radio" />
             <CreditCard size={16} />
-            Cartão de crédito
+            CARTÃO DE CRÉDITO
           </label>
 
           <label htmlFor="creditCard">
             <input id="creditCard" name="pagament" type="radio" />
             <Bank size={16} />
-            Cartão de débito
+            CARTÃO DE DÉBITO
           </label>
 
           <label htmlFor="cash">
             <input id="cash" name="pagament" type="radio" />
             <Money size={16} />
-            Dinheiro
+            DINHEIRO
           </label>
         </SelectPagament>
       </ContainerPagament>
