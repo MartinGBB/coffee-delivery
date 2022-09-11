@@ -147,20 +147,8 @@ export const ContainerPagament = styled.div`
     }
 
     & svg {
-      color: ${({ theme }) => theme['purple-dark']};
+      color: ${({ theme }) => theme.purple};
     }
-  }
-
-  label {
-    user-select: none;
-  }
-
-  label:has(input:checked) {
-    color: red;
-  }
-
-  input[type='checkbox'] {
-    visibility: hidden;
   }
 `
 
@@ -169,7 +157,36 @@ export const SelectPagament = styled.div`
   justify-content: space-between;
   gap: 0.75rem;
 
-  > button {
+  label {
+    user-select: none;
+
+    padding: 1rem;
+    width: 100%;
+    border: none;
+    background: ${({ theme }) => theme['base-button']};
+    font-weight: 400;
+    font-size: 0.75rem;
+    color: ${({ theme }) => theme['base-text']};
+    display: flex;
+    align-items: center;
+    border-radius: 6px;
+    border: 1px solid transparent;
+    & svg {
+      margin-right: 0.75rem;
+      color: ${({ theme }) => theme.purple};
+    }
+  }
+
+  label:has(input:checked) {
+    border: 1px solid ${({ theme }) => theme.purple};
+    background: ${({ theme }) => theme['purple-light']};
+  }
+
+  input[type='radio'] {
+    display: none;
+  }
+
+  /* > button {
     padding: 1rem;
     width: 100%;
     border: none;
@@ -184,8 +201,8 @@ export const SelectPagament = styled.div`
     & svg {
       margin-right: 0.75rem;
       color: ${({ theme }) => theme.purple};
-    }
-  }
+    } */
+  //}
 
   @media (min-width: 1024px) and (max-width: 1200px) {
     flex-wrap: wrap;
