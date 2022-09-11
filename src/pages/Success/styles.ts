@@ -33,6 +33,14 @@ export const SuccessContainer = styled.div`
 export const InfoContainer = styled.div`
   grid-column: 1;
   grid-row: 2;
+  padding: 40px;
+  border: 1px solid transparent;
+  border-image: linear-gradient(to left, #8047f8, #dbac2c);
+  border-image-slice: 1;
+  border-radius: 6px 36px;
+
+  /* background: linear-gradient(to left, transparent, transparent),
+    linear-gradient(to left, transparent, transparent); */
 
   /* display: grid;
   grid-template-columns: 2rem 1fr;
