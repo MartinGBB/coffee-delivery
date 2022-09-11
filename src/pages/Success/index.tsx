@@ -1,5 +1,6 @@
 import { CurrencyDollar, MapPin, Timer } from 'phosphor-react'
 import { DetailsOrder, InfoContainer, SuccessContainer } from './styles'
+import successImg from '../../assets/successImg.svg'
 
 export function Success() {
   return (
@@ -27,6 +28,7 @@ export function Success() {
           <span>Cartão de Crédito</span>
         </DetailsOrder>
       </InfoContainer>
+      <img src={successImg} alt="" />
     </SuccessContainer>
   )
 }

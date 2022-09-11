@@ -17,6 +17,17 @@ export const SuccessContainer = styled.div`
     grid-template-columns: 1fr;
   }
 
+  img {
+    grid-row: 2;
+    max-width: 100%;
+
+    @media (max-width: 730px) {
+      grid-column: 1;
+      grid-row: 3;
+      margin-bottom: 11.375rem;
+    }
+  }
+
   > div {
     grid-column: 1;
 
