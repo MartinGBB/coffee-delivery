@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const SuccessContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: 1fr 2fr;
+  grid-template-rows: 1fr 3fr;
   row-gap: 2.25rem;
   column-gap: 2rem;
 
@@ -11,7 +11,10 @@ export const SuccessContainer = styled.div`
 
   @media (max-width: 1024px) {
     margin: 9rem 2rem 0 2rem;
-    gap: 0;
+  }
+
+  @media (max-width: 730px) {
+    grid-template-columns: 1fr;
   }
 
   > div {
@@ -65,7 +68,7 @@ export const InfoContainer = styled.div`
   }
 `
 
-export const DeliberyForecast = styled.div`
+export const DetailsOrder = styled.div`
   display: grid;
   grid-template-columns: 2rem 1fr;
   grid-template-rows: repeat(2, 1fr);
