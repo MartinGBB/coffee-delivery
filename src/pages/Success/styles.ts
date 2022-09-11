@@ -7,6 +7,7 @@ export const SuccessContainer = styled.div`
   grid-template-rows: 1fr 3fr;
   row-gap: 2.25rem;
   column-gap: 2rem;
+  align-items: center;
 
   margin: 11.375rem 10rem 11.375rem 10rem;
 
