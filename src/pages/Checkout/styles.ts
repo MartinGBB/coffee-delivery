@@ -5,11 +5,12 @@ export const CheckoutContainer = styled.div`
   display: grid;
   grid-template-columns: 2fr auto;
   grid-template-rows: auto auto;
-  gap: 0.75rem;
+  row-gap: 0.75rem;
   column-gap: 2rem;
 
   @media (max-width: 1024px) {
     margin: 9rem 2rem 0 2rem;
+    gap: 0;
   }
 `
 export const AddressContainer = styled.div`
