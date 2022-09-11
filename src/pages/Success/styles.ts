@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { ICONS_COLORS } from '../Home/styles'
 
 export const SuccessContainer = styled.div`
   display: grid;
@@ -80,21 +81,23 @@ export const InfoContainer = styled.div`
     margin-bottom: 0;
   }
 `
+interface IconsColors {
+  iconsColors: keyof typeof ICONS_COLORS
+}
 
-export const DetailsOrder = styled.div`
+export const DetailsOrder = styled.div<IconsColors>`
   display: grid;
   grid-template-columns: 2rem 1fr;
   grid-template-rows: repeat(2, 1fr);
   column-gap: 0.75rem;
   align-items: center;
-  line-height: 1;
 
   svg {
     grid-row: 1/3;
     grid-column: 1;
 
     color: ${({ theme }) => theme.white};
-    background: ${({ theme }) => theme.purple};
+    background: ${(props) => props.theme[ICONS_COLORS[props.iconsColors]]};
     border-radius: 50%;
     padding: 0.5rem;
   }

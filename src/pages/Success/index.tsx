@@ -10,19 +10,19 @@ export function Success() {
         <p>Agora é só aguardar que logo o café chegará até você</p>
       </div>
       <InfoContainer>
-        <DetailsOrder>
+        <DetailsOrder iconsColors="purple">
           <MapPin size={16} weight="fill" />
           <span>Rua João Daniel Martinelli, 102</span>
           <span>Farrapos - Porto Alegre, RS</span>
         </DetailsOrder>
 
-        <DetailsOrder>
+        <DetailsOrder iconsColors="yellowLight">
           <Timer size={16} weight="fill" />
           <span>Previsão de entrega</span>
           <span>20 min - 30 min</span>
         </DetailsOrder>
 
-        <DetailsOrder>
+        <DetailsOrder iconsColors="yellowDark">
           <CurrencyDollar size={16} weight="regular" />
           <span>Pagamento na entrega</span>
           <span>Cartão de Crédito</span>
