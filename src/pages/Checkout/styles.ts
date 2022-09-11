@@ -182,6 +182,10 @@ export const SelectPagament = styled.div`
     background: ${({ theme }) => theme['purple-light']};
   }
 
+  label:hover {
+    background: ${({ theme }) => theme['base-hover']};
+  }
+
   input[type='radio'] {
     display: none;
   }
