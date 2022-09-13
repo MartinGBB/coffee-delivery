@@ -78,7 +78,7 @@ export const DescriptionBanner = styled.div`
   }
 `
 
-const ICONS_COLORS = {
+export const ICONS_COLORS = {
   yellowDark: 'yellow-dark',
   yellowLight: 'yellow',
   black: 'base-text',

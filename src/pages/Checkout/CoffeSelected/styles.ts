@@ -74,7 +74,7 @@ export const ButtonsContainer = styled.div`
     border: none;
     padding: 0.5rem;
     background: ${({ theme }) => theme['base-button']};
-    border: 6px;
+    border-radius: 6px;
     color: ${({ theme }) => theme['base-text']};
     font-size: 0.75rem;
     display: flex;

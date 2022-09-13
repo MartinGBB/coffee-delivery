@@ -132,3 +132,22 @@ export const productsData = [
     image: irlandês,
   },
 ]
+
+export const productsOrder = [
+  {
+    id: uuid(),
+    type: ['ESPECIAL'],
+    name: 'Árabe',
+    price: '9,90',
+    description: 'Bebida preparada com grãos de café árabe e especiarias',
+    image: arabe,
+  },
+  {
+    id: uuid(),
+    type: ['ESPECIAL', 'ALCOÓLICO'],
+    name: 'Irlandês',
+    price: '9,90',
+    description: 'Bebida a base de café, uísque irlandês, açúcar e chantilly',
+    image: irlandês,
+  },
+]
