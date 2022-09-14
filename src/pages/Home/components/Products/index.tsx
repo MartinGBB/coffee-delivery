@@ -23,7 +23,16 @@ interface ProductsProps {
   products: ProductsData[]
 }
 
+let count = 1
 export function Products({ products }: ProductsProps) {
+  function quantityCoffee(event) {
+    if (event.target.parentElement.name) {
+      count += 1
+    } else if (event.target.parentElement.name) {
+      count -= 1
+    }
+    // console.log(event.target.parentElement.name)
+  }
   return (
     <CardContainer>
       {products.map((product: ProductsData) => {
@@ -47,11 +56,11 @@ export function Products({ products }: ProductsProps) {
 
               <div>
                 <ButtonsAddToCart>
-                  <button>
+                  <button onClick={quantityCoffee} name="sub">
                     <Minus size={14} weight="bold" />
                   </button>
-                  <span>1</span>
-                  <button>
+                  <span>{1}</span>
+                  <button onClick={quantityCoffee} name="add">
                     <Plus size={14} weight="bold" />
                   </button>
                 </ButtonsAddToCart>
