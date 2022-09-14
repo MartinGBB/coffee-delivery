@@ -160,7 +160,7 @@ export const SelectPagament = styled.div`
 
   label {
     user-select: none;
-
+    height: 1rem;
     padding: 1rem;
     width: 100%;
     border: none;
@@ -190,24 +190,6 @@ export const SelectPagament = styled.div`
   input[type='radio'] {
     display: none;
   }
-
-  /* > button {
-    padding: 1rem;
-    width: 100%;
-    border: none;
-    background: ${({ theme }) => theme['base-button']};
-    font-weight: 400;
-    font-size: 0.75rem;
-    color: ${({ theme }) => theme['base-text']};
-    display: flex;
-    align-items: center;
-    border-radius: 6px;
-
-    & svg {
-      margin-right: 0.75rem;
-      color: ${({ theme }) => theme.purple};
-    } */
-  //}
 
   @media (min-width: 1024px) and (max-width: 1200px) {
     flex-wrap: wrap;
