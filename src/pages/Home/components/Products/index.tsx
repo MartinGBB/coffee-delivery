@@ -1,4 +1,5 @@
 import { Minus, Plus, ShoppingCartSimple } from 'phosphor-react'
+import { useEffect, useState } from 'react'
 import uuid from 'react-uuid'
 import {
   ButtonsAddToCart,
@@ -23,16 +24,20 @@ interface ProductsProps {
   products: ProductsData[]
 }
 
-let count = 1
 export function Products({ products }: ProductsProps) {
+  const [countCoffee, setCountCoffee] = useState(1)
+
   function quantityCoffee(event) {
-    if (event.target.parentElement.name) {
-      count += 1
-    } else if (event.target.parentElement.name) {
-      count -= 1
+    if (event.target.parentElement.name === 'add') {
+      setCountCoffee((state) => (state += 1))
+    } else if (event.target.parentElement.name === 'sub') {
+      setCountCoffee((state) => (state -= 1))
     }
-    // console.log(event.target.parentElement.name)
+
+    if (countCoffee < 1) return setCountCoffee(1)
+    console.log(event.target.parentElement.name)
   }
+
   return (
     <CardContainer>
       {products.map((product: ProductsData) => {
@@ -59,7 +64,7 @@ export function Products({ products }: ProductsProps) {
                   <button onClick={quantityCoffee} name="sub">
                     <Minus size={14} weight="bold" />
                   </button>
-                  <span>{1}</span>
+                  <span>{countCoffee}</span>
                   <button onClick={quantityCoffee} name="add">
                     <Plus size={14} weight="bold" />
                   </button>
