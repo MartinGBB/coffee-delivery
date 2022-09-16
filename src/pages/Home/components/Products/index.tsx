@@ -1,5 +1,5 @@
 import { Minus, Plus, ShoppingCartSimple } from 'phosphor-react'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import uuid from 'react-uuid'
 import {
   ButtonsAddToCart,
@@ -27,15 +27,12 @@ interface ProductsProps {
 export function Products({ products }: ProductsProps) {
   const [countCoffee, setCountCoffee] = useState(1)
 
-  function quantityCoffee(event) {
-    if (event.target.parentElement.name === 'add') {
+  function quantityCoffee(quantity: string) {
+    if (quantity === 'add') {
       setCountCoffee((state) => (state += 1))
-    } else if (event.target.parentElement.name === 'sub') {
-      setCountCoffee((state) => (state -= 1))
+    } else if (quantity === 'sub') {
+      setCountCoffee((state) => (state === 1 ? 1 : (state -= 1)))
     }
-
-    if (countCoffee < 1) return setCountCoffee(1)
-    console.log(event.target.parentElement.name)
   }
 
   return (
@@ -59,20 +56,18 @@ export function Products({ products }: ProductsProps) {
                 <h1>{product.price}</h1>
               </PriceContainer>
 
-              <div>
-                <ButtonsAddToCart>
-                  <button onClick={quantityCoffee} name="sub">
-                    <Minus size={14} weight="bold" />
-                  </button>
-                  <span>{countCoffee}</span>
-                  <button onClick={quantityCoffee} name="add">
-                    <Plus size={14} weight="bold" />
-                  </button>
-                </ButtonsAddToCart>
-                <CartButton>
-                  <ShoppingCartSimple size={22} weight="fill" />
-                </CartButton>
-              </div>
+              <ButtonsAddToCart>
+                <button onClick={() => quantityCoffee('sub')} name="sub">
+                  <Minus size={14} weight="bold" />
+                </button>
+                <span>{countCoffee}</span>
+                <button onClick={() => quantityCoffee('add')} name="add">
+                  <Plus size={14} weight="bold" />
+                </button>
+              </ButtonsAddToCart>
+              <CartButton>
+                <ShoppingCartSimple size={22} weight="fill" />
+              </CartButton>
             </BuyContainer>
           </div>
         )
