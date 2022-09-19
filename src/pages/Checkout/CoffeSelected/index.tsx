@@ -1,8 +1,9 @@
-import { Minus, Plus, Trash } from 'phosphor-react'
+import { Trash } from 'phosphor-react'
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { QuantityItemsButtons } from '../../../components/QuantityItemsButtons/index.js'
 import { productsOrder } from '../../../utils/productsData'
 import { ProductsData } from '../../Home/components/Products'
-import { ButtonsAddToCart } from '../../Home/components/Products/styles'
 import {
   ButtonsContainer,
   CartEmpty,
@@ -13,6 +14,15 @@ import {
 } from './styles'
 
 export function CoffeeSelected() {
+  const [countCoffee, setCountCoffee] = useState(1)
+
+  function handleQuantity(quantity: string) {
+    if (quantity === 'add') {
+      setCountCoffee((state) => (state += 1))
+    } else if (quantity === 'sub') {
+      setCountCoffee((state) => (state === 1 ? 1 : (state -= 1)))
+    }
+  }
   const navigate = useNavigate()
 
   function confirmOrder() {
@@ -34,15 +44,10 @@ export function CoffeeSelected() {
                   <img src={productCart.image} alt={productCart.name} />
                   <p>{productCart.name}</p>
                   <ButtonsContainer>
-                    <ButtonsAddToCart>
-                      <button>
-                        <Minus size={14} weight="bold" />
-                      </button>
-                      <span>1</span>
-                      <button>
-                        <Plus size={14} weight="bold" />
-                      </button>
-                    </ButtonsAddToCart>
+                    <QuantityItemsButtons
+                      handleQuantity={handleQuantity}
+                      quantity={countCoffee}
+                    />
                     <button>
                       <Trash size={16} />
                       REMOVER

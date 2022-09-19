@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { ICONS_COLORS } from '../Home/styles'
+import { ICONS_COLORS } from '../Home/components/Banner/styles'
 
 export const SuccessContainer = styled.div`
   display: grid;
