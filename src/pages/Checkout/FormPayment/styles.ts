@@ -3,6 +3,7 @@ import styled from 'styled-components'
 export const AddressContainer = styled.div`
   grid-column: 1;
   grid-row: 1;
+  margin-bottom: 1rem;
 
   > h1 {
     font-weight: 700;
