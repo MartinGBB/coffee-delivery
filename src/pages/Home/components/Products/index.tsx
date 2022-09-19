@@ -1,9 +1,8 @@
-import { Minus, Plus, ShoppingCartSimple } from 'phosphor-react'
+import { ShoppingCartSimple } from 'phosphor-react'
 import { useState } from 'react'
 import uuid from 'react-uuid'
 import { QuantityItensButtons } from '../../../../components/QuantityItensButtons/index.js'
 import {
-  ButtonsAddToCart,
   BuyContainer,
   CardContainer,
   CartButton,
@@ -27,7 +26,6 @@ interface ProductsProps {
 
 export function Products({ products }: ProductsProps) {
   const [countCoffee, setCountCoffee] = useState(1)
-  // const [addCoffee, setAddCoffee] = useState('')
 
   function quantityCoffee(quantity: string) {
     if (quantity === 'add') {
@@ -57,22 +55,6 @@ export function Products({ products }: ProductsProps) {
                 <span>R$</span>
                 <h1>{product.price}</h1>
               </PriceContainer>
-
-              {/* <ButtonsAddToCart>
-                <button
-                  onClick={() => quantityCoffee(product.id, 'sub')}
-                  name="sub"
-                >
-                  <Minus size={14} weight="bold" />
-                </button>
-                <span>{countCoffee}</span>
-                <button
-                  onClick={() => quantityCoffee(product.id, 'add')}
-                  name="add"
-                >
-                  <Plus size={14} weight="bold" />
-                </button>
-              </ButtonsAddToCart> */}
               <QuantityItensButtons
                 quantityCoffee={quantityCoffee}
                 countCoffee={countCoffee}
