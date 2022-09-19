@@ -1,11 +1,45 @@
-import { createContext, ReactNode } from 'react'
+import { createContext, ReactNode, useEffect, useState } from 'react'
+import { productsData } from '../../utils/productsData'
 
-const CoffeeContext = createContext({})
+export interface ProductsData {
+  id: string | undefined
+  type: string[]
+  name: string | undefined
+  price: string | undefined
+  description: string | undefined
+  image: string | undefined
+}
+
+interface CoffeeContextType {
+  coffeeData: ProductsData[]
+  addCoffee: string[]
+  setAddCoffee: (coffeeAddCart: []) => void
+}
+
+const CoffeeContext = createContext({} as CoffeeContextType)
 
 interface CoffeeContextProviderProps {
   children: ReactNode
 }
 
 export function CoffeContextProvider({ children }: CoffeeContextProviderProps) {
-  return <CoffeeContext.Provider value={{}}>{children}</CoffeeContext.Provider>
+  const [coffeeData, setCoffeeData] = useState<ProductsData[]>([])
+  const [addCoffee, setAddCoffee] = useState([])
+
+  useEffect(() => {
+    setCoffeeData(productsData)
+  }, [coffeeData])
+
+  console.log(coffeeData)
+  return (
+    <CoffeeContext.Provider
+      value={{
+        coffeeData,
+        addCoffee,
+        setAddCoffee,
+      }}
+    >
+      {children}
+    </CoffeeContext.Provider>
+  )
 }

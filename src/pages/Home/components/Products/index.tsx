@@ -26,7 +26,7 @@ export interface ProductsProps {
 export function Products({ product }: ProductsProps) {
   const [countCoffee, setCountCoffee] = useState(1)
 
-  function addToProduct(coffeeId: string) {
+  function addToProduct(coffeeId: string | undefined) {
     console.log(coffeeId, '-', countCoffee)
     setCountCoffee(1)
   }
