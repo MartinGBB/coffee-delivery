@@ -26,6 +26,11 @@ export interface ProductsProps {
 export function Products({ product }: ProductsProps) {
   const [countCoffee, setCountCoffee] = useState(1)
 
+  function addToProduct(coffeeId: string) {
+    console.log(coffeeId, '-', countCoffee)
+    setCountCoffee(1)
+  }
+
   function handleQuantity(quantity: string) {
     if (quantity === 'add') {
       setCountCoffee((state) => (state += 1))
@@ -56,7 +61,7 @@ export function Products({ product }: ProductsProps) {
             handleQuantity={handleQuantity}
             quantity={countCoffee}
           />
-          <CartButton>
+          <CartButton onClick={() => addToProduct(product.id)}>
             <ShoppingCartSimple size={22} weight="fill" />
           </CartButton>
         </BuyContainer>
