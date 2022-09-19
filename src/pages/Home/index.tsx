@@ -10,7 +10,10 @@ export function Home() {
       <ProductContainer>
         <h1>Nossos cafés</h1>
         <div>
-          <Products products={productsData} />
+          {/* <Products products={productsData} /> */}
+          {productsData.map((product) => (
+            <Products key={product.id} product={product} />
+          ))}
         </div>
       </ProductContainer>
     </HomeContainer>

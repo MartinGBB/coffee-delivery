@@ -12,19 +12,20 @@ import {
 } from './styles'
 
 export interface ProductsData {
-  id: string | undefined
-  type: string[]
-  name: string | undefined
-  price: string | undefined
-  description: string | undefined
-  image: string | undefined
+  product: {
+    id: string | undefined
+    type: string[]
+    name: string | undefined
+    price: string | undefined
+    description: string | undefined
+    image: string | undefined
+  }
 }
 
-interface ProductsProps {
-  products: ProductsData[]
-}
-
-export function Products({ products }: ProductsProps) {
+// interface ProductsProps {
+//   products: ProductsData[]
+// }
+export function Products({ product }: ProductsData) {
   const [countCoffee, setCountCoffee] = useState(1)
 
   function handleQuantity(quantity: string) {
@@ -37,35 +38,31 @@ export function Products({ products }: ProductsProps) {
 
   return (
     <CardContainer>
-      {products.map((product: ProductsData) => {
-        return (
-          <div key={product.id}>
-            <img src={product.image} alt={product.name} />
-            <TypeCoffee>
-              {product.type.map((coffeType) => (
-                <span key={uuid()}>{coffeType}</span>
-              ))}
-            </TypeCoffee>
-            <DetailsCoffee>
-              <h1>{product.name}</h1>
-              <p>{product.description}</p>
-            </DetailsCoffee>
-            <BuyContainer>
-              <PriceContainer>
-                <span>R$</span>
-                <h1>{product.price}</h1>
-              </PriceContainer>
-              <QuantityItemsButtons
-                handleQuantity={handleQuantity}
-                quantity={countCoffee}
-              />
-              <CartButton>
-                <ShoppingCartSimple size={22} weight="fill" />
-              </CartButton>
-            </BuyContainer>
-          </div>
-        )
-      })}
+      <div>
+        <img src={product.image} alt={product.name} />
+        <TypeCoffee>
+          {product.type.map((coffeType) => (
+            <span key={uuid()}>{coffeType}</span>
+          ))}
+        </TypeCoffee>
+        <DetailsCoffee>
+          <h1>{product.name}</h1>
+          <p>{product.description}</p>
+        </DetailsCoffee>
+        <BuyContainer>
+          <PriceContainer>
+            <span>R$</span>
+            <h1>{product.price}</h1>
+          </PriceContainer>
+          <QuantityItemsButtons
+            handleQuantity={handleQuantity}
+            quantity={countCoffee}
+          />
+          <CartButton>
+            <ShoppingCartSimple size={22} weight="fill" />
+          </CartButton>
+        </BuyContainer>
+      </div>
     </CardContainer>
   )
 }
