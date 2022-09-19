@@ -16,7 +16,7 @@ interface CoffeeContextType {
   setAddCoffee: (coffeeAddCart: []) => void
 }
 
-const CoffeeContext = createContext({} as CoffeeContextType)
+export const CoffeeContext = createContext({} as CoffeeContextType)
 
 interface CoffeeContextProviderProps {
   children: ReactNode
@@ -30,7 +30,6 @@ export function CoffeContextProvider({ children }: CoffeeContextProviderProps) {
     setCoffeeData(productsData)
   }, [coffeeData])
 
-  console.log(coffeeData)
   return (
     <CoffeeContext.Provider
       value={{

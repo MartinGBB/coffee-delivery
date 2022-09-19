@@ -1,7 +1,11 @@
-import { ShoppingCartSimple } from 'phosphor-react'
 import { useState } from 'react'
+
+import { ShoppingCartSimple } from 'phosphor-react'
 import uuid from 'react-uuid'
-import { QuantityItemsButtons } from '../../../../components/QuantityItemsButtons/index.js.js'
+
+import { ProductsData } from '../../../../components/context/coffeeContext.js'
+import { QuantityItemsButtons } from '../../../../components/QuantityItemsButtons/index.js'
+
 import {
   BuyContainer,
   CardContainer,
@@ -11,18 +15,10 @@ import {
   TypeCoffee,
 } from './styles'
 
-export interface ProductsData {
-  id: string | undefined
-  type: string[]
-  name: string | undefined
-  price: string | undefined
-  description: string | undefined
-  image: string | undefined
-}
-
 export interface ProductsProps {
   product: ProductsData
 }
+
 export function Products({ product }: ProductsProps) {
   const [countCoffee, setCountCoffee] = useState(1)
 
