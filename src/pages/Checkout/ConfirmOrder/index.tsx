@@ -1,10 +1,10 @@
 import { Trash } from 'phosphor-react'
 import { useState } from 'react'
-import { QuantityItemsButtons } from '../../../components/QuantityItemsButtons/index.js'
+import { QuantityItemsButtons } from '../../../components/QuantityItemsButtons/index.js.js'
 import { ProductsProps } from '../../Home/components/Products'
 import { ButtonsContainer, Product, ProductContainer } from './styles'
 
-export function CoffeeSelected({ product }: ProductsProps) {
+export function ConfirmOrder({ product }: ProductsProps) {
   const [countCoffee, setCountCoffee] = useState(1)
 
   function handleQuantity(quantity: string) {

@@ -7,7 +7,7 @@ import {
 } from 'phosphor-react'
 import { useNavigate } from 'react-router-dom'
 import { productsOrder } from '../../utils/productsData'
-import { CoffeeSelected } from './CoffeSelected'
+import { ConfirmOrder } from './ConfirmOrder'
 import {
   AddressContainer,
   CheckoutContainer,
@@ -89,7 +89,7 @@ export function Checkout() {
         <h1>Cafés selecionados</h1>
         <SelectedContainer>
           {productsOrder.map((product) => (
-            <CoffeeSelected key={product.id} product={product} />
+            <ConfirmOrder key={product.id} product={product} />
           ))}
 
           <TotalContainer>
