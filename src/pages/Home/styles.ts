@@ -5,8 +5,20 @@ export const HomeContainer = styled.div`
 `
 
 export const ProductContainer = styled.div`
+  margin: auto 10rem;
+
   > div {
     margin-bottom: 9.81rem;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(16rem, 16rem));
+    column-gap: 2rem;
+    justify-content: space-between;
+    row-gap: 2.5rem;
+
+    @media (max-width: 532px) {
+      justify-content: center;
+    }
   }
 
   > h1 {
@@ -16,7 +28,6 @@ export const ProductContainer = styled.div`
     font-weight: 800;
     font-size: 2rem;
   }
-  margin: auto 10rem;
 
   @media (max-width: 1024px) {
     margin: auto 2rem;

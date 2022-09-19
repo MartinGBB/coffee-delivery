@@ -1,16 +1,6 @@
 import styled from 'styled-components'
 
 export const CardContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(16rem, 16rem));
-  column-gap: 2rem;
-  justify-content: space-between;
-  row-gap: 2.5rem;
-
-  @media (max-width: 532px) {
-    justify-content: center;
-  }
-
   div {
     background: ${({ theme }) => theme['base-card']};
     max-width: 16rem;
