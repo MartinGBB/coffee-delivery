@@ -12,20 +12,18 @@ import {
 } from './styles'
 
 export interface ProductsData {
-  product: {
-    id: string | undefined
-    type: string[]
-    name: string | undefined
-    price: string | undefined
-    description: string | undefined
-    image: string | undefined
-  }
+  id: string | undefined
+  type: string[]
+  name: string | undefined
+  price: string | undefined
+  description: string | undefined
+  image: string | undefined
 }
 
-// interface ProductsProps {
-//   products: ProductsData[]
-// }
-export function Products({ product }: ProductsData) {
+interface ProductsProps {
+  product: ProductsData
+}
+export function Products({ product }: ProductsProps) {
   const [countCoffee, setCountCoffee] = useState(1)
 
   function handleQuantity(quantity: string) {
