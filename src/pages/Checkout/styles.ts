@@ -215,3 +215,49 @@ export const ConfirmOrden = styled.div`
     color: ${({ theme }) => theme['base-subtitle']};
   }
 `
+
+export const SelectedContainer = styled.div`
+  background: ${({ theme }) => theme['base-card']};
+  display: flex;
+  flex-direction: column;
+  padding: 2.5rem;
+  border-radius: 6px 44px;
+  margin-bottom: 11.375rem;
+
+  > div:not(:nth-last-child(2)) {
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid ${({ theme }) => theme['base-button']};
+  }
+
+  > button {
+    padding: 0.75rem 0.5rem;
+    background: ${({ theme }) => theme.yellow};
+    border: none;
+    color: ${({ theme }) => theme.white};
+    line-height: 1.4rem;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+`
+
+export const TotalContainer = styled.div`
+  display: grid;
+  justify-content: space-between;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+
+  span:nth-child(2n),
+  h1:nth-child(2n) {
+    display: flex;
+    justify-content: end;
+    flex-direction: row;
+    gap: 0.1rem;
+  }
+
+  h1 {
+    color: ${({ theme }) => theme['base-subtitle']};
+    font-size: 1.25rem;
+  }
+`
