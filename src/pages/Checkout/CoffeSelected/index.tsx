@@ -1,8 +1,8 @@
 import { Minus, Plus, Trash } from 'phosphor-react'
 import { useNavigate } from 'react-router-dom'
+import { ButtonsAddToCart } from '../../../components/QuantityItensButtons/styles'
 import { productsOrder } from '../../../utils/productsData'
 import { ProductsData } from '../../Home/components/Products'
-import { ButtonsAddToCart } from '../../Home/components/Products/styles'
 import {
   ButtonsContainer,
   CartEmpty,
