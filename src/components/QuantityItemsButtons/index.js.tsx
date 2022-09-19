@@ -2,7 +2,7 @@ import { Minus, Plus } from 'phosphor-react'
 import { ButtonsAddToCart } from './styles'
 
 interface quantityItensProps {
-  quantity: string
+  quantity: number
   handleQuantity: (string: 'sub' | 'add') => void
 }
 
