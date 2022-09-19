@@ -5,7 +5,10 @@ import {
   MapPinLine,
   Money,
 } from 'phosphor-react'
+import { useNavigate } from 'react-router-dom'
+import { productsOrder } from '../../utils/productsData'
 import { CoffeeSelected } from './CoffeSelected'
+import { TotalContainer } from './CoffeSelected/styles'
 import {
   AddressContainer,
   CheckoutContainer,
@@ -16,6 +19,11 @@ import {
 } from './styles'
 
 export function Checkout() {
+  const navigate = useNavigate()
+
+  function confirmOrder() {
+    navigate('/success')
+  }
   return (
     <CheckoutContainer>
       <AddressContainer>
@@ -78,7 +86,25 @@ export function Checkout() {
 
       <ConfirmOrden>
         <h1>Cafés selecionados</h1>
-        <CoffeeSelected />
+        {productsOrder.map((product) => (
+          <CoffeeSelected key={product.id} product={product} />
+        ))}
+
+        <TotalContainer>
+          <span>Total de itens</span>
+          <span>
+            R$ <span>29,70</span>
+          </span>
+          <span>Entrega</span>
+          <span>
+            R$ <span>3,50</span>
+          </span>
+          <h1>Total</h1>
+          <h1>
+            R$ <span>33,20</span>
+          </h1>
+        </TotalContainer>
+        <button onClick={confirmOrder}>CONFIRMAR PEDIDO</button>
       </ConfirmOrden>
     </CheckoutContainer>
   )

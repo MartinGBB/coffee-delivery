@@ -24,15 +24,15 @@ export const SelectedContainer = styled.div`
   }
 `
 
-export const CartEmpty = styled.div`
-  margin: 1rem;
+// export const CartEmpty = styled.div`
+//   margin: 1rem;
 
-  h1 {
-    color: ${({ theme }) => theme['base-subtitle']};
-    font-size: 1.25rem;
-    padding: 1rem;
-  }
-`
+//   h1 {
+//     color: ${({ theme }) => theme['base-subtitle']};
+//     font-size: 1.25rem;
+//     padding: 1rem;
+//   }
+// `
 
 export const ProductContainer = styled.div`
   display: flex;

@@ -20,7 +20,7 @@ export interface ProductsData {
   image: string | undefined
 }
 
-interface ProductsProps {
+export interface ProductsProps {
   product: ProductsData
 }
 export function Products({ product }: ProductsProps) {
