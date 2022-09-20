@@ -1,29 +1,17 @@
 import styled from 'styled-components'
 
 export const CardContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(16rem, 16rem));
-  column-gap: 2rem;
-  justify-content: space-between;
-  row-gap: 2.5rem;
+  background: ${({ theme }) => theme['base-card']};
+  max-width: 16rem;
+  height: auto;
+  border-radius: 6px 36px;
+  text-align: center;
 
-  @media (max-width: 532px) {
-    justify-content: center;
-  }
-
-  div {
-    background: ${({ theme }) => theme['base-card']};
-    max-width: 16rem;
-    height: auto;
-    border-radius: 6px 36px;
-    text-align: center;
-
-    img {
-      position: relative;
-      left: calc(50% - 16rem / 2);
-      top: -20px;
-      bottom: 0;
-    }
+  div > img {
+    position: relative;
+    left: calc(50% - 16rem / 2);
+    top: -20px;
+    bottom: 0;
   }
 `
 export const TypeCoffee = styled.div`
