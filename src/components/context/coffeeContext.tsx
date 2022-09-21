@@ -10,10 +10,14 @@ export interface ProductsData {
   image: string | undefined
 }
 
+export interface CoffeeAdd extends ProductsData {
+  productQuantity: number
+}
+
 interface CoffeeContextType {
   coffeeData: ProductsData[]
-  addCoffee: string[]
-  setAddCoffee: (coffeeAddCart: []) => void
+  addCoffee: CoffeeAdd[]
+  setAddCoffee: (newState: CoffeeAdd[]) => void
 }
 
 export const CoffeeContext = createContext({} as CoffeeContextType)
@@ -24,7 +28,7 @@ interface CoffeeContextProviderProps {
 
 export function CoffeContextProvider({ children }: CoffeeContextProviderProps) {
   const [coffeeData, setCoffeeData] = useState<ProductsData[]>([])
-  const [addCoffee, setAddCoffee] = useState([])
+  const [addCoffee, setAddCoffee] = useState<CoffeeAdd[]>([])
 
   useEffect(() => {
     setCoffeeData(productsData)

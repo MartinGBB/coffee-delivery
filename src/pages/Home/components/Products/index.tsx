@@ -1,9 +1,13 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 
 import { ShoppingCartSimple } from 'phosphor-react'
 import uuid from 'react-uuid'
 
-import { ProductsData } from '../../../../components/context/coffeeContext.js'
+import {
+  CoffeeAdd,
+  CoffeeContext,
+  ProductsData,
+} from '../../../../components/context/coffeeContext.js'
 import { QuantityItemsButtons } from '../../../../components/QuantityItemsButtons/index.js'
 
 import {
@@ -20,18 +24,43 @@ export interface ProductsProps {
 }
 
 export function Products({ product }: ProductsProps) {
-  const [countCoffee, setCountCoffee] = useState(1)
+  const [productQuantity, setProductQuantity] = useState(1)
+  const { addCoffee, setAddCoffee } = useContext(CoffeeContext)
 
-  function addToProduct(coffeeId: string | undefined) {
-    console.log(coffeeId, '-', countCoffee)
-    setCountCoffee(1)
+  function remplaceQuantity(oldCoffee: number) {
+    const newState = Object.assign([{}], addCoffee)
+    newState[oldCoffee].productQuantity += productQuantity
+    setAddCoffee(newState)
+  }
+
+  function addNewProduct(coffee: CoffeeAdd) {
+    setAddCoffee([...addCoffee, coffee])
+  }
+
+  function validateNewProduct(newCoffee: CoffeeAdd) {
+    const productExist = addCoffee.findIndex(
+      (cartItem: any) => cartItem.id === newCoffee.id,
+    )
+
+    productExist >= 0
+      ? remplaceQuantity(productExist)
+      : addNewProduct(newCoffee)
+    setProductQuantity(1)
+  }
+
+  function newProduct() {
+    const newCoffee = {
+      ...product,
+      productQuantity,
+    }
+    validateNewProduct(newCoffee)
   }
 
   function handleQuantity(quantity: string) {
     if (quantity === 'add') {
-      setCountCoffee((state) => (state += 1))
+      setProductQuantity((state) => (state += 1))
     } else if (quantity === 'sub') {
-      setCountCoffee((state) => (state === 1 ? 1 : (state -= 1)))
+      setProductQuantity((state) => (state === 1 ? 1 : (state -= 1)))
     }
   }
 
@@ -55,9 +84,9 @@ export function Products({ product }: ProductsProps) {
           </PriceContainer>
           <QuantityItemsButtons
             handleQuantity={handleQuantity}
-            quantity={countCoffee}
+            quantity={productQuantity}
           />
-          <CartButton onClick={() => addToProduct(product.id)}>
+          <CartButton onClick={newProduct}>
             <ShoppingCartSimple size={22} weight="fill" />
           </CartButton>
         </BuyContainer>
