@@ -22,6 +22,7 @@ import {
 import {
   addNewProduct,
   remplaceQuantity,
+  validateNewProduct,
 } from '../../../../utils/addCoffeeToCart.js'
 import {
   getLocalStorageCoffee,
@@ -35,25 +36,8 @@ export interface ProductsProps {
 
 export function Products({ product }: ProductsProps) {
   const [productQuantity, setProductQuantity] = useState(1)
-  const {
-    // addCoffee,
-    // setAddCoffee,
-    totalQuantityCoffee,
-    setTotalQuantityCoffee,
-  } = useContext(CoffeeContext)
-
-  function validateNewProduct(newCoffee: CoffeeAdd, productQuantity: number) {
-    const productExist = getLocalStorageCoffee().findIndex(
-      (cartItem: any) => cartItem.name === newCoffee.name,
-    )
-
-    productExist >= 0
-      ? remplaceQuantity(productExist, productQuantity)
-      : addNewProduct(newCoffee)
-
-    setLocalStorageQuantityCoffee(totalQuantityCoffee + productQuantity)
-    setProductQuantity(1)
-  }
+  const { totalQuantityCoffee, setTotalQuantityCoffee } =
+    useContext(CoffeeContext)
 
   function newProduct() {
     const newCoffee = {
@@ -61,6 +45,10 @@ export function Products({ product }: ProductsProps) {
       productQuantity,
     }
     validateNewProduct(newCoffee, productQuantity)
+
+    setLocalStorageQuantityCoffee(totalQuantityCoffee + productQuantity)
+
+    setProductQuantity(1)
     const getTotalQuantity = getLocalStorageQuantityCoffee()
     setTotalQuantityCoffee(getTotalQuantity)
   }

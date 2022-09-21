@@ -1,8 +1,12 @@
 import { Trash } from 'phosphor-react'
 import { useState } from 'react'
+import { CoffeeAdd } from '../../../components/context/coffeeContext.js'
 import { QuantityItemsButtons } from '../../../components/QuantityItemsButtons/index.js.js'
-import { ProductsProps } from '../../Home/components/Products'
 import { ButtonsContainer, Product, ProductContainer } from './styles'
+
+export interface ProductsProps {
+  product: CoffeeAdd
+}
 
 export function ConfirmOrder({ product }: ProductsProps) {
   const [countCoffee, setCountCoffee] = useState(1)
@@ -25,7 +29,7 @@ export function ConfirmOrder({ product }: ProductsProps) {
             <ButtonsContainer>
               <QuantityItemsButtons
                 handleQuantity={handleQuantity}
-                quantity={countCoffee}
+                quantity={product.productQuantity}
               />
               <button>
                 <Trash size={16} />
