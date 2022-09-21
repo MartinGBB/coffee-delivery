@@ -15,19 +15,3 @@ export function addNewProduct(coffee: CoffeeAdd) {
   setLocalStorageCoffee([...getLocalStorageCoffee(), coffee])
   // setAddCoffee([...addCoffee, coffee])
 }
-
-// export function validateNewProduct(
-//   newCoffee: CoffeeAdd,
-//   productQuantity: number,
-// ) {
-//   const productExist = getLocalStorageCoffee().findIndex(
-//     (cartItem: any) => cartItem.id === newCoffee.id,
-//   )
-
-//   productExist >= 0
-//     ? remplaceQuantity(productExist, productQuantity)
-//     : addNewProduct(newCoffee)
-
-//   //   setLocalStorageQuantityCoffee(totalQuantityCoffee + productQuantity)
-//   //   setProductQuantity(1)
-// }

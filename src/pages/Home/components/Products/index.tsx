@@ -44,7 +44,7 @@ export function Products({ product }: ProductsProps) {
 
   function validateNewProduct(newCoffee: CoffeeAdd, productQuantity: number) {
     const productExist = getLocalStorageCoffee().findIndex(
-      (cartItem: any) => cartItem.id === newCoffee.id,
+      (cartItem: any) => cartItem.name === newCoffee.name,
     )
 
     productExist >= 0
