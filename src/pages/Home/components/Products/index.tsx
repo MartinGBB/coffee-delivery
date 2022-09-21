@@ -32,18 +32,73 @@ export function Products({ product }: ProductsProps) {
     setTotalQuantityCoffee,
   } = useContext(CoffeeContext)
 
+  // function remplaceQuantity(oldCoffee: number) {
+  //   const newState = Object.assign([{}], addCoffee)
+  //   newState[oldCoffee].productQuantity += productQuantity
+  //   setAddCoffee(newState)
+  // }
+
+  // function addNewProduct(coffee: CoffeeAdd) {
+  //   setAddCoffee([...addCoffee, coffee])
+  // }
+
+  // function validateNewProduct(newCoffee: CoffeeAdd) {
+  //   const productExist = addCoffee.findIndex(
+  //     (cartItem: any) => cartItem.id === newCoffee.id,
+  //   )
+
+  //   productExist >= 0
+  //     ? remplaceQuantity(productExist)
+  //     : addNewProduct(newCoffee)
+
+  //   setTotalQuantityCoffee(totalQuantityCoffee + productQuantity)
+  //   setProductQuantity(1)
+  // }
+
+  function setLocalStorageCoffee(newCoffee: CoffeeAdd[]) {
+    const stateJSON = JSON.stringify(newCoffee)
+    localStorage.setItem('@coffee-delibery:product-cart-1.0.0', stateJSON)
+  }
+
+  function getLocalStorageCoffee() {
+    const storeStateJSON = localStorage.getItem(
+      '@coffee-delibery:product-cart-1.0.0',
+    )
+    if (storeStateJSON) {
+      return JSON.parse(storeStateJSON)
+    }
+    return []
+  }
+
+  function setLocalStorageQuantityCoffee(quantity: number) {
+    const stateJSON = JSON.stringify(quantity)
+    localStorage.setItem(
+      '@coffee-delibery:product-cart-quantity-1.0.0',
+      stateJSON,
+    )
+  }
+
+  function getLocalStorageQuantityCoffee() {
+    const storeState = localStorage.getItem(
+      '@coffee-delibery:product-cart-quantity-1.0.0',
+    )
+    return storeState ? JSON.parse(storeState) : 0
+  }
+
   function remplaceQuantity(oldCoffee: number) {
-    const newState = Object.assign([{}], addCoffee)
+    const newState = Object.assign([{}], getLocalStorageCoffee())
     newState[oldCoffee].productQuantity += productQuantity
-    setAddCoffee(newState)
+    setLocalStorageCoffee(newState)
+    // setAddCoffee(newState)
   }
 
   function addNewProduct(coffee: CoffeeAdd) {
-    setAddCoffee([...addCoffee, coffee])
+    setLocalStorageCoffee([...getLocalStorageCoffee(), coffee])
+    // setAddCoffee([...addCoffee, coffee])
   }
 
   function validateNewProduct(newCoffee: CoffeeAdd) {
-    const productExist = addCoffee.findIndex(
+    const productExist = getLocalStorageCoffee().findIndex(
       (cartItem: any) => cartItem.id === newCoffee.id,
     )
 
@@ -51,9 +106,12 @@ export function Products({ product }: ProductsProps) {
       ? remplaceQuantity(productExist)
       : addNewProduct(newCoffee)
 
-    setTotalQuantityCoffee(totalQuantityCoffee + productQuantity)
+    setLocalStorageQuantityCoffee(totalQuantityCoffee + productQuantity)
     setProductQuantity(1)
   }
+
+  const getTotalQuantity = getLocalStorageQuantityCoffee()
+  setTotalQuantityCoffee(getTotalQuantity)
 
   function newProduct() {
     const newCoffee = {
