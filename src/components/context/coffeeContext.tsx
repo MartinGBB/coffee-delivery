@@ -18,6 +18,8 @@ interface CoffeeContextType {
   coffeeData: ProductsData[]
   addCoffee: CoffeeAdd[]
   setAddCoffee: (newState: CoffeeAdd[]) => void
+  totalQuantityCoffee: number
+  setTotalQuantityCoffee: (totalQuantity: number) => void
 }
 
 export const CoffeeContext = createContext({} as CoffeeContextType)
@@ -29,6 +31,7 @@ interface CoffeeContextProviderProps {
 export function CoffeContextProvider({ children }: CoffeeContextProviderProps) {
   const [coffeeData, setCoffeeData] = useState<ProductsData[]>([])
   const [addCoffee, setAddCoffee] = useState<CoffeeAdd[]>([])
+  const [totalQuantityCoffee, setTotalQuantityCoffee] = useState<number>(0)
 
   useEffect(() => {
     setCoffeeData(productsData)
@@ -40,6 +43,8 @@ export function CoffeContextProvider({ children }: CoffeeContextProviderProps) {
         coffeeData,
         addCoffee,
         setAddCoffee,
+        totalQuantityCoffee,
+        setTotalQuantityCoffee,
       }}
     >
       {children}

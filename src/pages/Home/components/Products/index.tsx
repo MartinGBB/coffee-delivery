@@ -25,7 +25,12 @@ export interface ProductsProps {
 
 export function Products({ product }: ProductsProps) {
   const [productQuantity, setProductQuantity] = useState(1)
-  const { addCoffee, setAddCoffee } = useContext(CoffeeContext)
+  const {
+    addCoffee,
+    setAddCoffee,
+    totalQuantityCoffee,
+    setTotalQuantityCoffee,
+  } = useContext(CoffeeContext)
 
   function remplaceQuantity(oldCoffee: number) {
     const newState = Object.assign([{}], addCoffee)
@@ -45,6 +50,8 @@ export function Products({ product }: ProductsProps) {
     productExist >= 0
       ? remplaceQuantity(productExist)
       : addNewProduct(newCoffee)
+
+    setTotalQuantityCoffee(totalQuantityCoffee + productQuantity)
     setProductQuantity(1)
   }
 
