@@ -33,6 +33,15 @@ export function CoffeContextProvider({ children }: CoffeeContextProviderProps) {
   const [addCoffee, setAddCoffee] = useState<CoffeeAdd[]>([])
   const [totalQuantityCoffee, setTotalQuantityCoffee] = useState<number>(0)
 
+  function setLocalStorageCoffee(newCoffee: CoffeeAdd[]) {
+    const stateJSON = JSON.stringify(newCoffee)
+    localStorage.setItem('@coffee-delibery:product-cart-1.0.0', stateJSON)
+  }
+
+  useEffect(() => {
+    setLocalStorageCoffee(addCoffee)
+  }, [addCoffee])
+
   useEffect(() => {
     setCoffeeData(productsData)
   }, [coffeeData])
