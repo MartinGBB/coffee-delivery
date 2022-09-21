@@ -26,34 +26,11 @@ export interface ProductsProps {
 export function Products({ product }: ProductsProps) {
   const [productQuantity, setProductQuantity] = useState(1)
   const {
-    addCoffee,
-    setAddCoffee,
+    // addCoffee,
+    // setAddCoffee,
     totalQuantityCoffee,
     setTotalQuantityCoffee,
   } = useContext(CoffeeContext)
-
-  // function remplaceQuantity(oldCoffee: number) {
-  //   const newState = Object.assign([{}], addCoffee)
-  //   newState[oldCoffee].productQuantity += productQuantity
-  //   setAddCoffee(newState)
-  // }
-
-  // function addNewProduct(coffee: CoffeeAdd) {
-  //   setAddCoffee([...addCoffee, coffee])
-  // }
-
-  // function validateNewProduct(newCoffee: CoffeeAdd) {
-  //   const productExist = addCoffee.findIndex(
-  //     (cartItem: any) => cartItem.id === newCoffee.id,
-  //   )
-
-  //   productExist >= 0
-  //     ? remplaceQuantity(productExist)
-  //     : addNewProduct(newCoffee)
-
-  //   setTotalQuantityCoffee(totalQuantityCoffee + productQuantity)
-  //   setProductQuantity(1)
-  // }
 
   function setLocalStorageCoffee(newCoffee: CoffeeAdd[]) {
     const stateJSON = JSON.stringify(newCoffee)
