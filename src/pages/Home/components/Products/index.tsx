@@ -41,10 +41,7 @@ export function Products({ product }: ProductsProps) {
     const storeStateJSON = localStorage.getItem(
       '@coffee-delibery:product-cart-1.0.0',
     )
-    if (storeStateJSON) {
-      return JSON.parse(storeStateJSON)
-    }
-    return []
+    return storeStateJSON ? JSON.parse(storeStateJSON) : []
   }
 
   function setLocalStorageQuantityCoffee(quantity: number) {
