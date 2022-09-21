@@ -4,12 +4,15 @@ import { ShoppingCartSimple } from 'phosphor-react'
 import uuid from 'react-uuid'
 
 import {
-  CoffeeAdd,
-  // CoffeeAdd,
   CoffeeContext,
   ProductsData,
 } from '../../../../components/context/coffeeContext.js'
 import { QuantityItemsButtons } from '../../../../components/QuantityItemsButtons/index.js'
+import { validateNewProduct } from '../../../../utils/addCoffeeToCart.js'
+import {
+  getLocalStorageQuantityCoffee,
+  setLocalStorageQuantityCoffee,
+} from '../../../../utils/localStorageConfig.js'
 
 import {
   BuyContainer,
@@ -19,16 +22,6 @@ import {
   PriceContainer,
   TypeCoffee,
 } from './styles'
-import {
-  addNewProduct,
-  remplaceQuantity,
-  validateNewProduct,
-} from '../../../../utils/addCoffeeToCart.js'
-import {
-  getLocalStorageCoffee,
-  getLocalStorageQuantityCoffee,
-  setLocalStorageQuantityCoffee,
-} from '../../../../utils/localStorageConfig.js'
 
 export interface ProductsProps {
   product: ProductsData

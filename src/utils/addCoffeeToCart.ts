@@ -14,7 +14,10 @@ function addNewProduct(coffee: CoffeeAdd) {
   setLocalStorageCoffee([...getLocalStorageCoffee(), coffee])
 }
 
-export function validateNewProduct(newCoffee: CoffeeAdd, productQuantity: number) {
+export function validateNewProduct(
+  newCoffee: CoffeeAdd,
+  productQuantity: number,
+) {
   const productExist = getLocalStorageCoffee().findIndex(
     (cartItem: any) => cartItem.name === newCoffee.name,
   )
