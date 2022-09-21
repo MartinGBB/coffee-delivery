@@ -5,16 +5,11 @@ import uuid from 'react-uuid'
 
 import {
   CoffeeAdd,
+  // CoffeeAdd,
   CoffeeContext,
   ProductsData,
 } from '../../../../components/context/coffeeContext.js'
 import { QuantityItemsButtons } from '../../../../components/QuantityItemsButtons/index.js'
-import {
-  getLocalStorageCoffee,
-  getLocalStorageQuantityCoffee,
-  setLocalStorageCoffee,
-  setLocalStorageQuantityCoffee,
-} from '../../../../utils/localStorageConfig'
 
 import {
   BuyContainer,
@@ -24,6 +19,15 @@ import {
   PriceContainer,
   TypeCoffee,
 } from './styles'
+import {
+  addNewProduct,
+  remplaceQuantity,
+} from '../../../../utils/addCoffeeToCart.js'
+import {
+  getLocalStorageCoffee,
+  getLocalStorageQuantityCoffee,
+  setLocalStorageQuantityCoffee,
+} from '../../../../utils/localStorageConfig.js'
 
 export interface ProductsProps {
   product: ProductsData
@@ -38,42 +42,27 @@ export function Products({ product }: ProductsProps) {
     setTotalQuantityCoffee,
   } = useContext(CoffeeContext)
 
-  const listCartOldStorage = getLocalStorageCoffee()
-
-  function remplaceQuantity(oldCoffee: number) {
-    const newState = Object.assign([{}], listCartOldStorage)
-    newState[oldCoffee].productQuantity += productQuantity
-    setLocalStorageCoffee(newState)
-    // setAddCoffee(newState)
-  }
-
-  function addNewProduct(coffee: CoffeeAdd) {
-    setLocalStorageCoffee([...listCartOldStorage, coffee])
-    // setAddCoffee([...addCoffee, coffee])
-  }
-
-  function validateNewProduct(newCoffee: CoffeeAdd) {
-    const productExist = listCartOldStorage.findIndex(
+  function validateNewProduct(newCoffee: CoffeeAdd, productQuantity: number) {
+    const productExist = getLocalStorageCoffee().findIndex(
       (cartItem: any) => cartItem.id === newCoffee.id,
     )
 
     productExist >= 0
-      ? remplaceQuantity(productExist)
+      ? remplaceQuantity(productExist, productQuantity)
       : addNewProduct(newCoffee)
 
     setLocalStorageQuantityCoffee(totalQuantityCoffee + productQuantity)
     setProductQuantity(1)
   }
 
-  const getTotalQuantityStorage = getLocalStorageQuantityCoffee()
-  setTotalQuantityCoffee(getTotalQuantityStorage)
-
   function newProduct() {
     const newCoffee = {
       ...product,
       productQuantity,
     }
-    validateNewProduct(newCoffee)
+    validateNewProduct(newCoffee, productQuantity)
+    const getTotalQuantity = getLocalStorageQuantityCoffee()
+    setTotalQuantityCoffee(getTotalQuantity)
   }
 
   function handleQuantity(quantity: string) {
