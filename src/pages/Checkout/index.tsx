@@ -1,5 +1,7 @@
+import { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { productsOrder } from '../../utils/productsData'
+import { CoffeeContext } from '../../components/context/coffeeContext'
+// import { productsOrder } from '../../utils/productsData'
 import { ConfirmOrder } from './ConfirmOrder'
 import { FormPayment } from './FormPayment'
 import {
@@ -10,6 +12,7 @@ import {
 } from './styles'
 
 export function Checkout() {
+  const { addCoffee } = useContext(CoffeeContext)
   const navigate = useNavigate()
 
   function confirmOrder() {
@@ -23,7 +26,7 @@ export function Checkout() {
       <ConfirmOrden>
         <h1>Cafés selecionados</h1>
         <SelectedContainer>
-          {productsOrder.map((product) => (
+          {addCoffee.map((product) => (
             <ConfirmOrder key={product.id} product={product} />
           ))}
 
