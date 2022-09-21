@@ -2,9 +2,13 @@ import { AddressContainer, HeaderContainer, ItemCart, NavInfo } from './styles'
 import logo from '../../assets/logo.svg'
 import { MapPin, ShoppingCartSimple } from 'phosphor-react'
 import { NavLink } from 'react-router-dom'
+import { useContext } from 'react'
+import { CoffeeContext } from '../context/coffeeContext'
 
 export function Header() {
-  const count = 2
+  const { totalQuantityCoffee } = useContext(CoffeeContext)
+
+  const count = totalQuantityCoffee
   const haveItem = !!count
 
   return (
