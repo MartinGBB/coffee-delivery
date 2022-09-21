@@ -9,6 +9,12 @@ import {
   ProductsData,
 } from '../../../../components/context/coffeeContext.js'
 import { QuantityItemsButtons } from '../../../../components/QuantityItemsButtons/index.js'
+import {
+  getLocalStorageCoffee,
+  getLocalStorageQuantityCoffee,
+  setLocalStorageCoffee,
+  setLocalStorageQuantityCoffee,
+} from '../../../../utils/localStorageConfig'
 
 import {
   BuyContainer,
@@ -32,47 +38,22 @@ export function Products({ product }: ProductsProps) {
     setTotalQuantityCoffee,
   } = useContext(CoffeeContext)
 
-  function setLocalStorageCoffee(newCoffee: CoffeeAdd[]) {
-    const stateJSON = JSON.stringify(newCoffee)
-    localStorage.setItem('@coffee-delibery:product-cart-1.0.0', stateJSON)
-  }
-
-  function getLocalStorageCoffee() {
-    const storeStateJSON = localStorage.getItem(
-      '@coffee-delibery:product-cart-1.0.0',
-    )
-    return storeStateJSON ? JSON.parse(storeStateJSON) : []
-  }
-
-  function setLocalStorageQuantityCoffee(quantity: number) {
-    const stateJSON = JSON.stringify(quantity)
-    localStorage.setItem(
-      '@coffee-delibery:product-cart-quantity-1.0.0',
-      stateJSON,
-    )
-  }
-
-  function getLocalStorageQuantityCoffee() {
-    const storeState = localStorage.getItem(
-      '@coffee-delibery:product-cart-quantity-1.0.0',
-    )
-    return storeState ? JSON.parse(storeState) : 0
-  }
+  const listCartOldStorage = getLocalStorageCoffee()
 
   function remplaceQuantity(oldCoffee: number) {
-    const newState = Object.assign([{}], getLocalStorageCoffee())
+    const newState = Object.assign([{}], listCartOldStorage)
     newState[oldCoffee].productQuantity += productQuantity
     setLocalStorageCoffee(newState)
     // setAddCoffee(newState)
   }
 
   function addNewProduct(coffee: CoffeeAdd) {
-    setLocalStorageCoffee([...getLocalStorageCoffee(), coffee])
+    setLocalStorageCoffee([...listCartOldStorage, coffee])
     // setAddCoffee([...addCoffee, coffee])
   }
 
   function validateNewProduct(newCoffee: CoffeeAdd) {
-    const productExist = getLocalStorageCoffee().findIndex(
+    const productExist = listCartOldStorage.findIndex(
       (cartItem: any) => cartItem.id === newCoffee.id,
     )
 
@@ -84,8 +65,8 @@ export function Products({ product }: ProductsProps) {
     setProductQuantity(1)
   }
 
-  const getTotalQuantity = getLocalStorageQuantityCoffee()
-  setTotalQuantityCoffee(getTotalQuantity)
+  const getTotalQuantityStorage = getLocalStorageQuantityCoffee()
+  setTotalQuantityCoffee(getTotalQuantityStorage)
 
   function newProduct() {
     const newCoffee = {
