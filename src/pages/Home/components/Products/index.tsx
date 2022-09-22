@@ -4,11 +4,15 @@ import { ShoppingCartSimple } from 'phosphor-react'
 import uuid from 'react-uuid'
 
 import {
-  CoffeeAdd,
   CoffeeContext,
   ProductsData,
 } from '../../../../components/context/coffeeContext.js'
 import { QuantityItemsButtons } from '../../../../components/QuantityItemsButtons/index.js'
+import { validateNewProduct } from '../../../../utils/addCoffeeToCart.js'
+import {
+  getLocalStorageQuantityCoffee,
+  setLocalStorageQuantityCoffee,
+} from '../../../../utils/localStorageConfig.js'
 
 import {
   BuyContainer,
@@ -25,42 +29,21 @@ export interface ProductsProps {
 
 export function Products({ product }: ProductsProps) {
   const [productQuantity, setProductQuantity] = useState(1)
-  const {
-    addCoffee,
-    setAddCoffee,
-    totalQuantityCoffee,
-    setTotalQuantityCoffee,
-  } = useContext(CoffeeContext)
-
-  function remplaceQuantity(oldCoffee: number) {
-    const newState = Object.assign([{}], addCoffee)
-    newState[oldCoffee].productQuantity += productQuantity
-    setAddCoffee(newState)
-  }
-
-  function addNewProduct(coffee: CoffeeAdd) {
-    setAddCoffee([...addCoffee, coffee])
-  }
-
-  function validateNewProduct(newCoffee: CoffeeAdd) {
-    const productExist = addCoffee.findIndex(
-      (cartItem: any) => cartItem.id === newCoffee.id,
-    )
-
-    productExist >= 0
-      ? remplaceQuantity(productExist)
-      : addNewProduct(newCoffee)
-
-    setTotalQuantityCoffee(totalQuantityCoffee + productQuantity)
-    setProductQuantity(1)
-  }
+  const { totalQuantityCoffee, setTotalQuantityCoffee } =
+    useContext(CoffeeContext)
 
   function newProduct() {
     const newCoffee = {
       ...product,
       productQuantity,
     }
-    validateNewProduct(newCoffee)
+    validateNewProduct(newCoffee, productQuantity)
+
+    setLocalStorageQuantityCoffee(totalQuantityCoffee + productQuantity)
+
+    setProductQuantity(1)
+    const getTotalQuantity = getLocalStorageQuantityCoffee()
+    setTotalQuantityCoffee(getTotalQuantity)
   }
 
   function handleQuantity(quantity: string) {
