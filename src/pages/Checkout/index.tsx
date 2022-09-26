@@ -1,9 +1,19 @@
 import { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { CoffeeContext } from '../../components/context/coffeeContext'
-// import { productsOrder } from '../../utils/productsData'
+import {
+  CoffeeContext,
+  CoffeeAdd,
+  ProductsData,
+} from '../../components/context/coffeeContext'
+import {
+  getLocalStorageCoffee,
+  getLocalStorageQuantityCoffee,
+  setLocalStorageCoffee,
+} from '../../utils/localStorageConfig'
+import { alterTotalQuantityStorage } from '../../utils/quantityConfig'
 import { ConfirmOrder } from './ConfirmOrder'
 import { FormPayment } from './FormPayment'
+
 import {
   CheckoutContainer,
   ConfirmOrden,
@@ -12,11 +22,53 @@ import {
 } from './styles'
 
 export function Checkout() {
-  const { addCoffee } = useContext(CoffeeContext)
+  const { addCoffee, totalQuantityCoffee, setTotalQuantityCoffee } =
+    useContext(CoffeeContext)
   const navigate = useNavigate()
 
   function confirmOrder() {
     navigate('/success')
+  }
+
+  function updateTotalQuantity() {
+    const getTotalQuantity = getLocalStorageQuantityCoffee()
+    setTotalQuantityCoffee(getTotalQuantity)
+  }
+
+  function updateProductCart(
+    updateState: CoffeeAdd[],
+    newQuantity: number,
+    operation: string,
+  ) {
+    setLocalStorageCoffee(updateState)
+    alterTotalQuantityStorage(totalQuantityCoffee, newQuantity, operation)
+    updateTotalQuantity()
+  }
+
+  function updateQuantityProduct(
+    newQuantity: number,
+    productName: string | undefined,
+    operation: string,
+  ) {
+    const productExist = addCoffee.findIndex(
+      (cartItem: any) => cartItem.name === productName,
+    )
+    const newState = Object.assign([{}], getLocalStorageCoffee())
+
+    if (operation === 'add') {
+      newState[productExist].productQuantity += newQuantity
+      updateProductCart(newState, newQuantity, operation)
+    } else if (operation === 'sub') {
+      newState[productExist].productQuantity -= newQuantity
+      updateProductCart(newState, newQuantity, operation)
+    }
+  }
+
+  function deleteProduct(product: ProductsData) {
+    const selectCoffee = addCoffee.filter(
+      (oldListCoffee) => oldListCoffee.name !== product.name,
+    )
+    setLocalStorageCoffee(selectCoffee)
   }
 
   return (
@@ -27,7 +79,12 @@ export function Checkout() {
         <h1>Cafés selecionados</h1>
         <SelectedContainer>
           {addCoffee.map((product) => (
-            <ConfirmOrder key={product.id} product={product} />
+            <ConfirmOrder
+              key={product.id}
+              product={product}
+              updateQuantityProduct={updateQuantityProduct}
+              deleteProduct={deleteProduct}
+            />
           ))}
 
           <TotalContainer>
