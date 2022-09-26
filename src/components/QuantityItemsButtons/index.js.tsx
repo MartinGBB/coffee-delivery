@@ -10,9 +10,11 @@ export function QuantityItemsButtons({
   handleQuantity,
   quantity,
 }: quantityItensProps) {
+  const isDisabled = quantity <= 1
+
   return (
     <ButtonsAddToCart>
-      <button onClick={() => handleQuantity('sub')}>
+      <button disabled={isDisabled} onClick={() => handleQuantity('sub')}>
         <Minus size={14} weight="bold" />
       </button>
       <span>{quantity}</span>
