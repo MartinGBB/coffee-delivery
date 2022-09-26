@@ -1,6 +1,9 @@
 import { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { CoffeeContext } from '../../components/context/coffeeContext'
+import {
+  CoffeeContext,
+  CoffeeAdd,
+} from '../../components/context/coffeeContext'
 import {
   getLocalStorageCoffee,
   getLocalStorageQuantityCoffee,
@@ -9,6 +12,7 @@ import {
 import { alterTotalQuantityStorage } from '../../utils/quantityConfig'
 import { ConfirmOrder } from './ConfirmOrder'
 import { FormPayment } from './FormPayment'
+
 import {
   CheckoutContainer,
   ConfirmOrden,
@@ -30,6 +34,16 @@ export function Checkout() {
     setTotalQuantityCoffee(getTotalQuantity)
   }
 
+  function updateProductCart(
+    updateState: CoffeeAdd[],
+    newQuantity: number,
+    operation: string,
+  ) {
+    setLocalStorageCoffee(updateState)
+    alterTotalQuantityStorage(totalQuantityCoffee, newQuantity, operation)
+    updateTotalQuantity()
+  }
+
   function updateQuantityProduct(
     newQuantity: number,
     productName: string | undefined,
@@ -42,14 +56,10 @@ export function Checkout() {
 
     if (operation === 'add') {
       newState[productExist].productQuantity += newQuantity
-      setLocalStorageCoffee(newState)
-      alterTotalQuantityStorage(totalQuantityCoffee, newQuantity, operation)
-      updateTotalQuantity()
+      updateProductCart(newState, newQuantity, operation)
     } else if (operation === 'sub') {
       newState[productExist].productQuantity -= newQuantity
-      setLocalStorageCoffee(newState)
-      alterTotalQuantityStorage(totalQuantityCoffee, newQuantity, operation)
-      updateTotalQuantity()
+      updateProductCart(newState, newQuantity, operation)
     }
   }
 
