@@ -5,8 +5,8 @@ import {
   getLocalStorageCoffee,
   getLocalStorageQuantityCoffee,
   setLocalStorageCoffee,
-  setLocalStorageQuantityCoffee,
 } from '../../utils/localStorageConfig'
+import { alterTotalQuantityStorage } from '../../utils/quantityConfig'
 import { ConfirmOrder } from './ConfirmOrder'
 import { FormPayment } from './FormPayment'
 import {
@@ -17,7 +17,6 @@ import {
 } from './styles'
 
 export function Checkout() {
-  // const [newQuantity, setNewQuantity] = useState(1)
   const { addCoffee, totalQuantityCoffee, setTotalQuantityCoffee } =
     useContext(CoffeeContext)
   const navigate = useNavigate()
@@ -26,37 +25,33 @@ export function Checkout() {
     navigate('/success')
   }
 
-  function moreCoffee(newQuantity: number, productName: string | undefined) {
-    const productExist = addCoffee.findIndex(
-      (cartItem: any) => cartItem.name === productName,
-    )
-    const newState = Object.assign([{}], getLocalStorageCoffee())
-    newState[productExist].productQuantity += newQuantity
-
-    setLocalStorageCoffee(newState)
-
-    setLocalStorageQuantityCoffee(totalQuantityCoffee + newQuantity)
+  function updateTotalQuantity() {
     const getTotalQuantity = getLocalStorageQuantityCoffee()
     setTotalQuantityCoffee(getTotalQuantity)
   }
 
-  function minusCoffee(newQuantity: number, productName: string | undefined) {
+  function updateQuantityProduct(
+    newQuantity: number,
+    productName: string | undefined,
+    operation: string,
+  ) {
     const productExist = addCoffee.findIndex(
       (cartItem: any) => cartItem.name === productName,
     )
     const newState = Object.assign([{}], getLocalStorageCoffee())
-    newState[productExist].productQuantity -= newQuantity
 
-    setLocalStorageCoffee(newState)
-
-    setLocalStorageQuantityCoffee(totalQuantityCoffee - newQuantity)
-    const getTotalQuantity = getLocalStorageQuantityCoffee()
-    setTotalQuantityCoffee(getTotalQuantity)
+    if (operation === 'add') {
+      newState[productExist].productQuantity += newQuantity
+      setLocalStorageCoffee(newState)
+      alterTotalQuantityStorage(totalQuantityCoffee, newQuantity, operation)
+      updateTotalQuantity()
+    } else if (operation === 'sub') {
+      newState[productExist].productQuantity -= newQuantity
+      setLocalStorageCoffee(newState)
+      alterTotalQuantityStorage(totalQuantityCoffee, newQuantity, operation)
+      updateTotalQuantity()
+    }
   }
-
-  // useEffect(() => {
-
-  // }, [addCoffee])
 
   return (
     <CheckoutContainer>
@@ -69,8 +64,7 @@ export function Checkout() {
             <ConfirmOrder
               key={product.id}
               product={product}
-              moreCoffee={moreCoffee}
-              minusCoffee={minusCoffee}
+              updateQuantityProduct={updateQuantityProduct}
             />
           ))}
 

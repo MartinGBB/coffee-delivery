@@ -6,24 +6,26 @@ import { ButtonsContainer, Product, ProductContainer } from './styles'
 
 export interface ProductsProps {
   product: CoffeeAdd
-  moreCoffee: (quantity: number, name: string | undefined) => void
-  minusCoffee: (quantity: number, name: string | undefined) => void
+  updateQuantityProduct: (
+    quantity: number,
+    name: string | undefined,
+    operator: string,
+  ) => void
 }
 
 export function ConfirmOrder({
   product,
-  moreCoffee,
-  minusCoffee,
+  updateQuantityProduct,
 }: ProductsProps) {
   const [countCoffee, setCountCoffee] = useState(1)
 
   function handleQuantity(quantity: string) {
     if (quantity === 'add') {
       setCountCoffee((state) => (state += 1))
-      moreCoffee(countCoffee, product.name)
+      updateQuantityProduct(countCoffee, product.name, quantity)
     } else if (quantity === 'sub') {
       setCountCoffee((state) => (state === 1 ? 1 : (state -= 1)))
-      minusCoffee(countCoffee, product.name)
+      updateQuantityProduct(countCoffee, product.name, quantity)
     }
   }
 
