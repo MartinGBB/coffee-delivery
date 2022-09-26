@@ -4,7 +4,7 @@ import {
   setLocalStorageCoffee,
 } from './localStorageConfig'
 
-function remplaceQuantity(oldCoffee: number, quantity: number) {
+export function remplaceQuantity(oldCoffee: number, quantity: number) {
   const newState = Object.assign([{}], getLocalStorageCoffee())
   newState[oldCoffee].productQuantity += quantity
   setLocalStorageCoffee(newState)

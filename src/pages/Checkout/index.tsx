@@ -1,7 +1,12 @@
 import { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { CoffeeContext } from '../../components/context/coffeeContext'
-// import { productsOrder } from '../../utils/productsData'
+import {
+  getLocalStorageCoffee,
+  getLocalStorageQuantityCoffee,
+  setLocalStorageCoffee,
+  setLocalStorageQuantityCoffee,
+} from '../../utils/localStorageConfig'
 import { ConfirmOrder } from './ConfirmOrder'
 import { FormPayment } from './FormPayment'
 import {
@@ -12,12 +17,46 @@ import {
 } from './styles'
 
 export function Checkout() {
-  const { addCoffee } = useContext(CoffeeContext)
+  // const [newQuantity, setNewQuantity] = useState(1)
+  const { addCoffee, totalQuantityCoffee, setTotalQuantityCoffee } =
+    useContext(CoffeeContext)
   const navigate = useNavigate()
 
   function confirmOrder() {
     navigate('/success')
   }
+
+  function moreCoffee(newQuantity: number, productName: string | undefined) {
+    const productExist = addCoffee.findIndex(
+      (cartItem: any) => cartItem.name === productName,
+    )
+    const newState = Object.assign([{}], getLocalStorageCoffee())
+    newState[productExist].productQuantity += newQuantity
+
+    setLocalStorageCoffee(newState)
+
+    setLocalStorageQuantityCoffee(totalQuantityCoffee + newQuantity)
+    const getTotalQuantity = getLocalStorageQuantityCoffee()
+    setTotalQuantityCoffee(getTotalQuantity)
+  }
+
+  function minusCoffee(newQuantity: number, productName: string | undefined) {
+    const productExist = addCoffee.findIndex(
+      (cartItem: any) => cartItem.name === productName,
+    )
+    const newState = Object.assign([{}], getLocalStorageCoffee())
+    newState[productExist].productQuantity -= newQuantity
+
+    setLocalStorageCoffee(newState)
+
+    setLocalStorageQuantityCoffee(totalQuantityCoffee - newQuantity)
+    const getTotalQuantity = getLocalStorageQuantityCoffee()
+    setTotalQuantityCoffee(getTotalQuantity)
+  }
+
+  // useEffect(() => {
+
+  // }, [addCoffee])
 
   return (
     <CheckoutContainer>
@@ -27,7 +66,12 @@ export function Checkout() {
         <h1>Cafés selecionados</h1>
         <SelectedContainer>
           {addCoffee.map((product) => (
-            <ConfirmOrder key={product.id} product={product} />
+            <ConfirmOrder
+              key={product.id}
+              product={product}
+              moreCoffee={moreCoffee}
+              minusCoffee={minusCoffee}
+            />
           ))}
 
           <TotalContainer>
