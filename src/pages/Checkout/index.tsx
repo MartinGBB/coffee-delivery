@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import {
   CoffeeContext,
   CoffeeAdd,
+  ProductsData,
 } from '../../components/context/coffeeContext'
 import {
   getLocalStorageCoffee,
@@ -63,6 +64,13 @@ export function Checkout() {
     }
   }
 
+  function deleteProduct(product: ProductsData) {
+    const selectCoffee = addCoffee.filter(
+      (oldListCoffee) => oldListCoffee.name !== product.name,
+    )
+    setLocalStorageCoffee(selectCoffee)
+  }
+
   return (
     <CheckoutContainer>
       <FormPayment />
@@ -75,6 +83,7 @@ export function Checkout() {
               key={product.id}
               product={product}
               updateQuantityProduct={updateQuantityProduct}
+              deleteProduct={deleteProduct}
             />
           ))}
 

@@ -1,6 +1,9 @@
 import { Trash } from 'phosphor-react'
 import { useEffect, useState } from 'react'
-import { CoffeeAdd } from '../../../components/context/coffeeContext.js'
+import {
+  CoffeeAdd,
+  ProductsData,
+} from '../../../components/context/coffeeContext.js'
 import { QuantityItemsButtons } from '../../../components/QuantityItemsButtons/index.js.js'
 import { ButtonsContainer, Product, ProductContainer } from './styles'
 
@@ -11,11 +14,13 @@ export interface ProductsProps {
     name: string | undefined,
     operator: string,
   ) => void
+  deleteProduct: (product: ProductsData) => void
 }
 
 export function ConfirmOrder({
   product,
   updateQuantityProduct,
+  deleteProduct,
 }: ProductsProps) {
   const [countCoffee, setCountCoffee] = useState(1)
 
@@ -27,6 +32,10 @@ export function ConfirmOrder({
       setCountCoffee((state) => (state === 1 ? 1 : (state -= 1)))
       updateQuantityProduct(countCoffee, product.name, quantity)
     }
+  }
+
+  function handleDelete() {
+    deleteProduct(product)
   }
 
   useEffect(() => {
@@ -45,7 +54,7 @@ export function ConfirmOrder({
                 handleQuantity={handleQuantity}
                 quantity={product.productQuantity}
               />
-              <button>
+              <button onClick={handleDelete}>
                 <Trash size={16} />
                 REMOVER
               </button>
