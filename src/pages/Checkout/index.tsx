@@ -10,7 +10,7 @@ import {
   getLocalStorageQuantityCoffee,
   setLocalStorageCoffee,
 } from '../../utils/localStorageConfig'
-import { alterTotalQuantityStorage } from '../../utils/quantityConfig'
+import { totalQuantityProducts } from '../../utils/quantityConfig'
 import { ConfirmOrder } from './ConfirmOrder'
 import { FormPayment } from './FormPayment'
 
@@ -22,8 +22,7 @@ import {
 } from './styles'
 
 export function Checkout() {
-  const { addCoffee, totalQuantityCoffee, setTotalQuantityCoffee } =
-    useContext(CoffeeContext)
+  const { addCoffee, setTotalQuantityCoffee } = useContext(CoffeeContext)
   const navigate = useNavigate()
 
   function confirmOrder() {
@@ -31,17 +30,14 @@ export function Checkout() {
   }
 
   function updateTotalQuantity() {
+    totalQuantityProducts()
     const getTotalQuantity = getLocalStorageQuantityCoffee()
     setTotalQuantityCoffee(getTotalQuantity)
   }
 
-  function updateProductCart(
-    updateState: CoffeeAdd[],
-    newQuantity: number,
-    operation: string,
-  ) {
+  function updateProductCart(updateState: CoffeeAdd[]) {
     setLocalStorageCoffee(updateState)
-    alterTotalQuantityStorage(totalQuantityCoffee, newQuantity, operation)
+
     updateTotalQuantity()
   }
 
@@ -57,10 +53,10 @@ export function Checkout() {
 
     if (operation === 'add') {
       newState[productExist].productQuantity += newQuantity
-      updateProductCart(newState, newQuantity, operation)
+      updateProductCart(newState)
     } else if (operation === 'sub') {
       newState[productExist].productQuantity -= newQuantity
-      updateProductCart(newState, newQuantity, operation)
+      updateProductCart(newState)
     }
   }
 
@@ -69,6 +65,7 @@ export function Checkout() {
       (oldListCoffee) => oldListCoffee.name !== product.name,
     )
     setLocalStorageCoffee(selectCoffee)
+    updateTotalQuantity()
   }
 
   return (
