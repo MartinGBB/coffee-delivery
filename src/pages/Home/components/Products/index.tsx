@@ -9,10 +9,8 @@ import {
 } from '../../../../components/context/coffeeContext.js'
 import { QuantityItemsButtons } from '../../../../components/QuantityItemsButtons/index.js'
 import { validateNewProduct } from '../../../../utils/addCoffeeToCart.js'
-import {
-  getLocalStorageQuantityCoffee,
-  setLocalStorageQuantityCoffee,
-} from '../../../../utils/localStorageConfig.js'
+import { getLocalStorageQuantityCoffee } from '../../../../utils/localStorageConfig.js'
+import { totalQuantityProducts } from '../../../../utils/quantityConfig.js'
 
 import {
   BuyContainer,
@@ -29,8 +27,13 @@ export interface ProductsProps {
 
 export function Products({ product }: ProductsProps) {
   const [productQuantity, setProductQuantity] = useState(1)
-  const { totalQuantityCoffee, setTotalQuantityCoffee } =
-    useContext(CoffeeContext)
+  const { setTotalQuantityCoffee } = useContext(CoffeeContext)
+
+  function updateTotalQuantity() {
+    totalQuantityProducts()
+    const getTotalQuantity = getLocalStorageQuantityCoffee()
+    setTotalQuantityCoffee(getTotalQuantity)
+  }
 
   function newProduct() {
     const newCoffee = {
@@ -39,11 +42,8 @@ export function Products({ product }: ProductsProps) {
     }
     validateNewProduct(newCoffee, productQuantity)
 
-    setLocalStorageQuantityCoffee(totalQuantityCoffee + productQuantity)
-
     setProductQuantity(1)
-    const getTotalQuantity = getLocalStorageQuantityCoffee()
-    setTotalQuantityCoffee(getTotalQuantity)
+    updateTotalQuantity()
   }
 
   function handleQuantity(quantity: string) {
