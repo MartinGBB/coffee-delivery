@@ -32,3 +32,11 @@ export function priceProduct() {
   const getPoducts = getLocalStorageCoffee()
   return getPriceAndQuantity(getPoducts)
 }
+
+export function totalPriceCart(totalPriceProducts: string) {
+  const DELIVERY = '3,50'
+  const priceDelibery = convertStringToNumber(DELIVERY)
+  const priceItems = convertStringToNumber(totalPriceProducts)
+  const total = formatTotalPrice(priceDelibery + priceItems)
+  return total
+}

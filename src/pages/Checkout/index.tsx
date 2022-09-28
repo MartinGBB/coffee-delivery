@@ -10,7 +10,7 @@ import {
   getLocalStorageQuantityCoffee,
   setLocalStorageCoffee,
 } from '../../utils/localStorageConfig'
-import { priceProduct } from '../../utils/priceProductConfig'
+import { priceProduct, totalPriceCart } from '../../utils/priceProductConfig'
 import { totalQuantityProducts } from '../../utils/quantityConfig'
 import { ConfirmOrder } from './ConfirmOrder'
 import { FormPayment } from './FormPayment'
@@ -23,6 +23,7 @@ import {
 } from './styles'
 
 export function Checkout() {
+  const [itemsTotalPrice, setItemsTotalPrice] = useState('0,00')
   const [totalPrice, setTotalPrice] = useState('0,00')
   const { addCoffee, setTotalQuantityCoffee } = useContext(CoffeeContext)
   const navigate = useNavigate()
@@ -70,10 +71,20 @@ export function Checkout() {
     updateTotalQuantity()
   }
 
-  useEffect(() => {
+  function handleItemsPrice() {
     const priceTotalItens = priceProduct()
-    setTotalPrice(priceTotalItens)
-  }, [addCoffee])
+    setItemsTotalPrice(priceTotalItens)
+  }
+
+  function handleTotalPriceCart() {
+    const totalCart = totalPriceCart(itemsTotalPrice)
+    setTotalPrice(totalCart)
+  }
+
+  useEffect(() => {
+    handleItemsPrice()
+    handleTotalPriceCart()
+  })
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -104,7 +115,7 @@ export function Checkout() {
           <TotalContainer>
             <span>Total de itens</span>
             <span>
-              R$ <span>{totalPrice}</span>
+              R$ <span>{itemsTotalPrice}</span>
             </span>
             <span>Entrega</span>
             <span>
@@ -112,7 +123,7 @@ export function Checkout() {
             </span>
             <h1>Total</h1>
             <h1>
-              R$ <span>33,20</span>
+              R$ <span>{totalPrice}</span>
             </h1>
           </TotalContainer>
           <button onClick={confirmOrder}>CONFIRMAR PEDIDO</button>
