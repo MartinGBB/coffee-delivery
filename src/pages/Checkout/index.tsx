@@ -10,6 +10,7 @@ import {
   getLocalStorageQuantityCoffee,
   setLocalStorageCoffee,
 } from '../../utils/localStorageConfig'
+import { priceProducto } from '../../utils/priceProductConfig'
 import { totalQuantityProducts } from '../../utils/quantityConfig'
 import { ConfirmOrder } from './ConfirmOrder'
 import { FormPayment } from './FormPayment'
@@ -67,6 +68,8 @@ export function Checkout() {
     setLocalStorageCoffee(selectCoffee)
     updateTotalQuantity()
   }
+
+  priceProducto()
 
   useEffect(() => {
     window.scrollTo(0, 0)
