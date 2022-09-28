@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import {
   CoffeeContext,
@@ -23,6 +23,7 @@ import {
 } from './styles'
 
 export function Checkout() {
+  const [totalPrice, setTotalPrice] = useState('0,00')
   const { addCoffee, setTotalQuantityCoffee } = useContext(CoffeeContext)
   const navigate = useNavigate()
 
@@ -69,7 +70,10 @@ export function Checkout() {
     updateTotalQuantity()
   }
 
-  priceProducto()
+  useEffect(() => {
+    const priceTotalItens = priceProducto()
+    setTotalPrice(priceTotalItens)
+  }, [addCoffee])
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -100,7 +104,7 @@ export function Checkout() {
           <TotalContainer>
             <span>Total de itens</span>
             <span>
-              R$ <span>29,70</span>
+              R$ <span>{totalPrice}</span>
             </span>
             <span>Entrega</span>
             <span>
