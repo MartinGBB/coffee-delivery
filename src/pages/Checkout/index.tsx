@@ -10,7 +10,10 @@ import {
   getLocalStorageQuantityCoffee,
   setLocalStorageCoffee,
 } from '../../utils/localStorageConfig'
-import { priceProduct, totalPriceCart } from '../../utils/priceProductConfig'
+import {
+  totalPriceProducts,
+  totalPriceCart,
+} from '../../utils/priceProductConfig'
 import { totalQuantityProducts } from '../../utils/quantityConfig'
 import { ConfirmOrder } from './ConfirmOrder'
 import { FormPayment } from './FormPayment'
@@ -72,7 +75,7 @@ export function Checkout() {
   }
 
   function handleItemsPrice() {
-    const priceTotalItens = priceProduct()
+    const priceTotalItens = totalPriceProducts()
     setItemsTotalPrice(priceTotalItens)
   }
 
