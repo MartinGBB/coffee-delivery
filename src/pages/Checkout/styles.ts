@@ -23,11 +23,16 @@ export const ConfirmOrden = styled.div`
     grid-row: 3;
   }
 
-  > h1 {
+  > h1,
+  h2 {
     font-weight: 700;
     font-size: 1.125rem;
     margin-bottom: 0.9375rem;
     color: ${({ theme }) => theme['base-subtitle']};
+  }
+
+  h2 {
+    margin: 0 1rem 2.25rem 1rem;
   }
 `
 

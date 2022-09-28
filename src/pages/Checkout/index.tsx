@@ -75,14 +75,20 @@ export function Checkout() {
       <ConfirmOrden>
         <h1>Cafés selecionados</h1>
         <SelectedContainer>
-          {addCoffee.map((product) => (
-            <ConfirmOrder
-              key={product.id}
-              product={product}
-              updateQuantityProduct={updateQuantityProduct}
-              deleteProduct={deleteProduct}
-            />
-          ))}
+          {!addCoffee.length ? (
+            <div>
+              <h2>Ainda não tem produtos no carrinho</h2>
+            </div>
+          ) : (
+            addCoffee.map((product) => (
+              <ConfirmOrder
+                key={product.id}
+                product={product}
+                updateQuantityProduct={updateQuantityProduct}
+                deleteProduct={deleteProduct}
+              />
+            ))
+          )}
 
           <TotalContainer>
             <span>Total de itens</span>
