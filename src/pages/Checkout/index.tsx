@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import {
   CoffeeContext,
@@ -67,6 +67,10 @@ export function Checkout() {
     setLocalStorageCoffee(selectCoffee)
     updateTotalQuantity()
   }
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   return (
     <CheckoutContainer>
