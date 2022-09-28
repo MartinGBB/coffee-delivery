@@ -93,6 +93,8 @@ export function Checkout() {
     window.scrollTo(0, 0)
   }, [])
 
+  const haveItemsToCart = !!addCoffee.length
+
   return (
     <CheckoutContainer>
       <FormPayment />
@@ -100,7 +102,7 @@ export function Checkout() {
       <ConfirmOrden>
         <h1>Cafés selecionados</h1>
         <SelectedContainer>
-          {!addCoffee.length ? (
+          {!haveItemsToCart ? (
             <div>
               <h2>Ainda não tem produtos no carrinho</h2>
             </div>
