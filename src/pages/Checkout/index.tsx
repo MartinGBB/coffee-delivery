@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import {
   CoffeeContext,
@@ -10,6 +10,10 @@ import {
   getLocalStorageQuantityCoffee,
   setLocalStorageCoffee,
 } from '../../utils/localStorageConfig'
+import {
+  totalPriceProducts,
+  totalPriceCart,
+} from '../../utils/priceProductConfig'
 import { totalQuantityProducts } from '../../utils/quantityConfig'
 import { ConfirmOrder } from './ConfirmOrder'
 import { FormPayment } from './FormPayment'
@@ -22,6 +26,8 @@ import {
 } from './styles'
 
 export function Checkout() {
+  const [itemsTotalPrice, setItemsTotalPrice] = useState('0,00')
+  const [totalPrice, setTotalPrice] = useState('0,00')
   const { addCoffee, setTotalQuantityCoffee } = useContext(CoffeeContext)
   const navigate = useNavigate()
 
@@ -68,9 +74,26 @@ export function Checkout() {
     updateTotalQuantity()
   }
 
+  function handleItemsPrice() {
+    const priceTotalItens = totalPriceProducts()
+    setItemsTotalPrice(priceTotalItens)
+  }
+
+  function handleTotalPriceCart() {
+    const totalCart = totalPriceCart(itemsTotalPrice)
+    setTotalPrice(totalCart)
+  }
+
+  useEffect(() => {
+    handleItemsPrice()
+    handleTotalPriceCart()
+  })
+
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
+
+  const haveItemsToCart = !!addCoffee.length
 
   return (
     <CheckoutContainer>
@@ -79,7 +102,7 @@ export function Checkout() {
       <ConfirmOrden>
         <h1>Cafés selecionados</h1>
         <SelectedContainer>
-          {!addCoffee.length ? (
+          {!haveItemsToCart ? (
             <div>
               <h2>Ainda não tem produtos no carrinho</h2>
             </div>
@@ -97,7 +120,7 @@ export function Checkout() {
           <TotalContainer>
             <span>Total de itens</span>
             <span>
-              R$ <span>29,70</span>
+              R$ <span>{itemsTotalPrice}</span>
             </span>
             <span>Entrega</span>
             <span>
@@ -105,7 +128,7 @@ export function Checkout() {
             </span>
             <h1>Total</h1>
             <h1>
-              R$ <span>33,20</span>
+              R$ <span>{totalPrice}</span>
             </h1>
           </TotalContainer>
           <button onClick={confirmOrder}>CONFIRMAR PEDIDO</button>
