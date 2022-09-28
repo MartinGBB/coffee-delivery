@@ -46,6 +46,7 @@ export const ButtonsContainer = styled.div`
     display: flex;
     align-items: center;
     gap: 0.25rem;
+    cursor: pointer;
 
     & svg {
       color: ${({ theme }) => theme.purple};
