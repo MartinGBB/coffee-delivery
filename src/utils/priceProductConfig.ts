@@ -28,7 +28,7 @@ function getPriceAndQuantity(productsCart: CoffeeAdd[]) {
   return totalPricePerItem(products)
 }
 
-export function priceProducto() {
+export function priceProduct() {
   const getPoducts = getLocalStorageCoffee()
   return getPriceAndQuantity(getPoducts)
 }
