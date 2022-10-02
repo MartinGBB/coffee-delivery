@@ -1,4 +1,5 @@
-import { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import {
   CoffeeContext,
@@ -28,10 +29,15 @@ import {
 export function Checkout() {
   const [itemsTotalPrice, setItemsTotalPrice] = useState('0,00')
   const [totalPrice, setTotalPrice] = useState('0,00')
+
   const { addCoffee, setTotalQuantityCoffee } = useContext(CoffeeContext)
+
   const navigate = useNavigate()
 
-  function confirmOrder() {
+  function confirmOrder(event: React.MouseEvent<HTMLButtonElement>) {
+    event.preventDefault()
+    setLocalStorageCoffee([])
+    updateTotalQuantity()
     navigate('/success')
   }
 
@@ -93,47 +99,71 @@ export function Checkout() {
     window.scrollTo(0, 0)
   }, [])
 
+  const { register, handleSubmit, watch } = useForm()
+
   const haveItemsToCart = !!addCoffee.length
+
+  function handleCreateOrder(data: any) {
+    console.log(data)
+  }
+
+  const fieldsRequired = [
+    'cep',
+    'rua',
+    'numero',
+    'bairro',
+    'cidade',
+    'uf',
+    'payment',
+  ]
+
+  const formData = watch(fieldsRequired)
+  const fieldsEmpty = formData.some((input: string[]) => !input)
+  const isSubmitDisabled = !(haveItemsToCart && !fieldsEmpty)
 
   return (
     <CheckoutContainer>
-      <FormPayment />
+      <form onSubmit={handleSubmit(handleCreateOrder)} action="">
+        <FormPayment register={register} />
 
-      <ConfirmOrden>
-        <h1>Cafés selecionados</h1>
-        <SelectedContainer>
-          {!haveItemsToCart ? (
-            <div>
-              <h2>Ainda não tem produtos no carrinho</h2>
-            </div>
-          ) : (
-            addCoffee.map((product) => (
-              <ConfirmOrder
-                key={product.id}
-                product={product}
-                updateQuantityProduct={updateQuantityProduct}
-                deleteProduct={deleteProduct}
-              />
-            ))
-          )}
+        <ConfirmOrden>
+          <h1>Cafés selecionados</h1>
+          <SelectedContainer>
+            {!haveItemsToCart ? (
+              <div>
+                <h2>Ainda não tem produtos no carrinho</h2>
+              </div>
+            ) : (
+              addCoffee.map((product) => (
+                <ConfirmOrder
+                  key={product.id}
+                  product={product}
+                  updateQuantityProduct={updateQuantityProduct}
+                  deleteProduct={deleteProduct}
+                />
+              ))
+            )}
 
-          <TotalContainer>
-            <span>Total de itens</span>
-            <span>
-              R$ <span>{itemsTotalPrice}</span>
-            </span>
-            <span>Entrega</span>
-            <span>
-              R$ <span>3,50</span>
-            </span>
-            <h1>Total</h1>
-            <h1>
-              R$ <span>{totalPrice}</span>
-            </h1>
-          </TotalContainer>
-          <button onClick={confirmOrder}>CONFIRMAR PEDIDO</button>
-        </SelectedContainer>
-      </ConfirmOrden>
+            <TotalContainer>
+              <span>Total de itens</span>
+              <span>
+                R$ <span>{itemsTotalPrice}</span>
+              </span>
+              <span>Entrega</span>
+              <span>
+                R$ <span>3,50</span>
+              </span>
+              <h1>Total</h1>
+              <h1>
+                R$ <span>{totalPrice}</span>
+              </h1>
+            </TotalContainer>
+            <button disabled={isSubmitDisabled} onClick={confirmOrder}>
+              CONFIRMAR PEDIDO
+            </button>
+          </SelectedContainer>
+        </ConfirmOrden>
+      </form>
     </CheckoutContainer>
   )
 }

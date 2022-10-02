@@ -1,8 +1,13 @@
 import { CurrencyDollar, MapPin, Timer } from 'phosphor-react'
 import { DetailsOrder, InfoContainer, SuccessContainer } from './styles'
 import successImg from '../../assets/successImg.svg'
+import { useEffect } from 'react'
 
 export function Success() {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   return (
     <SuccessContainer>
       <div>
