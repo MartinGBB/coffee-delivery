@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import {
@@ -29,10 +29,13 @@ import {
 export function Checkout() {
   const [itemsTotalPrice, setItemsTotalPrice] = useState('0,00')
   const [totalPrice, setTotalPrice] = useState('0,00')
+
   const { addCoffee, setTotalQuantityCoffee } = useContext(CoffeeContext)
+
   const navigate = useNavigate()
 
-  function confirmOrder() {
+  function confirmOrder(event: React.MouseEvent<HTMLButtonElement>) {
+    event.preventDefault()
     navigate('/success')
   }
 
