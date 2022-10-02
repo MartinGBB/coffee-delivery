@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
-// import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import {
   CoffeeContext,
   CoffeeAdd,
@@ -30,10 +30,10 @@ export function Checkout() {
   const [itemsTotalPrice, setItemsTotalPrice] = useState('0,00')
   const [totalPrice, setTotalPrice] = useState('0,00')
   const { addCoffee, setTotalQuantityCoffee } = useContext(CoffeeContext)
-  // const navigate = useNavigate()
+  const navigate = useNavigate()
 
   function confirmOrder() {
-    // navigate('/success')
+    navigate('/success')
   }
 
   function updateTotalQuantity() {
@@ -94,12 +94,27 @@ export function Checkout() {
     window.scrollTo(0, 0)
   }, [])
 
-  const { register, handleSubmit } = useForm()
+  const { register, handleSubmit, watch } = useForm()
 
   const haveItemsToCart = !!addCoffee.length
+
   function handleCreateOrder(data: any) {
     console.log(data)
   }
+
+  const fieldsRequired = [
+    'cep',
+    'rua',
+    'numero',
+    'bairro',
+    'cidade',
+    'uf',
+    'payment',
+  ]
+
+  const formData = watch(fieldsRequired)
+  const isSubmitDisabled = formData.some((input: string[]) => !input)
+
   return (
     <CheckoutContainer>
       <form onSubmit={handleSubmit(handleCreateOrder)} action="">
@@ -137,7 +152,9 @@ export function Checkout() {
                 R$ <span>{totalPrice}</span>
               </h1>
             </TotalContainer>
-            <button onClick={confirmOrder}>CONFIRMAR PEDIDO</button>
+            <button disabled={isSubmitDisabled} onClick={confirmOrder}>
+              CONFIRMAR PEDIDO
+            </button>
           </SelectedContainer>
         </ConfirmOrden>
       </form>
