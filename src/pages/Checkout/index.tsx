@@ -118,7 +118,8 @@ export function Checkout() {
   ]
 
   const formData = watch(fieldsRequired)
-  const isSubmitDisabled = formData.some((input: string[]) => !input)
+  const fieldsEmpty = formData.some((input: string[]) => !input)
+  const isSubmitDisabled = !(haveItemsToCart && !fieldsEmpty)
 
   return (
     <CheckoutContainer>
