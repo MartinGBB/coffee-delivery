@@ -36,6 +36,8 @@ export function Checkout() {
 
   function confirmOrder(event: React.MouseEvent<HTMLButtonElement>) {
     event.preventDefault()
+    setLocalStorageCoffee([])
+    updateTotalQuantity()
     navigate('/success')
   }
 
