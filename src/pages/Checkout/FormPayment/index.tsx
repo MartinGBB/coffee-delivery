@@ -10,6 +10,7 @@ import {
   AddressContainer,
   ContainerPagament,
   FormContainer,
+  FormInputs,
   SelectPagament,
 } from './styles'
 
@@ -24,7 +25,7 @@ export function FormPayment({ register }: any) {
             <h1>Endereço de Entrega</h1>
             <p>Informe o endereço onde deseja receber seu pedido</p>
           </div>
-          <div>
+          <FormInputs>
             <div>
               <input type="text" placeholder="CEP" {...register('cep')} />
               <input type="text" placeholder="Rua" {...register('rua')} />
@@ -45,7 +46,7 @@ export function FormPayment({ register }: any) {
               <input type="text" placeholder="Cidade" {...register('cidade')} />
               <input type="text" placeholder="UF" {...register('uf')} />
             </div>
-          </div>
+          </FormInputs>
         </FormContainer>
       </AddressContainer>
 
