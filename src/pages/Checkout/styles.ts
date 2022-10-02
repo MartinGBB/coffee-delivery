@@ -1,17 +1,19 @@
 import styled from 'styled-components'
 
 export const CheckoutContainer = styled.div`
-  margin: 11.375rem 10rem 11.375rem 10rem;
-  display: grid;
-  grid-template-columns: 2fr auto;
-  grid-template-rows: auto auto;
-  row-gap: 0.75rem;
-  column-gap: 2rem;
-
-  @media (max-width: 1024px) {
-    margin: 9rem 2rem 0 2rem;
-    gap: 0;
+  form {
+    margin: 11.375rem 10rem 11.375rem 10rem;
+    display: grid;
+    grid-template-columns: 2fr auto;
+    grid-template-rows: auto auto;
     row-gap: 0.75rem;
+    column-gap: 2rem;
+
+    @media (max-width: 1024px) {
+      margin: 9rem 2rem 0 2rem;
+      gap: 0;
+      row-gap: 0.75rem;
+    }
   }
 `
 export const ConfirmOrden = styled.div`
