@@ -3,7 +3,6 @@ import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 
 import { zodResolver } from '@hookform/resolvers/zod'
-import * as zod from 'zod'
 
 import {
   CoffeeContext,
@@ -30,23 +29,10 @@ import {
   TotalContainer,
 } from './styles'
 import { toast } from 'react-toastify'
-
-const newCoffeeFormValidateSchema = zod.object({
-  cep: zod
-    .number({ invalid_type_error: 'Informe um CEP valido' })
-    .min(8, 'Informe um CEP valido'),
-  rua: zod.string().min(5, 'Informe a rua'),
-  numero: zod.number().min(1, 'Informe o número'),
-  bairro: zod.string().min(3, 'Informe o bairro'),
-  cidade: zod.string().min(3, 'Informe o cidade'),
-  uf: zod.string().max(2).min(2, 'Informe o bairro'),
-  complemento: zod.string().optional(),
-  payment: zod.string({
-    invalid_type_error: 'Debe informar método de pagamento',
-  }),
-})
-
-export type OrderDelivery = zod.infer<typeof newCoffeeFormValidateSchema>
+import {
+  newCoffeeFormValidateSchema,
+  OrderDelivery,
+} from '../../utils/validationsFormOrderDelivery'
 
 export function Checkout() {
   const [itemsTotalPrice, setItemsTotalPrice] = useState('0,00')
@@ -64,6 +50,7 @@ export function Checkout() {
   } = useForm<OrderDelivery>({
     resolver: zodResolver(newCoffeeFormValidateSchema),
   })
+
   const emptyFiels: any = Object.values(errors)[0]?.message
 
   function updateTotalQuantity() {

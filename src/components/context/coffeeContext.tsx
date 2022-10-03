@@ -1,10 +1,10 @@
 import { createContext, ReactNode, useEffect, useState } from 'react'
-import { OrderDelivery } from '../../pages/Checkout'
 import {
   getLocalStorageCoffee,
   getLocalStorageQuantityCoffee,
 } from '../../utils/localStorageConfig'
 import { productsData } from '../../utils/productsData'
+import { OrderDelivery } from '../../utils/validationsFormOrderDelivery'
 
 export interface ProductsData {
   id: string | undefined
