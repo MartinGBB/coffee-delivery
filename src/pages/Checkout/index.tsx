@@ -1,8 +1,9 @@
-import React, { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 
 import { zodResolver } from '@hookform/resolvers/zod'
+import { toast } from 'react-toastify'
 
 import {
   CoffeeContext,
@@ -21,6 +22,10 @@ import {
 import { totalQuantityProducts } from '../../utils/quantityConfig'
 import { ConfirmOrder } from './ConfirmOrder'
 import { FormPayment } from './FormPayment'
+import {
+  newCoffeeFormValidateSchema,
+  OrderDelivery,
+} from '../../utils/validationsFormOrderDelivery'
 
 import {
   CheckoutContainer,
@@ -28,11 +33,6 @@ import {
   SelectedContainer,
   TotalContainer,
 } from './styles'
-import { toast } from 'react-toastify'
-import {
-  newCoffeeFormValidateSchema,
-  OrderDelivery,
-} from '../../utils/validationsFormOrderDelivery'
 
 export function Checkout() {
   const [itemsTotalPrice, setItemsTotalPrice] = useState('0,00')
