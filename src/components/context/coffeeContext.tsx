@@ -18,10 +18,21 @@ export interface CoffeeAdd extends ProductsData {
   productQuantity: number
 }
 
+interface OrderDelivery {
+  rua: string
+  numero: number
+  cidade: string
+  complemento: string
+  uf: string
+  payment: string
+}
+
 interface CoffeeContextType {
   coffeeData: ProductsData[]
   addCoffee: CoffeeAdd[]
   setAddCoffee: (newState: CoffeeAdd[]) => void
+  orderDelivery: OrderDelivery[]
+  setOrderDelivery: (order: OrderDelivery[]) => void
   totalQuantityCoffee: number
   setTotalQuantityCoffee: (totalQuantity: number) => void
 }
@@ -38,6 +49,7 @@ export function CoffeContextProvider({ children }: CoffeeContextProviderProps) {
   const [totalQuantityCoffee, setTotalQuantityCoffee] = useState<number>(
     getLocalStorageQuantityCoffee(),
   )
+  const [orderDelivery, setOrderDelivery] = useState<OrderDelivery[]>([])
 
   useEffect(() => {
     setAddCoffee(getLocalStorageCoffee())
@@ -53,6 +65,8 @@ export function CoffeContextProvider({ children }: CoffeeContextProviderProps) {
         coffeeData,
         addCoffee,
         setAddCoffee,
+        orderDelivery,
+        setOrderDelivery,
         totalQuantityCoffee,
         setTotalQuantityCoffee,
       }}
