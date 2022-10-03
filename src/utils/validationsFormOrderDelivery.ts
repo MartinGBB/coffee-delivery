@@ -8,7 +8,7 @@ export const newCoffeeFormValidateSchema = zod.object({
   numero: zod.number().min(1, 'Informe o número'),
   bairro: zod.string().min(3, 'Informe o bairro'),
   cidade: zod.string().min(3, 'Informe o cidade'),
-  uf: zod.string().max(2).min(2, 'Informe o bairro'),
+  uf: zod.string().max(2).min(2, 'Informe o uf'),
   complemento: zod.string().optional(),
   payment: zod.string({
     invalid_type_error: 'Debe informar método de pagamento',
