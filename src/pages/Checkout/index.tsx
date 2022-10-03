@@ -57,15 +57,7 @@ export function Checkout() {
   } = useForm({
     resolver: zodResolver(newCoffeeFormValidateSchema),
   })
-  const emptyFiel: any = Object.values(errors)[0]?.message
-
-  function confirmOrder(event: React.MouseEvent<HTMLButtonElement>) {
-    //  event.preventDefault()
-    // console.log(emptyFiel)
-    // setLocalStorageCoffee([])
-    // updateTotalQuantity()
-    // navigate('/success')
-  }
+  const emptyFiels: any = Object.values(errors)[0]?.message
 
   function updateTotalQuantity() {
     totalQuantityProducts()
@@ -134,22 +126,8 @@ export function Checkout() {
     updateTotalQuantity()
   }
 
-  // const fieldsRequired = [
-  //   'cep',
-  //   'rua',
-  //   'numero',
-  //   'bairro',
-  //   'cidade',
-  //   'uf',
-  //   'payment',
-  // ]
-
-  // const formData = watch(fieldsRequired)
-  // const fieldsEmpty = formData.some((input: string[]) => !input)
-  // const isSubmitDisabled = !(haveItemsToCart && !fieldsEmpty)
-
   function emptyFieldAlert() {
-    toast.warn(emptyFiel)
+    toast.warn(emptyFiels)
     if (!haveItemsToCart) return toast.warn('carrinho vazio')
   }
 
@@ -190,7 +168,6 @@ export function Checkout() {
                 R$ <span>{totalPrice}</span>
               </h1>
             </TotalContainer>
-            {/* <button onClick={confirmOrder}>CONFIRMAR PEDIDO</button> */}
             <button onClick={emptyFieldAlert}>CONFIRMAR PEDIDO</button>
           </SelectedContainer>
         </ConfirmOrden>
