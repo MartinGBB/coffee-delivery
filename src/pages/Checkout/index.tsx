@@ -53,7 +53,6 @@ export function Checkout() {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm({
     resolver: zodResolver(newCoffeeFormValidateSchema),
@@ -129,22 +128,23 @@ export function Checkout() {
   const haveItemsToCart = !!addCoffee.length
 
   function handleCreateOrder() {
+    if (!haveItemsToCart) return false
     navigate('/success')
   }
 
-  const fieldsRequired = [
-    'cep',
-    'rua',
-    'numero',
-    'bairro',
-    'cidade',
-    'uf',
-    'payment',
-  ]
+  // const fieldsRequired = [
+  //   'cep',
+  //   'rua',
+  //   'numero',
+  //   'bairro',
+  //   'cidade',
+  //   'uf',
+  //   'payment',
+  // ]
 
-  const formData = watch(fieldsRequired)
-  const fieldsEmpty = formData.some((input: string[]) => !input)
-  const isSubmitDisabled = !(haveItemsToCart && !fieldsEmpty)
+ // const formData = watch(fieldsRequired)
+  // const fieldsEmpty = formData.some((input: string[]) => !input)
+  // const isSubmitDisabled = !(haveItemsToCart && !fieldsEmpty)
 
   function emptyFieldAlert() {
     toast.warn(emptyFiel)
