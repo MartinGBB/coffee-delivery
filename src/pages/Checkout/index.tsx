@@ -1,6 +1,10 @@
-import React, { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
+
+import { zodResolver } from '@hookform/resolvers/zod'
+import { toast } from 'react-toastify'
+
 import {
   CoffeeContext,
   CoffeeAdd,
@@ -18,6 +22,10 @@ import {
 import { totalQuantityProducts } from '../../utils/quantityConfig'
 import { ConfirmOrder } from './ConfirmOrder'
 import { FormPayment } from './FormPayment'
+import {
+  newCoffeeFormValidateSchema,
+  OrderDelivery,
+} from '../../utils/validationsFormOrderDelivery'
 
 import {
   CheckoutContainer,
@@ -30,16 +38,20 @@ export function Checkout() {
   const [itemsTotalPrice, setItemsTotalPrice] = useState('0,00')
   const [totalPrice, setTotalPrice] = useState('0,00')
 
-  const { addCoffee, setTotalQuantityCoffee } = useContext(CoffeeContext)
-
   const navigate = useNavigate()
 
-  function confirmOrder(event: React.MouseEvent<HTMLButtonElement>) {
-    event.preventDefault()
-    setLocalStorageCoffee([])
-    updateTotalQuantity()
-    navigate('/success')
-  }
+  const { addCoffee, setTotalQuantityCoffee, setOrderDelivery } =
+    useContext(CoffeeContext)
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<OrderDelivery>({
+    resolver: zodResolver(newCoffeeFormValidateSchema),
+  })
+
+  const emptyFiels: any = Object.values(errors)[0]?.message
 
   function updateTotalQuantity() {
     totalQuantityProducts()
@@ -99,27 +111,22 @@ export function Checkout() {
     window.scrollTo(0, 0)
   }, [])
 
-  const { register, handleSubmit, watch } = useForm()
-
   const haveItemsToCart = !!addCoffee.length
 
-  function handleCreateOrder(data: any) {
-    console.log(data)
+  function handleCreateOrder(data: OrderDelivery) {
+    if (!haveItemsToCart) return false
+
+    setOrderDelivery([data])
+
+    navigate('/success')
+    setLocalStorageCoffee([])
+    updateTotalQuantity()
   }
 
-  const fieldsRequired = [
-    'cep',
-    'rua',
-    'numero',
-    'bairro',
-    'cidade',
-    'uf',
-    'payment',
-  ]
-
-  const formData = watch(fieldsRequired)
-  const fieldsEmpty = formData.some((input: string[]) => !input)
-  const isSubmitDisabled = !(haveItemsToCart && !fieldsEmpty)
+  function emptyFieldAlert() {
+    toast.warn(emptyFiels)
+    if (!haveItemsToCart) return toast.warn('carrinho vazio')
+  }
 
   return (
     <CheckoutContainer>
@@ -158,9 +165,7 @@ export function Checkout() {
                 R$ <span>{totalPrice}</span>
               </h1>
             </TotalContainer>
-            <button disabled={isSubmitDisabled} onClick={confirmOrder}>
-              CONFIRMAR PEDIDO
-            </button>
+            <button onClick={emptyFieldAlert}>CONFIRMAR PEDIDO</button>
           </SelectedContainer>
         </ConfirmOrden>
       </form>

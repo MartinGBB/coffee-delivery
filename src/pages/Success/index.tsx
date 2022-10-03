@@ -1,13 +1,17 @@
 import { CurrencyDollar, MapPin, Timer } from 'phosphor-react'
 import { DetailsOrder, InfoContainer, SuccessContainer } from './styles'
 import successImg from '../../assets/successImg.svg'
-import { useEffect } from 'react'
+import { useContext, useEffect } from 'react'
+import { CoffeeContext } from '../../components/context/coffeeContext'
 
 export function Success() {
+  const { orderDelivery } = useContext(CoffeeContext)
+
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
 
+  const { cidade, numero, bairro, payment, rua, uf } = orderDelivery[0]
   return (
     <SuccessContainer>
       <div>
@@ -17,8 +21,8 @@ export function Success() {
       <InfoContainer>
         <DetailsOrder iconsColors="purple">
           <MapPin size={16} weight="fill" />
-          <span>Rua João Daniel Martinelli, 102</span>
-          <span>Farrapos - Porto Alegre, RS</span>
+          <span>{`Rua ${rua}, ${numero}`}</span>
+          <span>{`${bairro} - ${cidade}, ${uf}`}</span>
         </DetailsOrder>
 
         <DetailsOrder iconsColors="yellowLight">
@@ -30,7 +34,7 @@ export function Success() {
         <DetailsOrder iconsColors="yellowDark">
           <CurrencyDollar size={16} weight="regular" />
           <span>Pagamento na entrega</span>
-          <span>Cartão de Crédito</span>
+          <span>{`${payment}`}</span>
         </DetailsOrder>
       </InfoContainer>
       <img src={successImg} alt="" />

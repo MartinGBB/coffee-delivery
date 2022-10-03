@@ -27,11 +27,19 @@ export function FormPayment({ register }: any) {
           </div>
           <FormInputs>
             <div>
-              <input type="text" placeholder="CEP" {...register('cep')} />
+              <input
+                type="text"
+                placeholder="CEP"
+                {...register('cep', { valueAsNumber: true })}
+              />
               <input type="text" placeholder="Rua" {...register('rua')} />
             </div>
             <div>
-              <input type="text" placeholder="Número" {...register('numero')} />
+              <input
+                type="text"
+                placeholder="Número"
+                {...register('numero', { valueAsNumber: true })}
+              />
               <label>
                 <input
                   type="text"

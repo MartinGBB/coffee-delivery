@@ -4,6 +4,7 @@ import {
   getLocalStorageQuantityCoffee,
 } from '../../utils/localStorageConfig'
 import { productsData } from '../../utils/productsData'
+import { OrderDelivery } from '../../utils/validationsFormOrderDelivery'
 
 export interface ProductsData {
   id: string | undefined
@@ -22,6 +23,8 @@ interface CoffeeContextType {
   coffeeData: ProductsData[]
   addCoffee: CoffeeAdd[]
   setAddCoffee: (newState: CoffeeAdd[]) => void
+  orderDelivery: OrderDelivery[]
+  setOrderDelivery: (order: OrderDelivery[]) => void
   totalQuantityCoffee: number
   setTotalQuantityCoffee: (totalQuantity: number) => void
 }
@@ -38,7 +41,7 @@ export function CoffeContextProvider({ children }: CoffeeContextProviderProps) {
   const [totalQuantityCoffee, setTotalQuantityCoffee] = useState<number>(
     getLocalStorageQuantityCoffee(),
   )
-
+  const [orderDelivery, setOrderDelivery] = useState<OrderDelivery[]>([])
   useEffect(() => {
     setAddCoffee(getLocalStorageCoffee())
   }, [totalQuantityCoffee])
@@ -53,6 +56,8 @@ export function CoffeContextProvider({ children }: CoffeeContextProviderProps) {
         coffeeData,
         addCoffee,
         setAddCoffee,
+        orderDelivery,
+        setOrderDelivery,
         totalQuantityCoffee,
         setTotalQuantityCoffee,
       }}

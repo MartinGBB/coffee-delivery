@@ -54,7 +54,7 @@ export function ConfirmOrder({
                 handleQuantity={handleQuantity}
                 quantity={product.productQuantity}
               />
-              <button onClick={handleDelete}>
+              <button type="button" onClick={handleDelete}>
                 <Trash size={16} />
                 REMOVER
               </button>

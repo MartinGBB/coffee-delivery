@@ -14,11 +14,15 @@ export function QuantityItemsButtons({
 
   return (
     <ButtonsAddToCart>
-      <button disabled={isDisabled} onClick={() => handleQuantity('sub')}>
+      <button
+        type="button"
+        disabled={isDisabled}
+        onClick={() => handleQuantity('sub')}
+      >
         <Minus size={14} weight="bold" />
       </button>
       <span>{quantity}</span>
-      <button onClick={() => handleQuantity('add')}>
+      <button type="button" onClick={() => handleQuantity('add')}>
         <Plus size={14} weight="bold" />
       </button>
     </ButtonsAddToCart>
