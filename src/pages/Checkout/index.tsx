@@ -29,6 +29,7 @@ import {
   SelectedContainer,
   TotalContainer,
 } from './styles'
+import { toast } from 'react-toastify'
 
 const newCoffeeFormValidateSchema = zod.object({
   cep: zod.string().max(8).min(8, 'Informe o CEP'),
@@ -45,15 +46,26 @@ export function Checkout() {
   const [itemsTotalPrice, setItemsTotalPrice] = useState('0,00')
   const [totalPrice, setTotalPrice] = useState('0,00')
 
-  const { addCoffee, setTotalQuantityCoffee } = useContext(CoffeeContext)
-
   const navigate = useNavigate()
 
+  const { addCoffee, setTotalQuantityCoffee } = useContext(CoffeeContext)
+
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm({
+    resolver: zodResolver(newCoffeeFormValidateSchema),
+  })
+  const emptyFiel: any = Object.values(errors)[0]?.message
+
   function confirmOrder(event: React.MouseEvent<HTMLButtonElement>) {
-    event.preventDefault()
-    setLocalStorageCoffee([])
-    updateTotalQuantity()
-    navigate('/success')
+    //  event.preventDefault()
+    // console.log(emptyFiel)
+    // setLocalStorageCoffee([])
+    // updateTotalQuantity()
+    // navigate('/success')
   }
 
   function updateTotalQuantity() {
@@ -114,17 +126,10 @@ export function Checkout() {
     window.scrollTo(0, 0)
   }, [])
 
-  const { register, handleSubmit, watch, formState } = useForm({
-    resolver: zodResolver(newCoffeeFormValidateSchema),
-  })
-
-  const emptyFiel = Object.values(formState.errors)[0]?.message
-  console.log(emptyFiel)
-
   const haveItemsToCart = !!addCoffee.length
 
-  function handleCreateOrder(data: any) {
-    console.log(data)
+  function handleCreateOrder() {
+    navigate('/success')
   }
 
   const fieldsRequired = [
@@ -140,6 +145,11 @@ export function Checkout() {
   const formData = watch(fieldsRequired)
   const fieldsEmpty = formData.some((input: string[]) => !input)
   const isSubmitDisabled = !(haveItemsToCart && !fieldsEmpty)
+
+  function emptyFieldAlert() {
+    toast.warn(emptyFiel)
+    if (!haveItemsToCart) return toast.warn('carrinho vazio')
+  }
 
   return (
     <CheckoutContainer>
@@ -178,10 +188,8 @@ export function Checkout() {
                 R$ <span>{totalPrice}</span>
               </h1>
             </TotalContainer>
-            {/* <button disabled={isSubmitDisabled} onClick={confirmOrder}>
-              CONFIRMAR PEDIDO
-            </button> */}
-            <button>CONFIRMAR PEDIDO</button>
+            {/* <button onClick={confirmOrder}>CONFIRMAR PEDIDO</button> */}
+            <button onClick={emptyFieldAlert}>CONFIRMAR PEDIDO</button>
           </SelectedContainer>
         </ConfirmOrden>
       </form>
