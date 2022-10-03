@@ -20,6 +20,7 @@ import {
   PriceContainer,
   TypeCoffee,
 } from './styles'
+import { toast } from 'react-toastify'
 
 export interface ProductsProps {
   product: ProductsData
@@ -41,6 +42,8 @@ export function Products({ product }: ProductsProps) {
       productQuantity,
     }
     validateNewProduct(newCoffee, productQuantity)
+
+    toast.success(`${product.name} adicionado`)
 
     setProductQuantity(1)
     updateTotalQuantity()
