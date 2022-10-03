@@ -1,4 +1,5 @@
 import { createContext, ReactNode, useEffect, useState } from 'react'
+import { OrderDelivery } from '../../pages/Checkout'
 import {
   getLocalStorageCoffee,
   getLocalStorageQuantityCoffee,
@@ -16,15 +17,6 @@ export interface ProductsData {
 
 export interface CoffeeAdd extends ProductsData {
   productQuantity: number
-}
-
-interface OrderDelivery {
-  rua: string
-  numero: number
-  cidade: string
-  complemento: string
-  uf: string
-  payment: string
 }
 
 interface CoffeeContextType {
@@ -50,7 +42,6 @@ export function CoffeContextProvider({ children }: CoffeeContextProviderProps) {
     getLocalStorageQuantityCoffee(),
   )
   const [orderDelivery, setOrderDelivery] = useState<OrderDelivery[]>([])
-
   useEffect(() => {
     setAddCoffee(getLocalStorageCoffee())
   }, [totalQuantityCoffee])

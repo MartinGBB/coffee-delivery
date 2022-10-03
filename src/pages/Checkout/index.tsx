@@ -46,19 +46,22 @@ const newCoffeeFormValidateSchema = zod.object({
   }),
 })
 
+export type OrderDelivery = zod.infer<typeof newCoffeeFormValidateSchema>
+
 export function Checkout() {
   const [itemsTotalPrice, setItemsTotalPrice] = useState('0,00')
   const [totalPrice, setTotalPrice] = useState('0,00')
 
   const navigate = useNavigate()
 
-  const { addCoffee, setTotalQuantityCoffee } = useContext(CoffeeContext)
+  const { addCoffee, setTotalQuantityCoffee, setOrderDelivery } =
+    useContext(CoffeeContext)
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({
+  } = useForm<OrderDelivery>({
     resolver: zodResolver(newCoffeeFormValidateSchema),
   })
   const emptyFiels: any = Object.values(errors)[0]?.message
@@ -123,8 +126,11 @@ export function Checkout() {
 
   const haveItemsToCart = !!addCoffee.length
 
-  function handleCreateOrder() {
+  function handleCreateOrder(data: OrderDelivery) {
     if (!haveItemsToCart) return false
+
+    setOrderDelivery([data])
+
     navigate('/success')
     setLocalStorageCoffee([])
     updateTotalQuantity()
