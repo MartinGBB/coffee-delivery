@@ -30,6 +30,17 @@ import {
   TotalContainer,
 } from './styles'
 
+const newCoffeeFormValidateSchema = zod.object({
+  cep: zod.string().max(8).min(8, 'Informe o CEP'),
+  rua: zod.string().min(5, 'Informe a rua'),
+  numero: zod.string().min(1, 'Informe o número'),
+  bairro: zod.string().min(5, 'Informe o bairro'),
+  cidade: zod.string().min(3, 'Informe o cidade'),
+  uf: zod.string().max(2).min(2, 'Informe o bairro'),
+  complemento: zod.string().optional(),
+  payment: zod.string(),
+})
+
 export function Checkout() {
   const [itemsTotalPrice, setItemsTotalPrice] = useState('0,00')
   const [totalPrice, setTotalPrice] = useState('0,00')
@@ -103,7 +114,12 @@ export function Checkout() {
     window.scrollTo(0, 0)
   }, [])
 
-  const { register, handleSubmit, watch } = useForm()
+  const { register, handleSubmit, watch, formState } = useForm({
+    resolver: zodResolver(newCoffeeFormValidateSchema),
+  })
+
+  const emptyFiel = Object.values(formState.errors)[0]?.message
+  console.log(emptyFiel)
 
   const haveItemsToCart = !!addCoffee.length
 
@@ -162,9 +178,10 @@ export function Checkout() {
                 R$ <span>{totalPrice}</span>
               </h1>
             </TotalContainer>
-            <button disabled={isSubmitDisabled} onClick={confirmOrder}>
+            {/* <button disabled={isSubmitDisabled} onClick={confirmOrder}>
               CONFIRMAR PEDIDO
-            </button>
+            </button> */}
+            <button>CONFIRMAR PEDIDO</button>
           </SelectedContainer>
         </ConfirmOrden>
       </form>
