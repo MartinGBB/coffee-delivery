@@ -130,6 +130,8 @@ export function Checkout() {
   function handleCreateOrder() {
     if (!haveItemsToCart) return false
     navigate('/success')
+    setLocalStorageCoffee([])
+    updateTotalQuantity()
   }
 
   // const fieldsRequired = [
@@ -142,7 +144,7 @@ export function Checkout() {
   //   'payment',
   // ]
 
- // const formData = watch(fieldsRequired)
+  // const formData = watch(fieldsRequired)
   // const fieldsEmpty = formData.some((input: string[]) => !input)
   // const isSubmitDisabled = !(haveItemsToCart && !fieldsEmpty)
 
