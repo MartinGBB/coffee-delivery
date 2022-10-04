@@ -2,6 +2,8 @@
 
 ## Descrição do Projeto
   coffee-delivery é um e-commerce que oferece entregas cafés. Nesta loja podera adicionar seus produtos a um carrinho de compras e prencher os dados de seu endereço, será calculado o valor total e podera confirmar seu pedido.
+
+  O projeto pode ser acessado em diferentes tamanhos de telas já que conta com layout responsivo.
   
  Se sentir vontade de acessar ao projeto pode clicar :point_right: [aqui](https://coffee-delivery-khaki.vercel.app/).
   
