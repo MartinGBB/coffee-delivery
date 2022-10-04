@@ -12,7 +12,6 @@ import {
 } from '../../components/context/coffeeContext'
 import {
   getLocalStorageCoffee,
-  getLocalStorageQuantityCoffee,
   setLocalStorageCoffee,
 } from '../../utils/localStorageConfig'
 import {
@@ -54,14 +53,12 @@ export function Checkout() {
   const emptyFiels: any = Object.values(errors)[0]?.message
 
   function updateTotalQuantity() {
-    totalQuantityProducts()
-    const getTotalQuantity = getLocalStorageQuantityCoffee()
-    setTotalQuantityCoffee(getTotalQuantity)
+    const countTotalQuantityProducts = totalQuantityProducts()
+    setTotalQuantityCoffee(countTotalQuantityProducts)
   }
 
   function updateProductCart(updateState: CoffeeAdd[]) {
     setLocalStorageCoffee(updateState)
-
     updateTotalQuantity()
   }
 
@@ -88,6 +85,9 @@ export function Checkout() {
     const selectCoffee = addCoffee.filter(
       (oldListCoffee) => oldListCoffee.name !== product.name,
     )
+    toast.success(`${product.name} removido`, {
+      position: toast.POSITION.TOP_CENTER,
+    })
     setLocalStorageCoffee(selectCoffee)
     updateTotalQuantity()
   }
@@ -124,8 +124,11 @@ export function Checkout() {
   }
 
   function emptyFieldAlert() {
-    toast.warn(emptyFiels)
-    if (!haveItemsToCart) return toast.warn('carrinho vazio')
+    toast.warn(emptyFiels, { position: toast.POSITION.TOP_CENTER })
+    if (!haveItemsToCart)
+      return toast.warn('carrinho vazio', {
+        position: toast.POSITION.TOP_CENTER,
+      })
   }
 
   return (
