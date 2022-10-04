@@ -85,6 +85,9 @@ export function Checkout() {
     const selectCoffee = addCoffee.filter(
       (oldListCoffee) => oldListCoffee.name !== product.name,
     )
+    toast.success(`${product.name} removido`, {
+      position: toast.POSITION.TOP_CENTER,
+    })
     setLocalStorageCoffee(selectCoffee)
     updateTotalQuantity()
   }
@@ -122,7 +125,10 @@ export function Checkout() {
 
   function emptyFieldAlert() {
     toast.warn(emptyFiels, { position: toast.POSITION.TOP_CENTER })
-    if (!haveItemsToCart) return toast.warn('carrinho vazio')
+    if (!haveItemsToCart)
+      return toast.warn('carrinho vazio', {
+        position: toast.POSITION.TOP_CENTER,
+      })
   }
 
   return (

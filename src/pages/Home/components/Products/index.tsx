@@ -9,7 +9,6 @@ import {
 } from '../../../../components/context/coffeeContext.js'
 import { QuantityItemsButtons } from '../../../../components/QuantityItemsButtons/index.js'
 import { validateNewProduct } from '../../../../utils/addCoffeeToCart.js'
-// import { getLocalStorageQuantityCoffee } from '../../../../utils/localStorageConfig.js'
 import { totalQuantityProducts } from '../../../../utils/quantityConfig.js'
 
 import {

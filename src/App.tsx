@@ -15,7 +15,7 @@ export function App() {
     <ThemeProvider theme={defaultTheme}>
       <BrowserRouter>
         <CoffeContextProvider>
-          <ToastContainer />
+          <ToastContainer autoClose={1800} />
           <Router />
         </CoffeContextProvider>
       </BrowserRouter>
