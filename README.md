@@ -61,5 +61,5 @@ $ npm install
 
  Feito por Martin Brazón 👋🏽 Entre em contato!
  
- [![Linkedin Badge](https://img.shields.io/badge/-Martin-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/martinbrazon/)](https://www.linkedin.com/in/martinbrazon/) [![Gmail Badge](https://img.shields.io/badge/-escorpmartin97@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:escorpmartin97@gmail.com)](mailto:escorpmartin97@gmail.com)
+ [![Linkedin Badge](https://img.shields.io/badge/-MartinGBrazon-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/martinbrazon/)](https://www.linkedin.com/in/martinbrazon/) [![Gmail Badge](https://img.shields.io/badge/-escorpmartin97@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:escorpmartin97@gmail.com)](mailto:escorpmartin97@gmail.com)
  
