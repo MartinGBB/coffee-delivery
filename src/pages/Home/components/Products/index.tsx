@@ -9,7 +9,7 @@ import {
 } from '../../../../components/context/coffeeContext.js'
 import { QuantityItemsButtons } from '../../../../components/QuantityItemsButtons/index.js'
 import { validateNewProduct } from '../../../../utils/addCoffeeToCart.js'
-import { getLocalStorageQuantityCoffee } from '../../../../utils/localStorageConfig.js'
+// import { getLocalStorageQuantityCoffee } from '../../../../utils/localStorageConfig.js'
 import { totalQuantityProducts } from '../../../../utils/quantityConfig.js'
 
 import {
@@ -30,23 +30,17 @@ export function Products({ product }: ProductsProps) {
   const [productQuantity, setProductQuantity] = useState(1)
   const { setTotalQuantityCoffee } = useContext(CoffeeContext)
 
-  function updateTotalQuantity() {
-    totalQuantityProducts()
-    const getTotalQuantity = getLocalStorageQuantityCoffee()
-    setTotalQuantityCoffee(getTotalQuantity)
-  }
-
   function newProduct() {
     const newCoffee = {
       ...product,
       productQuantity,
     }
     validateNewProduct(newCoffee, productQuantity)
-
     toast.success(`${product.name} adicionado`)
 
     setProductQuantity(1)
-    updateTotalQuantity()
+    const countTotalQuantityProducts = totalQuantityProducts()
+    setTotalQuantityCoffee(countTotalQuantityProducts)
   }
 
   function handleQuantity(quantity: string) {

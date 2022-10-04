@@ -11,18 +11,3 @@ export function getLocalStorageCoffee() {
   )
   return storeStateJSON ? JSON.parse(storeStateJSON) : []
 }
-
-export function setLocalStorageQuantityCoffee(quantity: number) {
-  const stateJSON = JSON.stringify(quantity)
-  localStorage.setItem(
-    '@coffee-delibery:product-cart-quantity-1.0.0',
-    stateJSON,
-  )
-}
-
-export function getLocalStorageQuantityCoffee() {
-  const storeState = localStorage.getItem(
-    '@coffee-delibery:product-cart-quantity-1.0.0',
-  )
-  return storeState ? JSON.parse(storeState) : 0
-}

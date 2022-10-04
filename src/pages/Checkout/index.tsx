@@ -12,7 +12,6 @@ import {
 } from '../../components/context/coffeeContext'
 import {
   getLocalStorageCoffee,
-  getLocalStorageQuantityCoffee,
   setLocalStorageCoffee,
 } from '../../utils/localStorageConfig'
 import {
@@ -54,14 +53,12 @@ export function Checkout() {
   const emptyFiels: any = Object.values(errors)[0]?.message
 
   function updateTotalQuantity() {
-    totalQuantityProducts()
-    const getTotalQuantity = getLocalStorageQuantityCoffee()
-    setTotalQuantityCoffee(getTotalQuantity)
+    const countTotalQuantityProducts = totalQuantityProducts()
+    setTotalQuantityCoffee(countTotalQuantityProducts)
   }
 
   function updateProductCart(updateState: CoffeeAdd[]) {
     setLocalStorageCoffee(updateState)
-
     updateTotalQuantity()
   }
 

@@ -1,9 +1,7 @@
 import { createContext, ReactNode, useEffect, useState } from 'react'
-import {
-  getLocalStorageCoffee,
-  getLocalStorageQuantityCoffee,
-} from '../../utils/localStorageConfig'
+import { getLocalStorageCoffee } from '../../utils/localStorageConfig'
 import { productsData } from '../../utils/productsData'
+import { totalQuantityProducts } from '../../utils/quantityConfig'
 import { OrderDelivery } from '../../utils/validationsFormOrderDelivery'
 
 export interface ProductsData {
@@ -39,7 +37,7 @@ export function CoffeContextProvider({ children }: CoffeeContextProviderProps) {
   const [coffeeData, setCoffeeData] = useState<ProductsData[]>([])
   const [addCoffee, setAddCoffee] = useState<CoffeeAdd[]>([])
   const [totalQuantityCoffee, setTotalQuantityCoffee] = useState<number>(
-    getLocalStorageQuantityCoffee(),
+    totalQuantityProducts(),
   )
   const [orderDelivery, setOrderDelivery] = useState<OrderDelivery[]>([])
   useEffect(() => {
