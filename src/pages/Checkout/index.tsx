@@ -121,7 +121,7 @@ export function Checkout() {
   }
 
   function emptyFieldAlert() {
-    toast.warn(emptyFiels)
+    toast.warn(emptyFiels, { position: toast.POSITION.TOP_CENTER })
     if (!haveItemsToCart) return toast.warn('carrinho vazio')
   }
 

@@ -36,7 +36,9 @@ export function Products({ product }: ProductsProps) {
       productQuantity,
     }
     validateNewProduct(newCoffee, productQuantity)
-    toast.success(`${product.name} adicionado`)
+    toast.success(`${product.name} adicionado`, {
+      position: toast.POSITION.TOP_CENTER,
+    })
 
     setProductQuantity(1)
     const countTotalQuantityProducts = totalQuantityProducts()
