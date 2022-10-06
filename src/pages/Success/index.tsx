@@ -21,7 +21,7 @@ export function Success() {
       <InfoContainer>
         <DetailsOrder iconsColors="purple">
           <MapPin size={16} weight="fill" />
-          <span>{`Rua ${rua}, ${numero}`}</span>
+          <span>{`${rua}, ${numero}`}</span>
           <span>{`${bairro} - ${cidade}, ${uf}`}</span>
         </DetailsOrder>
 

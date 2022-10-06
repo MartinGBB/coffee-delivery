@@ -59,6 +59,10 @@ export const SelectedContainer = styled.div`
     line-height: 1.4rem;
     border-radius: 6px;
     cursor: pointer;
+
+    :hover {
+      background: ${({ theme }) => theme['yellow-dark']};
+    }
   }
 `
 

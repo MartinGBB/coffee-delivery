@@ -40,14 +40,14 @@ export function FormPayment({ register }: any) {
                 placeholder="Número"
                 {...register('numero', { valueAsNumber: true })}
               />
-              <label>
+              <section>
                 <input
                   type="text"
                   placeholder="Complemento"
                   {...register('complemento')}
                 />
-                Opcional
-              </label>
+                <p>Opcional</p>
+              </section>
             </div>
             <div>
               <input type="text" placeholder="Bairro" {...register('bairro')} />

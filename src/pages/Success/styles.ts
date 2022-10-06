@@ -51,12 +51,19 @@ export const SuccessContainer = styled.div`
 export const InfoContainer = styled.div`
   grid-column: 1;
   grid-row: 2;
-  padding: 40px;
-  border: 1px solid transparent;
-  border-image: linear-gradient(to left, #8047f8, #dbac2c);
-  border-image-slice: 1;
-  border-radius: 6px 36px;
-  height: fit-content;
+  padding: 2.5rem;
+  border-radius: 6px 36px 6px 36px;
+  background: ${({ theme }) => theme.background};
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    z-index: -1;
+    background: linear-gradient(to left, #8047f8, #dbac2c);
+  }
 
   > div:nth-child(1) {
     & span:nth-child(2)::before {
