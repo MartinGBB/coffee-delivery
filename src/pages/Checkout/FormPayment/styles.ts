@@ -79,7 +79,7 @@ export const FormInputs = styled.div`
       height: fit-content;
     }
 
-    & label {
+    & section {
       display: flex;
       align-items: center;
       background: ${({ theme }) => theme['base-input']};
@@ -87,6 +87,22 @@ export const FormInputs = styled.div`
       padding-right: 0.75rem;
       border-radius: 4px;
       color: ${({ theme }) => theme['base-label']};
+
+      input {
+        border: none;
+
+        :focus {
+          box-shadow: none;
+        }
+      }
+
+      p {
+        color: ${({ theme }) => theme['base-label']};
+      }
+
+      :focus-within {
+        box-shadow: 0 0 0 1px ${({ theme }) => theme['yellow-dark']};
+      }
     }
   }
 
