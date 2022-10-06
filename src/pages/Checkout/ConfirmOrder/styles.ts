@@ -48,6 +48,10 @@ export const ButtonsContainer = styled.div`
     gap: 0.25rem;
     cursor: pointer;
 
+    :hover {
+      background: ${({ theme }) => theme['base-hover']};
+    }
+
     & svg {
       color: ${({ theme }) => theme.purple};
     }
